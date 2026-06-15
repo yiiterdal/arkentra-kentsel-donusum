@@ -120,6 +120,6 @@ export const images = {
 } as const;
 
 export const heroVideo = {
-  local: '/videos/hero.mp4',
+  local: '/videos/hero-web.mp4',
   poster: '/images/skyline.png',
 } as const;
