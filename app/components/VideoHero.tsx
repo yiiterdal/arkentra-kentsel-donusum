@@ -22,44 +22,71 @@ export default function VideoHero({
   posterAlt,
 }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [usePoster, setUsePoster] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setVideoReady(false);
+    setFailed(false);
+  }, [videoSrc]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || failed) return;
 
-    const onError = () => setUsePoster(true);
-
-    const tryPlay = async () => {
-      try {
-        await video.play();
-      } catch {
-        setUsePoster(true);
-      }
+    const markReady = () => {
+      setVideoReady(true);
+      video.play().catch(() => {
+        // Autoplay engellense bile kare görünsün; postere düşme.
+      });
     };
 
-    video.addEventListener('error', onError);
-    tryPlay();
+    const onError = () => setFailed(true);
 
-    return () => video.removeEventListener('error', onError);
-  }, [videoSrc]);
+    video.addEventListener('canplay', markReady);
+    video.addEventListener('error', onError);
+
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      markReady();
+    }
+
+    return () => {
+      video.removeEventListener('canplay', markReady);
+      video.removeEventListener('error', onError);
+    };
+  }, [videoSrc, failed]);
 
   return (
     <section className="relative w-full pt-16 md:pt-[72px]">
       <div className="relative w-full aspect-[21/9] min-h-[280px] md:min-h-[420px] max-h-[80vh] overflow-hidden bg-gray-900">
-        {!usePoster ? (
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster={posterSrc}
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+        {!failed ? (
+          <>
+            <video
+              key={videoSrc}
+              ref={videoRef}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                videoReady ? 'opacity-100' : 'opacity-0'
+              }`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={posterSrc}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+            {!videoReady && (
+              <Image
+                src={posterSrc}
+                alt={posterAlt}
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+            )}
+          </>
         ) : (
           <Image
             src={posterSrc}
