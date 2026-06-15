@@ -1,0 +1,146 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import { useFadeInAnimation } from '../hooks/useFadeInAnimation';
+
+interface StatConfig {
+  value: number;
+  label: string;
+  prefix?: string;
+  suffix?: string;
+}
+
+function CountUpStat({ value, prefix = '', suffix = '' }: StatConfig) {
+  const [displayValue, setDisplayValue] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!hasAnimated) return;
+
+    const duration = 1800;
+    const start = performance.now();
+
+    const animate = (time: number) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      setDisplayValue(Math.round(value * eased));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [hasAnimated, value]);
+
+  return (
+    <div ref={ref} className="text-4xl md:text-5xl font-semibold text-navy mb-2">
+      {prefix}
+      {displayValue.toLocaleString()}
+      {suffix}
+    </div>
+  );
+}
+
+export default function FirmPositioning() {
+  const pillars = [
+    'Independent strategic advice aligned with long-term value creation',
+    'Senior-level attention on every engagement',
+    'Customized approach tailored to each client\'s unique circumstances',
+    'Disciplined execution with institutional-grade process management'
+  ];
+
+  const stats: StatConfig[] = [
+    { value: 15, suffix: '+', label: 'Years of Experienced Team' },
+    { value: 1000, suffix: '+', label: 'Institutional Partners' },
+    { value: 105, suffix: '+', label: 'Completed Transactions by Principals' },
+    { value: 40, suffix: '+', label: 'Location (Cross - Border)' },
+  ];
+
+  const introAnimation = useFadeInAnimation({ delay: 0, duration: 800 });
+  const statAnimations = stats.map((_, index) => 
+    useFadeInAnimation({ delay: 200 + index * 150, duration: 800 })
+  );
+  const pillarAnimations = pillars.map((_, index) => 
+    useFadeInAnimation({ delay: 100 + index * 100, duration: 800 })
+  );
+
+  return (
+    <section className="py-24 md:py-32 bg-white">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          <p 
+            ref={introAnimation.ref}
+            style={introAnimation.style}
+            className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-16 font-light max-w-4xl"
+          >
+            Keningford Partners provides strategic capital advisory and financial services to leading companies and institutional investors. We combine deep market knowledge, extensive transaction experience, and disciplined execution to deliver customized solutions that support our clients' strategic objectives.
+          </p>
+
+          {/* Trust indicators */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20 pb-20">
+            {stats.map((stat, index) => {
+              const anim = statAnimations[index];
+              return (
+                <div 
+                  key={index} 
+                  ref={anim.ref}
+                  style={anim.style}
+                  className="text-left"
+                >
+                  <CountUpStat value={stat.value} prefix={stat.prefix} suffix={stat.suffix} label={stat.label} />
+                  <div
+                    className={`text-xs md:text-sm text-gray-600 uppercase tracking-wide leading-snug ${
+                      index === 2 ? 'max-w-[11rem]' : ''
+                    }`}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+            {pillars.map((pillar, index) => {
+              const anim = pillarAnimations[index];
+              return (
+                <div 
+                  key={index} 
+                  ref={anim.ref}
+                  style={anim.style}
+                  className="flex gap-4"
+                >
+                  <span className="mt-2.5 block h-px w-5 shrink-0 bg-navy" aria-hidden />
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">{pillar}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
