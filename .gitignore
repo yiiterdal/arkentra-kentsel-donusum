@@ -35,5 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# unused large source (not referenced on site)
+# unused / legacy local videos (not served by site)
+public/videos/hero.mp4
 public/videos/hero-loop.mp4
