@@ -35,6 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large hero videos (keep locally; GitHub 100MB limit)
-public/videos/hero.mp4
+# unused large source (not referenced on site)
 public/videos/hero-loop.mp4
