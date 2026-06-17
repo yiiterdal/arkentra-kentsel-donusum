@@ -32,7 +32,7 @@ interface HeroProps {
 
 const defaultImageUrl = unsplashSrc('photo-1449824913935-59a10b8d2000');
 const defaultImageAlt = 'Modern city skyline with office buildings';
-const defaultHeroVideo = '/videos/arkentra-hero-web.mp4';
+const defaultHeroVideo = '/videos/arkentra-hero.mp4';
 const defaultHeroPoster = '/images/hero/poster.webp';
 
 export default function Hero({

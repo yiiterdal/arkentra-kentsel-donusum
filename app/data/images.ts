@@ -120,7 +120,9 @@ export const images = {
 } as const;
 
 export const heroVideo = {
-  /** Web-optimized 1080p; full 4K source stays in Git LFS (not deployed by Vercel). */
-  local: '/videos/arkentra-hero-web.mp4',
+  /** Full 4K source (3840×2160), stored in Git LFS. */
+  local: '/videos/arkentra-hero.mp4',
+  /** GitHub Media CDN fallback when LFS file is missing on deploy. */
+  cdn: 'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero.mp4',
   poster: '/images/skyline.png',
 } as const;

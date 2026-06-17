@@ -22,10 +22,12 @@ export default function VideoHero({
   posterAlt,
 }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeSrc, setActiveSrc] = useState(videoSrc);
   const [videoReady, setVideoReady] = useState(false);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
+    setActiveSrc(videoSrc);
     setVideoReady(false);
     setFailed(false);
   }, [videoSrc]);
@@ -41,7 +43,14 @@ export default function VideoHero({
       });
     };
 
-    const onError = () => setFailed(true);
+    const onError = () => {
+      if (activeSrc !== heroVideo.cdn) {
+        setActiveSrc(heroVideo.cdn);
+        setVideoReady(false);
+        return;
+      }
+      setFailed(true);
+    };
 
     video.addEventListener('loadeddata', markReady);
     video.addEventListener('canplay', markReady);
@@ -58,7 +67,7 @@ export default function VideoHero({
       video.removeEventListener('canplay', markReady);
       video.removeEventListener('error', onError);
     };
-  }, [videoSrc, failed]);
+  }, [activeSrc, failed]);
 
   return (
     <section className="relative w-full pt-16 md:pt-[72px]">
@@ -66,9 +75,9 @@ export default function VideoHero({
         {!failed ? (
           <>
             <video
-              key={videoSrc}
+              key={activeSrc}
               ref={videoRef}
-              src={videoSrc}
+              src={activeSrc}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
                 videoReady ? 'opacity-100' : 'opacity-0'
               }`}
