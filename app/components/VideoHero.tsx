@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { heroVideo } from '../data/images';
+import { getHeroVideoSrc, heroVideo } from '../data/images';
 
 interface VideoHeroProps {
   title: string;
@@ -17,7 +17,7 @@ export default function VideoHero({
   title,
   subtitle,
   eyebrow,
-  videoSrc = heroVideo.local,
+  videoSrc = getHeroVideoSrc(),
   posterSrc = heroVideo.poster,
   posterAlt,
 }: VideoHeroProps) {
@@ -38,8 +38,12 @@ export default function VideoHero({
 
     const markReady = () => {
       setVideoReady(true);
+    };
+
+    const onPlaying = () => {
+      markReady();
       video.play().catch(() => {
-        // Autoplay engellense bile kare görünsün; postere düşme.
+        // Autoplay engellense bile kare görünsün.
       });
     };
 
@@ -52,19 +56,20 @@ export default function VideoHero({
       setFailed(true);
     };
 
-    video.addEventListener('loadeddata', markReady);
-    video.addEventListener('canplay', markReady);
+    video.addEventListener('playing', onPlaying);
+    video.addEventListener('canplay', onPlaying);
     video.addEventListener('error', onError);
 
-    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+    if (!video.paused && video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
       markReady();
     } else {
       video.load();
+      video.play().catch(() => {});
     }
 
     return () => {
-      video.removeEventListener('loadeddata', markReady);
-      video.removeEventListener('canplay', markReady);
+      video.removeEventListener('playing', onPlaying);
+      video.removeEventListener('canplay', onPlaying);
       video.removeEventListener('error', onError);
     };
   }, [activeSrc, failed]);
@@ -78,7 +83,7 @@ export default function VideoHero({
               key={activeSrc}
               ref={videoRef}
               src={activeSrc}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                 videoReady ? 'opacity-100' : 'opacity-0'
               }`}
               autoPlay
@@ -95,7 +100,9 @@ export default function VideoHero({
                 fill
                 className="object-cover"
                 sizes="100vw"
+                quality={95}
                 priority
+                unoptimized
               />
             )}
           </>
@@ -106,10 +113,12 @@ export default function VideoHero({
             fill
             className="object-cover animate-ken-burns"
             sizes="100vw"
+            quality={95}
             priority
+            unoptimized
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex items-center">
           <div className="container-editorial w-full -mt-6 md:-mt-10">
             {eyebrow && (

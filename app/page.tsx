@@ -4,7 +4,7 @@ import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
 import VideoHero from './components/VideoHero';
-import { heroVideo, images } from './data/images';
+import { getHeroVideoSrc, heroVideo, images } from './data/images';
 import { siteDescription, siteName, siteTagline } from './data/site';
 
 export const metadata = {
@@ -63,7 +63,7 @@ export default function HomePage() {
         title="Kentsel Dönüşümde Güvenilir Çözüm Ortağınız"
         subtitle="İstanbul ve çevre illerde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında birleştirerek kentsel dönüşüm süreçlerini uçtan uca yönetiyoruz."
         eyebrow="Kentsel Dönüşüm ve Danışmanlık"
-        videoSrc={heroVideo.local}
+        videoSrc={getHeroVideoSrc()}
         posterAlt={images.hero.alt}
       />
 
