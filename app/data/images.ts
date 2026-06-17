@@ -120,6 +120,7 @@ export const images = {
 } as const;
 
 export const heroVideo = {
-  local: '/videos/arkentra-hero.mp4',
+  /** Web-optimized 1080p; full 4K source stays in Git LFS (not deployed by Vercel). */
+  local: '/videos/arkentra-hero-web.mp4',
   poster: '/images/skyline.png',
 } as const;

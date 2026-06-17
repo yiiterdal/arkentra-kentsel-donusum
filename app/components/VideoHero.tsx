@@ -43,14 +43,18 @@ export default function VideoHero({
 
     const onError = () => setFailed(true);
 
+    video.addEventListener('loadeddata', markReady);
     video.addEventListener('canplay', markReady);
     video.addEventListener('error', onError);
 
-    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
       markReady();
+    } else {
+      video.load();
     }
 
     return () => {
+      video.removeEventListener('loadeddata', markReady);
       video.removeEventListener('canplay', markReady);
       video.removeEventListener('error', onError);
     };
@@ -64,7 +68,8 @@ export default function VideoHero({
             <video
               key={videoSrc}
               ref={videoRef}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+              src={videoSrc}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
                 videoReady ? 'opacity-100' : 'opacity-0'
               }`}
               autoPlay
@@ -73,9 +78,7 @@ export default function VideoHero({
               playsInline
               preload="auto"
               poster={posterSrc}
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
+            />
             {!videoReady && (
               <Image
                 src={posterSrc}
