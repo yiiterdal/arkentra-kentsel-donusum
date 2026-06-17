@@ -7,6 +7,7 @@ export const navLinks = [
   { href: '/hizmetler', label: 'HİZMETLER' },
   { href: '/hakkimizda', label: 'HAKKIMIZDA' },
   { href: '/yazilarimiz', label: 'YAZILARIMIZ' },
+  { href: '/sss', label: 'SSS' },
   { href: '/ekibimiz', label: 'EKİBİMİZ' },
   { href: '/iletisim', label: 'İLETİŞİM' },
 ] as const;
@@ -39,7 +40,7 @@ export const expertiseAreas: readonly ExpertiseItem[] = [
   {
     title: 'Mühendislik ve Teknik Danışmanlık',
     description:
-      'Riskli yapı tespiti, zemin etüdü ve yapı denetim süreçlerinde güvenli dönüşüm için teknik güvence.',
+      'Riskli yapı tespiti, proje incelemesi, aşamalı saha denetimi ve teknik ilerleme raporlarıyla güvenli dönüşüm.',
     icon: 'engineering',
     href: '/hizmetler',
   },
@@ -53,28 +54,28 @@ export const expertiseAreas: readonly ExpertiseItem[] = [
   {
     title: 'Hukuki Danışmanlık',
     description:
-      'Malik temsili, sözleşme hazırlığı ve tapu ve belediye süreçlerinde hukuki güvence.',
+      'Toplantı organizasyonu, kat karşılığı sözleşmeleri, tapu ve teminat süreçlerinde malik çıkarını koruyan hukuki danışmanlık.',
     icon: 'legal',
     href: '/hizmetler',
   },
   {
     title: 'Gayrimenkul ve Finans Danışmanlığı',
     description:
-      'Fizibilite, değerleme ve finansman modelleriyle yatırım kararlarını destekliyoruz.',
+      'Kira yardımı, Yarısı Bizden, İADŞP kredileri ve vergi avantajları dahil devlet destekleri hakkında rehberlik.',
     icon: 'finance',
     href: '/hizmetler',
   },
   {
     title: 'Süreç Yönetimi ve Koordinasyon',
     description:
-      'Kat malik toplantılarından müteahhit görüşmelerine kadar uçtan uca süreç koordinasyonu.',
+      '6306 kapsamındaki toplantı süreçlerinden müteahhit görüşmelerine kadar uçtan uca koordinasyon.',
     icon: 'process',
     href: '/hizmetler',
   },
   {
     title: 'Yıkım, İnşaat ve Uygulama Yönetimi',
     description:
-      'Şantiye denetimi, iş güvenliği ve teslim öncesi kalite kontrolü ile güvenli uygulama.',
+      'Temelden iskâna aşamalı teknik denetim, şantiye kontrolü ve teslim öncesi kalite değerlendirmesi.',
     icon: 'construction',
     href: '/hizmetler',
   },
@@ -87,8 +88,8 @@ export const aboutContent = {
     'İstanbul merkezli kentsel dönüşüm danışmanlığı; malikler, yatırımcılar ve müteahhitler için bütüncül çözümler.',
   lead: {
     eyebrow: 'ARKENTRA',
-    title: 'Karmaşık süreçleri net bir yol haritasına dönüştürüyoruz',
-    text: 'Riskli yapı tespitinden tapuya uzanan uzun bir zincirde; hukuk, mühendislik ve finans disiplinlerini aynı masada buluşturuyoruz. Amacımız yalnızca bina yenilemek değil; maliklerin haklarını güvence altına alarak sürdürülebilir değer yaratmak.',
+    title: 'Kentsel dönüşüm sürecini başından sonuna profesyonelce yönetiyoruz',
+    text: 'Arkentra Kentsel Dönüşüm ve Danışmanlık, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Sanayi ve Ticaret Ltd. Şti’nin iştiraki olarak faaliyet göstermektedir. Mühendislik, mimarlık ve hukuku tek çatı altında buluşturan yenilikçi bir danışmanlık markasıyız; risk analizi ve proje geliştirmeden ruhsat ve uygulama süreçlerine, sözleşmelerden saha denetimine kadar her aşamada güvenli, şeffaf ve planlı çözümler sunuyoruz.',
   },
   expertise: {
     title: 'Uzmanlık alanlarımız',
@@ -101,6 +102,7 @@ export const aboutContent = {
     paragraphs: [
       'Önce mevcut durumu dinliyor, imar durumunu ve malik yapısını analiz ediyoruz. Ardından hukuki riskleri, teknik kısıtları ve finansal beklentileri tek bir stratejide birleştiriyoruz.',
       'Süreç boyunca düzenli bilgilendirme yapıyor; belediye, noter, tapu ve müteahhit iletişimini koordine ederek zaman kaybını en aza indiriyoruz.',
+      'Bakanlık tarafından yetkilendirilmiş kuruluşumuz aracılığıyla riskli yapı tespiti başvurularından inşaat aşamalarındaki teknik denetimlere kadar geniş bir hizmet yelpazesi sunuyoruz. Yalnızca binaları değil, yaşam alanlarını dönüştürerek modern ve sürdürülebilir projelerle geleceği inşa ediyoruz.',
     ],
   },
   principles: [
@@ -151,7 +153,7 @@ export const teamContent = {
       role: 'Kurucu Ortak',
       bio: [
         'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
-        'Belediye imar birimleriyle yürütülen süreçlerde dosya hazırlığı, proje revizyonları, onay süreçlerinin takibi ve uygulama denetimi gibi teknik aşamaların tamamında aktif olarak yer alır. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
+        'Kentsel dönüşüm projelerine yönelik teknik danışmanlık ve aşamalı saha denetimi hizmetleri sunar; temelden iskâna kadar her kritik imalat aşamasında yerinde inceleme ve teknik raporlama yapar. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
       ],
     },
   ],

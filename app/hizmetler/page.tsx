@@ -1,81 +1,17 @@
 import EditorialSplit from '../components/EditorialSplit';
 import PageHero from '../components/PageHero';
 import SectionIntro from '../components/SectionIntro';
+import {
+  serviceDetails,
+  technicalInspectionNote,
+  technicalInspectionStages,
+} from '../data/hizmetler';
 import { images } from '../data/images';
 import { services } from '../data/site';
 
 export const metadata = {
   title: 'Hizmetler | ARKENTRA Kentsel Dönüşüm',
   description: 'Kentsel dönüşüm mühendislik, mimarlık, hukuk, finans danışmanlığı ve süreç yönetimi hizmetleri.',
-};
-
-const serviceDetails: Record<
-  string,
-  { description: string; items: string[]; image: { src: string; alt: string } }
-> = {
-  'Mühendislik ve Teknik Danışmanlık': {
-    description: 'Güvenli bir dönüşüm, doğru mühendislik analizleriyle başlar.',
-    image: images.engineering,
-    items: [
-      'Riskli yapı tespiti başvurusunun hazırlanması',
-      'Zemin etüdü, taşıyıcı sistem analizi ve raporlamalar',
-      'Statik, mekanik ve elektrik projelerinin kontrolü',
-      'Yapı denetim süreci koordinasyonu',
-      'İnşaat sürecinde teknik kontrol ve ilerleme raporları',
-    ],
-  },
-  'Mimarlık ve Proje Geliştirme': {
-    description: 'Estetik, işlev ve mevzuata uygunluk aynı çizgide buluşur.',
-    image: images.sustainable,
-    items: [
-      'Mimari proje tasarımı ve revizyonu',
-      'Kat planlarının malik taleplerine göre düzenlenmesi',
-      'Ruhsat ve imar uygunluk süreçlerinin yürütülmesi',
-      '3D görselleştirme ve proje sunumları',
-      'Enerji verimliliği, yeşil bina ve sürdürülebilir tasarım danışmanlığı',
-    ],
-  },
-  'Hukuki Danışmanlık': {
-    description: 'Her adımda yasal güvence, her sözleşmede şeffaflık.',
-    image: images.legal,
-    items: [
-      'Kat maliklerinin temsil edilmesi',
-      'Kat karşılığı inşaat ve arsa payı sözleşmelerinin hazırlanması',
-      'Tapu, belediye ve noter işlemlerinin yürütülmesi',
-      'Anlaşmazlık, dava ve uzlaşma süreçlerinde temsil',
-      'Müteahhit seçiminde hukuki risk analizi',
-    ],
-  },
-  'Gayrimenkul ve Finans Danışmanlığı': {
-    description: 'Proje sadece bina değil, aynı zamanda bir yatırım sürecidir.',
-    image: images.finance,
-    items: [
-      'Proje fizibilite ve değerleme çalışmaları',
-      'Malik bazlı daire paylaşım planı hazırlanması',
-      'Finansman modelleri ve kredi çözümleri',
-      'Kentsel dönüşüm kira yardımı ve devlet destekleri hakkında rehberlik',
-    ],
-  },
-  'Süreç Yönetimi ve Koordinasyon': {
-    description: 'Tüm tarafların uyum içinde çalıştığı, planlı bir dönüşüm süreci.',
-    image: images.process,
-    items: [
-      'Kat malik toplantılarının organize edilmesi',
-      'Belediyeler ve bakanlıklarla yazışma ve izin takibi',
-      'Müteahhit görüşmeleri ve teklif değerlendirmesi',
-      'Sözleşme sonrası inşaat takibi ve teslim süreci kontrolü',
-    ],
-  },
-  'Yıkım, İnşaat ve Uygulama Yönetimi': {
-    description: 'Güvenli yıkım, kontrollü inşaat, kaliteli sonuç.',
-    image: images.construction,
-    items: [
-      'Yıkım sürecinde çevre güvenliği ve ruhsat işlemleri',
-      'Şantiye denetimi ve iş güvenliği kontrolleri',
-      'Malzeme kalitesi ve yapı tekniği uygunluğu denetimi',
-      'İnşaat ilerleme raporları ve teslim öncesi kontrol listeleri',
-    ],
-  },
 };
 
 export default function HizmetlerPage() {
@@ -93,7 +29,7 @@ export default function HizmetlerPage() {
         <div className="container-editorial">
           <SectionIntro
             title="Proje yaşam döngüsünün her aşamasında yanınızdayız"
-            description="Danışmanlık ve stratejik planlamadan izin süreçlerine, detaylı tasarımdan inşaat ve teslimata kadar multidisipliner ekibimizle hizmet veriyoruz."
+            description="Danışmanlık ve stratejik planlamadan izin süreçlerine, detaylı tasarımdan inşaat denetimi ve teslimata kadar multidisipliner ekibimizle hizmet veriyoruz."
           />
         </div>
       </section>
@@ -122,6 +58,41 @@ export default function HizmetlerPage() {
           </EditorialSplit>
         );
       })}
+
+      <section className="bg-white py-14 md:py-20 border-t border-gray-100">
+        <div className="container-editorial">
+          <SectionIntro
+            eyebrow="Teknik denetim"
+            title="İnşaat sürecinde aşamalı teknik denetim"
+            description="Temelden iskâna kadar her kritik aşamada yerinde inceleme yapılır; tespitler fotoğraf ve tutanaklarla belgelenerek kat malikleri temsil heyetine raporlanır."
+            className="mb-12"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {technicalInspectionStages.map((stage) => (
+              <div
+                key={stage.code}
+                className="flex gap-4 p-6 bg-gray-50 rounded-sm border border-gray-100"
+              >
+                <span
+                  className="text-brand-600 text-sm font-semibold tabular-nums shrink-0 pt-0.5"
+                  aria-hidden
+                >
+                  {stage.code}
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold text-gray-900 mb-1.5">{stage.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed font-light">
+                    {stage.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10 text-gray-500 text-sm leading-relaxed font-light max-w-4xl">
+            {technicalInspectionNote}
+          </p>
+        </div>
+      </section>
     </>
   );
 }

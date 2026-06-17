@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import WhatsAppFloat from './WhatsAppFloat';
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }

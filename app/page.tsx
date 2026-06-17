@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import EditorialSplit from './components/EditorialSplit';
+import FaqSection from './components/FaqSection';
 import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
 import VideoHero from './components/VideoHero';
-import { getHeroVideoSrc, heroVideo, images } from './data/images';
+import { heroVideo, images } from './data/images';
+import { faqItems, faqPreviewCount } from './data/sss';
 import { siteDescription, siteName, siteTagline } from './data/site';
 
 export const metadata = {
@@ -16,19 +18,19 @@ const featuredServices = [
   {
     title: 'Mühendislik ve Teknik Danışmanlık',
     description:
-      'Riskli yapı tespiti, zemin etüdü, statik kontrol ve inşaat sürecinde teknik denetim hizmetleri.',
+      'Riskli yapı tespiti, proje incelemesi, aşamalı saha denetimi ve teknik ilerleme raporları.',
     image: images.freshHome,
   },
   {
     title: 'Mimarlık ve Proje Geliştirme',
     description:
-      'Mimari tasarım, ruhsat süreçleri, 3D görselleştirme ve sürdürülebilir bina danışmanlığı.',
+      'Mimari etüt alternatifleri, ruhsat süreçleri ve sürdürülebilir proje geliştirme danışmanlığı.',
     image: images.sehirPlani,
   },
   {
     title: 'Hukuki Danışmanlık',
     description:
-      'Malik temsili, kat karşılığı sözleşmeleri, tapu işlemleri ve müteahhit risk analizi.',
+      'Toplantı organizasyonu, kat karşılığı sözleşmeleri, tapu ve teminat süreçlerinde malik temsili.',
     image: images.greenNeighborhood,
   },
 ];
@@ -63,7 +65,7 @@ export default function HomePage() {
         title="Kentsel Dönüşümde Güvenilir Çözüm Ortağınız"
         subtitle="İstanbul ve çevre illerde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında birleştirerek kentsel dönüşüm süreçlerini uçtan uca yönetiyoruz."
         eyebrow="Kentsel Dönüşüm ve Danışmanlık"
-        videoSrc={getHeroVideoSrc()}
+        videoSrc={heroVideo.local}
         posterAlt={images.hero.alt}
       />
 
@@ -76,7 +78,8 @@ export default function HomePage() {
         bg="white"
       >
         <p>
-          {siteName}, İstanbul ve çevre illerde kentsel dönüşüm süreçlerinde malikleri; hukuk,
+          {siteName}, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti’nin iştiraki
+          olarak İstanbul ve çevre illerde kentsel dönüşüm süreçlerinde malikleri; hukuk,
           mühendislik, mimarlık ve finans alanlarında tek çatı altında temsil eden bir danışmanlık
           firmasıdır.
         </p>
@@ -181,6 +184,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title="Sık sorulan sorular"
+        description="Kentsel dönüşüm sürecinde maliklerin en çok merak ettiği konulara kısa yanıtlar."
+        items={faqItems.slice(0, faqPreviewCount)}
+        allLinkHref="/sss"
+      />
 
       <EditorialSplit
         imageSrc={images.kentMerkezi.src}

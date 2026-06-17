@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { getHeroVideoSrc, heroVideo } from '../data/images';
+import { heroVideo } from '../data/images';
 
 interface VideoHeroProps {
   title: string;
@@ -17,7 +17,7 @@ export default function VideoHero({
   title,
   subtitle,
   eyebrow,
-  videoSrc = getHeroVideoSrc(),
+  videoSrc = heroVideo.local,
   posterSrc = heroVideo.poster,
   posterAlt,
 }: VideoHeroProps) {
@@ -75,8 +75,8 @@ export default function VideoHero({
   }, [activeSrc, failed]);
 
   return (
-    <section className="relative w-full pt-16 md:pt-[72px]">
-      <div className="relative w-full aspect-[21/9] min-h-[280px] md:min-h-[420px] max-h-[80vh] overflow-hidden bg-gray-900">
+    <section className="relative w-full">
+      <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
         {!failed ? (
           <>
             <video
@@ -118,9 +118,9 @@ export default function VideoHero({
             unoptimized
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="container-editorial w-full -mt-6 md:-mt-10">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
+        <div className="absolute inset-0 flex items-center pt-16 md:pt-[72px] pb-16">
+          <div className="container-editorial w-full">
             {eyebrow && (
               <p className="text-brand-300 text-sm font-semibold tracking-[0.2em] uppercase mb-3">
                 {eyebrow}

@@ -12,10 +12,10 @@ export default function YazilarimizPage() {
     <>
       <PageHero
         title="Yazılarımız"
-        subtitle="Kentsel dönüşüm dünyasından güncel haberler, rehberler ve uzman görüşleri."
+        subtitle="Hukuk, teknik süreçler ve malik hakları hakkında uzman rehberler."
         eyebrow="Blog"
-        imageSrc={images.documents.src}
-        imageAlt={images.documents.alt}
+        imageSrc={images.cityAerial.src}
+        imageAlt={images.cityAerial.alt}
         variant="overlay"
       />
 

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  type Yazi,
   type YaziSort,
   yazilar,
   yaziKonulari,
@@ -119,6 +120,115 @@ function MenuOption({
   );
 }
 
+function YaziMeta({ yazi, light = false }: { yazi: Yazi; light?: boolean }) {
+  const muted = light ? 'text-white/75' : 'text-gray-500';
+  const accent = light ? 'text-brand-300' : 'text-brand-700';
+
+  return (
+    <div className={`flex flex-wrap items-center gap-2 text-xs uppercase tracking-wide ${muted}`}>
+      <span className={`px-2 py-0.5 font-semibold ${light ? 'bg-white/15 text-white' : 'bg-brand-50 text-brand-800'}`}>
+        {yazi.konu}
+      </span>
+      <span className={accent}>{yazi.tur}</span>
+      <span aria-hidden="true">·</span>
+      <time dateTime={yazi.date}>{yazi.dateLabel}</time>
+      {yazi.readTime && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>{yazi.readTime}</span>
+        </>
+      )}
+    </div>
+  );
+}
+
+function FeaturedYaziCard({ yazi }: { yazi: Yazi }) {
+  return (
+    <Link
+      href={`/yazilarimiz/${yazi.slug}`}
+      className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden bg-gray-900 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+    >
+      <div className="relative lg:col-span-7 min-h-[260px] lg:min-h-[420px] overflow-hidden">
+        <Image
+          key={yazi.imageSrc}
+          src={yazi.imageSrc}
+          alt={yazi.imageAlt}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 1024px) 100vw, 58vw"
+          quality={IMAGE_QUALITY}
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/80" />
+        <span className="absolute top-4 left-4 px-3 py-1 bg-brand-600 text-white text-[11px] font-semibold uppercase tracking-widest">
+          Öne Çıkan
+        </span>
+      </div>
+      <div className="lg:col-span-5 flex flex-col justify-center p-8 md:p-10 lg:p-12 text-white">
+        <YaziMeta yazi={yazi} light />
+        <h2 className="mt-4 text-2xl md:text-3xl lg:text-[2rem] font-semibold leading-tight tracking-tight group-hover:text-brand-200 transition-colors">
+          {yazi.title}
+        </h2>
+        <p className="mt-4 text-base md:text-lg text-white/80 leading-relaxed font-light line-clamp-4">
+          {yazi.excerpt}
+        </p>
+        <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-300 group-hover:gap-3 transition-all">
+          Yazıyı oku
+          <span aria-hidden="true" className="text-lg">→</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function YaziCard({ yazi }: { yazi: Yazi }) {
+  return (
+    <Link
+      href={`/yazilarimiz/${yazi.slug}`}
+      className="group flex flex-col overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+    >
+      <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+        <Image
+          key={yazi.imageSrc}
+          src={yazi.imageSrc}
+          alt={yazi.imageAlt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={IMAGE_QUALITY}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+        <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-white/95 text-brand-800 text-[11px] font-semibold uppercase tracking-wide">
+          {yazi.konu}
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-6 md:p-7">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
+          <span className="font-medium text-brand-700">{yazi.tur}</span>
+          <span aria-hidden="true">·</span>
+          <time dateTime={yazi.date}>{yazi.dateLabel}</time>
+          {yazi.readTime && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{yazi.readTime}</span>
+            </>
+          )}
+        </div>
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-900 leading-snug mb-3 group-hover:text-brand-800 transition-colors line-clamp-3">
+          {yazi.title}
+        </h2>
+        <p className="text-gray-600 leading-relaxed font-light text-[15px] line-clamp-3 flex-1">
+          {yazi.excerpt}
+        </p>
+        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:gap-2.5 transition-all">
+          Devamını oku
+          <span aria-hidden="true">→</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default function YazilarListing() {
   const [selectedKonu, setSelectedKonu] = useState<string>('Tümü');
   const [selectedTur, setSelectedTur] = useState<string>('Tümü');
@@ -141,6 +251,8 @@ export default function YazilarListing() {
     });
   }, [selectedKonu, selectedTur, sort]);
 
+  const [featuredYazi, ...otherYazilar] = filteredYazilar;
+
   const hasActiveFilter =
     selectedKonu !== 'Tümü' || selectedTur !== 'Tümü' || sort !== 'newest';
 
@@ -156,9 +268,18 @@ export default function YazilarListing() {
   };
 
   return (
-    <section className="bg-white py-12 md:py-16">
+    <section className="bg-gray-50 py-12 md:py-20">
       <div className="container-editorial">
-        <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-gray-200">
+        <div className="mb-10 md:mb-12">
+          <p className="text-brand-700 text-sm font-semibold tracking-[0.2em] uppercase mb-2">
+            Uzman içerikler
+          </p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 max-w-2xl leading-tight">
+            Kentsel dönüşümde bilmeniz gerekenleri sade ve net anlatıyoruz
+          </h2>
+        </div>
+
+        <div className="mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-gray-200">
           <div className="flex flex-wrap items-center gap-2">
             <FilterMenu
               label="Konu"
@@ -245,42 +366,15 @@ export default function YazilarListing() {
             Seçtiğiniz filtrelere uygun yazı bulunamadı.
           </p>
         ) : (
-          <div className="space-y-10 md:space-y-12">
-            {filteredYazilar.map((yazi) => (
-              <Link
-                key={yazi.slug}
-                href={`/yazilarimiz/${yazi.slug}`}
-                className="group grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 md:pb-12 border-b border-gray-200 last:border-b-0 hover:bg-gray-50/50 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-              >
-                <div className="md:col-span-2 relative aspect-[16/10] overflow-hidden bg-gray-100">
-                  <Image
-                    src={yazi.imageSrc}
-                    alt={yazi.imageAlt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    quality={IMAGE_QUALITY}
-                  />
-                </div>
-                <div className="md:col-span-3 flex flex-col justify-center">
-                  <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-gray-500 mb-3">
-                    <span>{yazi.konu}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{yazi.tur}</span>
-                    <span aria-hidden="true">·</span>
-                    <time dateTime={yazi.date}>{yazi.dateLabel}</time>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 decoration-brand-700/40 group-hover:underline underline-offset-[5px]">
-                    {yazi.title}
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed font-light mb-5">{yazi.excerpt}</p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:underline underline-offset-4">
-                    Devamını oku
-                    <span aria-hidden="true">→</span>
-                  </span>
-                </div>
-              </Link>
-            ))}
+          <div className="space-y-10 md:space-y-14">
+            {featuredYazi && <FeaturedYaziCard yazi={featuredYazi} />}
+            {otherYazilar.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                {otherYazilar.map((yazi) => (
+                  <YaziCard key={yazi.slug} yazi={yazi} />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>

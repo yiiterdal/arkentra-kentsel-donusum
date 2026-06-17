@@ -117,6 +117,28 @@ export const images = {
     src: unsplashSrc('photo-1521791136064-7986c2920216', REMOTE_FULL_WIDTH),
     alt: 'Güvene dayalı danışmanlık ve veri güvenliği',
   },
+  yazilar: {
+    yargitay: {
+      src: pexels(5669619, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Adalet terazisi ve tokmak, Yargıtay kararı',
+    },
+    sozlesme: {
+      src: pexels(3769162, REMOTE_EDITORIAL_WIDTH),
+      alt: 'İnşaat sözleşmesi imzalayan mühendis, kat karşılığı anlaşma',
+    },
+    riskliYapi: {
+      src: pexels(15068492, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Yıpranmış ve terk edilmiş bina cephesi, riskli yapı tespiti',
+    },
+    kiraYardimi: {
+      src: pexels(8293778, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Konut anahtarı teslimi, kentsel dönüşüm kira yardımı',
+    },
+    sozlesmeDenetim: {
+      src: pexels(8293774, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Sözleşme ve kontrol listesi incelemesi, müteahhit check-up',
+    },
+  },
 } as const;
 
 export const heroVideo = {

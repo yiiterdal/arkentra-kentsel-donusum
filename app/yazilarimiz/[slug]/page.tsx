@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import YaziContent from '../../components/YaziContent';
 import { getYaziBySlug, yazilar } from '../../data/yazilar';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
 
@@ -26,8 +27,6 @@ export default function YaziPage({ params }: YaziPageProps) {
   const yazi = getYaziBySlug(params.slug);
   if (!yazi) notFound();
 
-  const paragraphs = yazi.content.split('\n\n').filter(Boolean);
-
   return (
     <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-white">
       <div className="container-editorial">
@@ -41,7 +40,7 @@ export default function YaziPage({ params }: YaziPageProps) {
               Yazılarımız
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-800">{yazi.title}</span>
+            <span className="text-gray-800 line-clamp-1">{yazi.title}</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-gray-500 mb-6">
@@ -50,13 +49,19 @@ export default function YaziPage({ params }: YaziPageProps) {
             <span>{yazi.tur}</span>
             <span aria-hidden="true">·</span>
             <time dateTime={yazi.date}>{yazi.dateLabel}</time>
+            {yazi.readTime && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{yazi.readTime}</span>
+              </>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8 leading-tight">
             {yazi.title}
           </h1>
 
-          <div className="relative aspect-[21/9] overflow-hidden mb-8 bg-gray-100">
+          <div className="relative aspect-[16/9] overflow-hidden mb-10 bg-gray-100">
             <Image
               src={yazi.imageSrc}
               alt={yazi.imageAlt}
@@ -68,13 +73,7 @@ export default function YaziPage({ params }: YaziPageProps) {
             />
           </div>
 
-          <div className="prose max-w-none">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)} className="text-lg text-gray-700 leading-relaxed mb-6 font-light">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <YaziContent content={yazi.content} />
 
           <Link
             href="/yazilarimiz"
