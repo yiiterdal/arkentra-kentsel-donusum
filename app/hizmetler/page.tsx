@@ -1,4 +1,3 @@
-import CTABand from '../components/CTABand';
 import EditorialSplit from '../components/EditorialSplit';
 import PageHero from '../components/PageHero';
 import SectionIntro from '../components/SectionIntro';
@@ -84,10 +83,10 @@ export default function HizmetlerPage() {
     <>
       <PageHero
         title="Hizmetlerimiz"
-        subtitle="Kentsel dönüşüm sürecinin tamamında — stratejik danışmanlıktan proje teslimine — tek noktadan profesyonel çözüm sunuyoruz."
-        eyebrow="Hizmetler"
+        subtitle="Kentsel dönüşüm sürecinin tamamında, stratejik danışmanlıktan proje teslimine kadar tek noktadan profesyonel çözüm sunuyoruz."
         imageSrc={images.cityAerial.src}
         imageAlt={images.cityAerial.alt}
+        variant="overlay"
       />
 
       <section className="bg-white py-12 md:py-16">
@@ -123,13 +122,6 @@ export default function HizmetlerPage() {
           </EditorialSplit>
         );
       })}
-
-      <CTABand
-        title="Ücretsiz danışmanlık için bizimle iletişime geçin"
-        description="Kentsel dönüşüm projeniz hakkında uzman görüşü almak için formu doldurun veya bizi arayın."
-        buttonLabel="İletişim"
-        buttonHref="/iletisim"
-      />
     </>
   );
 }

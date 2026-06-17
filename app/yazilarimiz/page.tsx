@@ -1,4 +1,5 @@
 import PageHero from '../components/PageHero';
+import YazilarListing from '../components/YazilarListing';
 import { images } from '../data/images';
 
 export const metadata = {
@@ -15,13 +16,10 @@ export default function YazilarimizPage() {
         eyebrow="Blog"
         imageSrc={images.documents.src}
         imageAlt={images.documents.alt}
+        variant="overlay"
       />
 
-      <section className="bg-white py-20 md:py-28">
-        <div className="container-editorial text-center">
-          <p className="text-gray-500 text-base font-light">Yazılar yakında eklenecek.</p>
-        </div>
-      </section>
+      <YazilarListing />
     </>
   );
 }

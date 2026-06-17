@@ -6,7 +6,7 @@ import { teamContent } from '../data/site';
 export const metadata = {
   title: 'Ekibimiz | ARKENTRA Kentsel Dönüşüm',
   description:
-    'ARKENTRA Kentsel Dönüşüm uzman ekibi — kentsel dönüşüm hukuku, mühendislik, mimarlık ve proje yönetiminde deneyimli profesyoneller.',
+    'ARKENTRA Kentsel Dönüşüm uzman ekibi; kentsel dönüşüm hukuku, mühendislik, mimarlık ve proje yönetiminde deneyimli profesyoneller.',
 };
 
 export default function EkibimizPage() {
@@ -15,9 +15,9 @@ export default function EkibimizPage() {
       <PageHero
         title="Ekibimiz"
         subtitle={teamContent.heroSubtitle}
-        eyebrow={teamContent.pageTitle}
         imageSrc={images.teamHero.src}
         imageAlt={images.teamHero.alt}
+        variant="overlay"
       />
 
       <section className="bg-white py-14 md:py-20">

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import CTABand from './components/CTABand';
 import EditorialSplit from './components/EditorialSplit';
 import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
@@ -100,7 +99,7 @@ export default function HomePage() {
           <SectionIntro
             eyebrow="Süreç"
             title="Stratejik danışmanlıktan proje teslimine"
-            description="Kentsel dönüşüm sürecinin her aşamasında yanınızdayız — riskli yapı tespitinden tapu tesciline kadar tek elden profesyonel çözüm."
+            description="Kentsel dönüşüm sürecinin her aşamasında yanınızdayız; riskli yapı tespitinden tapu tesciline kadar tek elden profesyonel çözüm."
             className="mb-12"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200">
@@ -176,10 +175,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link
-              href="/hizmetler"
-              className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-gray-800 text-base font-semibold hover:border-brand-600 hover:text-brand-700 transition-colors"
-            >
+            <Link href="/hizmetler" className="link-button link-button--ghost">
               Tüm Hizmetleri Görüntüle
             </Link>
           </div>
@@ -201,13 +197,6 @@ export default function HomePage() {
           çağı başlatmak. Şeffaf ve sürdürülebilir çözümlerle geleceği birlikte inşa ediyoruz.
         </p>
       </EditorialSplit>
-
-      <CTABand
-        title="Projeniz için ücretsiz ön değerlendirme"
-        description="Kentsel dönüşüm süreciniz hakkında uzman ekibimizle görüşmek için hemen iletişime geçin."
-        buttonLabel="İletişime Geçin"
-        buttonHref="/iletisim"
-      />
     </>
   );
 }

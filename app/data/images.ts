@@ -39,7 +39,7 @@ export const images = {
   },
   uniqueApproach: {
     src: '/images/unique-nature.png',
-    alt: 'Doğada özgün yeşil bitki — her projenin eşsizliği',
+    alt: 'Doğada özgün yeşil bitki, her projenin eşsizliği',
   },
   aboutHero: {
     src: unsplashSrc('photo-1519501025264-65ba15a82390', REMOTE_FULL_WIDTH),

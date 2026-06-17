@@ -5,7 +5,7 @@ import { images } from '../data/images';
 export const metadata = {
   title: 'KVKK | ARKENTRA Kentsel Dönüşüm',
   description:
-    'ARKENTRA Kentsel Dönüşüm — Kişisel Verilerin İşlenmesi ve Çerez Politikasına İlişkin Aydınlatma Metni.',
+    'ARKENTRA Kentsel Dönüşüm Kişisel Verilerin İşlenmesi ve Çerez Politikasına İlişkin Aydınlatma Metni.',
 };
 
 export default function KvkkPage() {

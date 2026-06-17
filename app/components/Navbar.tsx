@@ -25,12 +25,12 @@ export default function Navbar() {
     >
       <div className="container-editorial flex items-center justify-between h-16 md:h-[72px]">
         <Link href="/" className="flex items-center gap-1.5" aria-label="ARKENTRA Kentsel Dönüşüm">
-          <div className="w-1 h-8 bg-brand-600 shrink-0" aria-hidden />
-          <div className="flex flex-col gap-0 leading-none">
-            <div className="text-[15px] md:text-base font-semibold text-gray-900 tracking-tight">
+          <div className="w-1 h-8 md:h-9 bg-brand-600 shrink-0" aria-hidden />
+          <div className="flex flex-col leading-none">
+            <div className="text-[17px] md:text-lg font-semibold text-gray-900 tracking-tight leading-none">
               ARKENTRA
             </div>
-            <div className="text-[10px] md:text-[11px] text-gray-500 tracking-wide -mt-px">
+            <div className="text-[11px] md:text-xs text-gray-500 tracking-wide -mt-1 leading-none">
               Kentsel Dönüşüm Danışmanlığı
             </div>
           </div>

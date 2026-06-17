@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import CTABand from '../components/CTABand';
 import EditorialSplit from '../components/EditorialSplit';
 import ExpertiseGrid from '../components/ExpertiseGrid';
 import PageHero from '../components/PageHero';
@@ -9,7 +8,7 @@ import { aboutContent, expertiseAreas } from '../data/site';
 export const metadata = {
   title: 'Hakkımızda | ARKENTRA Kentsel Dönüşüm',
   description:
-    'ARKENTRA — İstanbul merkezli kentsel dönüşüm danışmanlığı. Hukuk, mühendislik ve finans uzmanlığını tek çatı altında sunuyoruz.',
+    'ARKENTRA, İstanbul merkezli kentsel dönüşüm danışmanlığı. Hukuk, mühendislik ve finans uzmanlığını tek çatı altında sunuyoruz.',
 };
 
 export default function HakkimizdaPage() {
@@ -25,22 +24,25 @@ export default function HakkimizdaPage() {
       />
 
       <section className="bg-white py-16 md:py-24">
-        <div className="container-editorial max-w-4xl text-center">
-          <p className="text-brand-600 text-sm font-semibold tracking-[0.2em] uppercase mb-5">
-            {aboutContent.lead.eyebrow}
-          </p>
-          <h2 className="font-serif text-2xl md:text-4xl font-medium text-gray-900 tracking-tight leading-snug mb-6">
-            {aboutContent.lead.title}
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-            {aboutContent.lead.text}
-          </p>
-          <Link
-            href="/ekibimiz"
-            className="inline-flex items-center mt-8 text-brand-700 text-base font-semibold hover:text-brand-800 transition-colors"
-          >
-            Ekibimizi tanıyın →
-          </Link>
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-center text-left">
+            <div className="lg:col-span-8">
+              <p className="text-brand-600 text-sm font-semibold tracking-[0.2em] uppercase mb-5">
+                {aboutContent.lead.eyebrow}
+              </p>
+              <h2 className="font-serif text-2xl md:text-4xl font-medium text-gray-900 tracking-tight leading-snug mb-6">
+                {aboutContent.lead.title}
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed font-light">
+                {aboutContent.lead.text}
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Link href="/ekibimiz" className="link-button shrink-0">
+                Ekibimizi tanıyın →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -97,13 +99,6 @@ export default function HakkimizdaPage() {
           </div>
         </div>
       </section>
-
-      <CTABand
-        title={aboutContent.closing.title}
-        description={aboutContent.closing.description}
-        buttonLabel={aboutContent.closing.buttonLabel}
-        buttonHref="/iletisim"
-      />
     </>
   );
 }

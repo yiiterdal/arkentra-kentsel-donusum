@@ -133,6 +133,55 @@ footer h6 {
   .site-footer a:hover {
     color: #ffffff;
   }
+
+  .link-button {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold
+      border-2 border-brand-600 text-brand-700 bg-white
+      transition-all duration-200 ease-out;
+  }
+
+  .link-button:hover {
+    @apply bg-brand-600 text-white shadow-md -translate-y-px;
+  }
+
+  .link-button:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-brand-600;
+  }
+
+  .link-button--on-dark {
+    @apply border-white text-white bg-white/10 backdrop-blur-sm;
+  }
+
+  .link-button--on-dark:hover {
+    @apply bg-white text-brand-800 border-white shadow-lg;
+  }
+
+  .link-button--ghost {
+    @apply border-gray-300 text-gray-800 bg-white;
+  }
+
+  .link-button--ghost:hover {
+    @apply border-brand-600 bg-brand-600 text-white;
+  }
+
+  .link-button--solid {
+    @apply bg-brand-700 text-white border-brand-700;
+  }
+
+  .link-button--solid:hover {
+    @apply bg-brand-800 border-brand-800 text-white shadow-lg;
+  }
+
+  .link-button--card {
+    @apply inline-flex items-center self-start px-5 py-2.5 text-sm font-semibold
+      border-2 border-brand-600 text-brand-700 bg-white
+      transition-all duration-200 ease-out;
+  }
+
+  .group:hover .link-button--card,
+  .link-button--card:hover {
+    @apply bg-brand-600 text-white shadow-sm -translate-y-px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -183,5 +232,11 @@ footer h6 {
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns {
     animation: none;
+  }
+
+  .link-button:hover,
+  .link-button--card:hover,
+  .group:hover .link-button--card {
+    transform: none;
   }
 }

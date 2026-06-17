@@ -60,10 +60,7 @@ export default function EditorialSplit({
               {children}
             </div>
             {href && (
-              <Link
-                href={href}
-                className="inline-flex items-center mt-6 text-brand-700 text-base font-semibold hover:text-brand-800 transition-colors"
-              >
+              <Link href={href} className="link-button mt-6">
                 {linkLabel}
               </Link>
             )}

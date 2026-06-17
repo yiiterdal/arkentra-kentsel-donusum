@@ -20,7 +20,7 @@ export default function ServiceCard({
   return (
     <Link
       href={href}
-      className="group block bg-white border border-gray-100 hover:border-brand-200 transition-colors overflow-hidden"
+      className="group block bg-white border border-gray-200 hover:border-brand-600 hover:shadow-md transition-all duration-200 overflow-hidden"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -37,7 +37,7 @@ export default function ServiceCard({
           {title}
         </h3>
         <p className="text-gray-600 text-base leading-relaxed font-light line-clamp-3">{description}</p>
-        <span className="inline-block mt-4 text-brand-600 text-base font-medium group-hover:underline">
+        <span className="link-button--card mt-4">
           Detaylı bilgi →
         </span>
       </div>

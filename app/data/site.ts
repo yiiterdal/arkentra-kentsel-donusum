@@ -1,7 +1,7 @@
 export const siteName = 'ARKENTRA Kentsel Dönüşüm';
 export const siteTagline = 'Kentsel dönüşüm ve gayrimenkul danışmanlığında güvenilir çözüm ortağınız.';
 export const siteDescription =
-  'Arkentra Kentsel Dönüşüm Danışmanlığı İstanbul — riskli yapı tespiti, müteahhit sözleşmesi, kira yardımı ve malik temsil hizmetleri.';
+  'Arkentra Kentsel Dönüşüm Danışmanlığı İstanbul, riskli yapı tespiti, müteahhit sözleşmesi, kira yardımı ve malik temsil hizmetleri.';
 
 export const navLinks = [
   { href: '/hizmetler', label: 'HİZMETLER' },
@@ -53,7 +53,7 @@ export const expertiseAreas: readonly ExpertiseItem[] = [
   {
     title: 'Hukuki Danışmanlık',
     description:
-      'Malik temsili, sözleşme hazırlığı ve tapu–belediye süreçlerinde hukuki güvence.',
+      'Malik temsili, sözleşme hazırlığı ve tapu ve belediye süreçlerinde hukuki güvence.',
     icon: 'legal',
     href: '/hizmetler',
   },
@@ -84,16 +84,16 @@ export const aboutContent = {
   pageTitle: 'HAKKIMIZDA',
   heroTitle: 'Hakkımızda',
   heroSubtitle:
-    'İstanbul merkezli kentsel dönüşüm danışmanlığı — malikler, yatırımcılar ve müteahhitler için bütüncül çözümler.',
+    'İstanbul merkezli kentsel dönüşüm danışmanlığı; malikler, yatırımcılar ve müteahhitler için bütüncül çözümler.',
   lead: {
     eyebrow: 'ARKENTRA',
     title: 'Karmaşık süreçleri net bir yol haritasına dönüştürüyoruz',
-    text: 'Riskli yapı tespitinden tapuya uzanan uzun bir zincirde; hukuk, mühendislik ve finans disiplinlerini aynı masada buluşturuyoruz. Amacımız yalnızca bina yenilemek değil — maliklerin haklarını güvence altına alarak sürdürülebilir değer yaratmak.',
+    text: 'Riskli yapı tespitinden tapuya uzanan uzun bir zincirde; hukuk, mühendislik ve finans disiplinlerini aynı masada buluşturuyoruz. Amacımız yalnızca bina yenilemek değil; maliklerin haklarını güvence altına alarak sürdürülebilir değer yaratmak.',
   },
   expertise: {
     title: 'Uzmanlık alanlarımız',
     description:
-      'Kentsel dönüşüm sürecinin her aşamasında — stratejik danışmanlıktan proje teslimine — multidisipliner hizmet sunuyoruz.',
+      'Kentsel dönüşüm sürecinin her aşamasında, stratejik danışmanlıktan proje teslimine kadar multidisipliner hizmet sunuyoruz.',
   },
   approach: {
     eyebrow: 'Çalışma modelimiz',
@@ -143,14 +143,14 @@ export const teamContent = {
       role: 'Kurucu Ortak',
       bio: [
         'Kentsel dönüşüm hukuku ve gayrimenkul hukuku alanlarında uzmanlaşmış bir hukuk danışmanı olarak, mülkiyet ilişkileri, kat malikleri süreçleri, riskli yapı tespiti sonrası hukuki yol haritaları ve sözleşme hazırlıkları üzerine çalışır.',
-        'Belediye izinleri, ruhsat süreçleri, tapu işlemleri, kat irtifakı – kat mülkiyeti dönüşümleri, noter sözleşmeleri ve müteahhit–malik ilişkilerinde ortaya çıkan hukuki risklerin yönetilmesinde aktif rol alır. Projelerin hukuki güvenliğini baştan sona sağlar.',
+        'Belediye izinleri, ruhsat süreçleri, tapu işlemleri, kat irtifakı ve kat mülkiyeti dönüşümleri, noter sözleşmeleri ve müteahhit-malik ilişkilerinde ortaya çıkan hukuki risklerin yönetilmesinde aktif rol alır. Projelerin hukuki güvenliğini baştan sona sağlar.',
       ],
     },
     {
       name: 'Mimar Nevzat Yıldırım',
       role: 'Kurucu Ortak',
       bio: [
-        'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik–mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
+        'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
         'Belediye imar birimleriyle yürütülen süreçlerde dosya hazırlığı, proje revizyonları, onay süreçlerinin takibi ve uygulama denetimi gibi teknik aşamaların tamamında aktif olarak yer alır. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
       ],
     },

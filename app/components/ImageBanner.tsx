@@ -77,14 +77,7 @@ export default function ImageBanner({
               </div>
             )}
             {href && (
-              <Link
-                href={href}
-                className={`inline-flex items-center mt-8 text-base font-semibold ${
-                  variant === 'dark'
-                    ? 'text-white hover:text-brand-200'
-                    : 'text-brand-700 hover:text-brand-800'
-                } transition-colors`}
-              >
+              <Link href={href} className={`link-button mt-8 ${variant === 'dark' ? 'link-button--on-dark' : ''}`}>
                 {linkLabel}
               </Link>
             )}

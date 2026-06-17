@@ -12,7 +12,7 @@ function ExpertiseCard({ item }: { item: ExpertiseItem }) {
   return (
     <Link
       href={item.href}
-      className="group flex h-full flex-col bg-white border border-gray-200 p-8 md:p-9 transition-all duration-200 hover:border-brand-600 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+      className="group flex h-full flex-col bg-white border border-gray-200 p-8 md:p-9 transition-all duration-200 hover:border-brand-600 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
     >
       <span
         className="mb-6 inline-flex h-12 w-12 items-center justify-center bg-brand-50 text-brand-800 transition-colors duration-200 group-hover:bg-brand-700 group-hover:text-white"
@@ -29,7 +29,7 @@ function ExpertiseCard({ item }: { item: ExpertiseItem }) {
         {item.description}
       </p>
 
-      <span className="text-base font-semibold text-brand-800 group-hover:underline">
+      <span className="link-button--card mt-auto">
         Daha fazla bilgi →
       </span>
     </Link>
