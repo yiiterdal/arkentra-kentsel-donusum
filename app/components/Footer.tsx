@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ArkentraLogo from './ArkentraLogo';
 import {
   contactAddressLine1,
   contactAddressLine2,
@@ -14,10 +15,9 @@ export default function Footer() {
       <div className="container-editorial py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="site-footer__accent-bar" aria-hidden />
-              <span className="text-white font-semibold text-base">{siteName}</span>
-            </div>
+            <Link href="/" className="inline-flex mb-5" aria-label={siteName}>
+              <ArkentraLogo variant="white-full" />
+            </Link>
             <p className="text-sm leading-relaxed font-light site-footer__muted">{footerContent.tagline}</p>
           </div>
 

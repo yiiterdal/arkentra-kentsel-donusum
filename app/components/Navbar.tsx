@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import ArkentraLogo from './ArkentraLogo';
 import { navLinks } from '../data/site';
 
 export default function Navbar() {
@@ -35,29 +36,12 @@ export default function Navbar() {
       }`}
     >
       <div className="container-editorial flex items-center justify-between h-16 md:h-[72px]">
-        <Link href="/" className="flex items-center gap-1.5" aria-label="ARKENTRA Kentsel Dönüşüm">
-          <div
-            className={`w-1 h-8 md:h-9 shrink-0 transition-colors ${
-              overlay ? 'bg-brand-400' : 'bg-brand-600'
-            }`}
-            aria-hidden
+        <Link href="/" className="flex items-center min-w-0 max-w-[58%] sm:max-w-none" aria-label="ARKENTRA Kentsel Dönüşüm">
+          <ArkentraLogo
+            variant={overlay ? 'white-full' : 'color-full'}
+            className="min-w-0"
+            priority
           />
-          <div className="flex flex-col leading-none">
-            <div
-              className={`text-[17px] md:text-lg font-semibold tracking-tight leading-none transition-colors ${
-                overlay ? 'text-white' : 'text-gray-900'
-              }`}
-            >
-              ARKENTRA
-            </div>
-            <div
-              className={`text-[11px] md:text-xs tracking-wide -mt-1 leading-none transition-colors ${
-                overlay ? 'text-white/75' : 'text-gray-500'
-              }`}
-            >
-              Kentsel Dönüşüm Danışmanlığı
-            </div>
-          </div>
         </Link>
 
         <div className="flex items-center gap-2 md:gap-4">
@@ -113,6 +97,9 @@ export default function Navbar() {
       {open && (
         <div className="xl:hidden bg-white border-t border-gray-100">
           <div className="container-editorial py-4 flex flex-col">
+            <div className="pb-4 mb-2 border-b border-gray-100">
+              <ArkentraLogo variant="color-compact" />
+            </div>
             {navLinks
               .filter((link) => link.href !== '/iletisim')
               .map((link) => (
