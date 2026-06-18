@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { IMAGE_QUALITY } from '../lib/image-utils';
 
 interface PanoramicSectionProps {
   imageSrc: string;
@@ -23,7 +24,14 @@ export default function PanoramicSection({
   return (
     <section className={bgClass}>
       <div className="relative w-full aspect-[32/9] min-h-[160px] md:min-h-[240px]">
-        <Image src={imageSrc} alt={imageAlt} fill className="object-cover object-center" sizes="100vw" />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={IMAGE_QUALITY}
+        />
       </div>
       <div className="container-editorial py-12 md:py-16 max-w-4xl">
         {eyebrow && (

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { heroVideo } from '../data/images';
+import { IMAGE_QUALITY } from '../lib/image-utils';
 
 interface VideoHeroProps {
   title: string;
@@ -100,9 +101,8 @@ export default function VideoHero({
                 fill
                 className="object-cover"
                 sizes="100vw"
-                quality={95}
+                quality={IMAGE_QUALITY}
                 priority
-                unoptimized
               />
             )}
           </>
@@ -113,9 +113,8 @@ export default function VideoHero({
             fill
             className="object-cover animate-ken-burns"
             sizes="100vw"
-            quality={95}
+            quality={IMAGE_QUALITY}
             priority
-            unoptimized
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />

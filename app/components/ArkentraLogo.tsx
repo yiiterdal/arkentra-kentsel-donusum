@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { LOGO_IMAGE_QUALITY } from '../lib/image-utils';
 
 export type ArkentraLogoVariant =
   | 'color-full'
@@ -37,8 +38,8 @@ const logoAssets = {
   },
   'white-full': {
     src: '/images/logo/arkentra-logo-white.png',
-    width: 354,
-    height: 77,
+    width: 708,
+    height: 154,
     className: 'h-9 w-auto md:h-11',
   },
   'color-compact': {
@@ -49,8 +50,8 @@ const logoAssets = {
   },
   'white-compact': {
     src: '/images/logo/arkentra-logo-white.png',
-    width: 354,
-    height: 77,
+    width: 708,
+    height: 154,
     className: 'h-8 w-auto',
   },
   'icon-color': {
@@ -100,7 +101,7 @@ export default function ArkentraLogo({
             sizes={isCompact ? '32px' : '(max-width: 768px) 36px, 44px'}
             className="object-contain"
             priority={priority}
-            unoptimized
+            quality={LOGO_IMAGE_QUALITY}
             aria-hidden
           />
         </span>
@@ -134,6 +135,7 @@ export default function ArkentraLogo({
         height={asset.height}
         className={`${asset.className} max-w-full object-contain object-left`}
         priority={priority}
+        quality={LOGO_IMAGE_QUALITY}
       />
     </span>
   );

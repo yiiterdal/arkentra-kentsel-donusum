@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { IMAGE_QUALITY } from '../lib/image-utils';
 
 interface FullBleedImageProps {
   src: string;
@@ -22,7 +23,14 @@ export default function FullBleedImage({
   return (
     <figure className="w-full">
       <div className={`relative w-full ${aspectClasses[aspect]}`}>
-        <Image src={src} alt={alt} fill className="object-cover object-center" sizes="100vw" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={IMAGE_QUALITY}
+        />
       </div>
       {caption && (
         <figcaption className="container-editorial py-3 text-sm text-gray-500 font-light">

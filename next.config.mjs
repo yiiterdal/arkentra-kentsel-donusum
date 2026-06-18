@@ -14,7 +14,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/images/hero/:path*',
+        source: '/images/:path*',
         headers: [
           {
             key: 'Cache-Control',

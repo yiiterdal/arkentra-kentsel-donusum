@@ -146,7 +146,7 @@ export const heroVideo = {
   local: '/videos/arkentra-hero.mp4',
   /** GitHub Media CDN — guaranteed full 4K on production (Vercel LFS can miss). */
   cdn: 'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero.mp4',
-  poster: '/images/hero/poster-4k.jpg',
+  poster: '/images/hero/poster.webp',
 } as const;
 
 export function getHeroVideoSrc(): string {

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CareerApplyButton from '../components/CareerApplyButton';
 import Hero from '../components/Hero';
+import { IMAGE_QUALITY } from '../lib/image-utils';
 import { careerOpenings, careerPartners, careerValues, careersContactEmail, gmailApplicationUrl } from '../data/careers';
 
 export const metadata = {
@@ -74,6 +75,7 @@ export default function CareersPage() {
                           alt={partner.name}
                           fill
                           sizes="80px"
+                          quality={IMAGE_QUALITY}
                           className="object-cover object-center grayscale"
                         />
                       </div>
@@ -170,6 +172,7 @@ export default function CareersPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 480px"
+                quality={IMAGE_QUALITY}
               />
               <div className="absolute inset-0 bg-[#1E293B]/20" aria-hidden />
             </div>

@@ -2,8 +2,11 @@
 export const IMAGE_BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A0AAA//Z';
 
-/** Next/Image encoder quality (1–100) */
-export const IMAGE_QUALITY = 90;
+/** Next/Image encoder quality (1–100) — visually lossless for photos */
+export const IMAGE_QUALITY = 95;
+
+/** Logos and brand marks — no visible compression */
+export const LOGO_IMAGE_QUALITY = 100;
 
 /** Remote source widths — match typical viewport; Next/Image serves AVIF/WebP */
 export const REMOTE_HERO_WIDTH = 1920;
@@ -22,7 +25,7 @@ const UNSPLASH_PARAMS = 'auto=format&fit=crop';
 
 /** Build a high-resolution Unsplash URL (path after images.unsplash.com/) */
 export function unsplashSrc(photoPath: string, width = REMOTE_FULL_WIDTH): string {
-  return `https://images.unsplash.com/${photoPath}?w=${width}&q=90&${UNSPLASH_PARAMS}`;
+  return `https://images.unsplash.com/${photoPath}?w=${width}&q=95&${UNSPLASH_PARAMS}`;
 }
 
 /** Upgrade a Pexels URL to a higher width */
