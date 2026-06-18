@@ -106,14 +106,16 @@ export default function ArkentraLogo({
         </span>
         <span className="inline-flex items-stretch gap-1.5 min-w-0">
           <span className="w-1 shrink-0 bg-brand-300" aria-hidden />
-          <span className="flex min-w-0 flex-col justify-center gap-0 leading-none">
+          <span className="flex min-w-0 flex-col">
             <span
-              className={`text-base md:text-lg font-bold tracking-tight uppercase ${titleClass}`}
+              className={`block text-base md:text-lg font-bold tracking-tight uppercase leading-none ${titleClass}`}
             >
               ARKENTRA
             </span>
             {!isCompact && (
-              <span className={`text-xs md:text-sm font-medium tracking-wide ${taglineClass}`}>
+              <span
+                className={`block text-xs md:text-sm font-medium tracking-wide leading-none -mt-1 ${taglineClass}`}
+              >
                 Kentsel Dönüşüm Danışmanlığı
               </span>
             )}
