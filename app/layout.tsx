@@ -11,8 +11,8 @@ export const metadata = {
   description: siteDescription,
   manifest: '/site.webmanifest',
   icons: {
-    icon: [{ url: '/images/logo/app-icon.svg', type: 'image/svg+xml' }],
-    apple: [{ url: '/images/logo/app-icon.svg', sizes: '180x180', type: 'image/svg+xml' }],
+    icon: [{ url: '/images/logo/app-icon.png', type: 'image/png' }],
+    apple: [{ url: '/images/logo/app-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 

@@ -41,6 +41,7 @@ export default function Navbar() {
             variant={overlay ? 'white-full' : 'color-full'}
             className="min-w-0"
             priority
+            withAppIcon
           />
         </Link>
 
@@ -98,7 +99,7 @@ export default function Navbar() {
         <div className="xl:hidden bg-white border-t border-gray-100">
           <div className="container-editorial py-4 flex flex-col">
             <div className="pb-4 mb-2 border-b border-gray-100">
-              <ArkentraLogo variant="color-compact" />
+              <ArkentraLogo variant="color-compact" withAppIcon />
             </div>
             {navLinks
               .filter((link) => link.href !== '/iletisim')

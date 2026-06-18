@@ -3,9 +3,9 @@
   "short_name": "ARKENTRA",
   "icons": [
     {
-      "src": "/images/logo/app-icon.svg",
+      "src": "/images/logo/app-icon.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ],
   "theme_color": "#3d6b4f",
