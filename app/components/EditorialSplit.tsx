@@ -13,6 +13,7 @@ interface EditorialSplitProps {
   bg?: 'white' | 'gray' | 'brand';
   href?: string;
   linkLabel?: string;
+  id?: string;
 }
 
 export default function EditorialSplit({
@@ -25,12 +26,13 @@ export default function EditorialSplit({
   bg = 'white',
   href,
   linkLabel = 'Daha fazla bilgi →',
+  id,
 }: EditorialSplitProps) {
   const bgClass =
     bg === 'gray' ? 'bg-gray-50' : bg === 'brand' ? 'bg-brand-50' : 'bg-white';
 
   return (
-    <section className={bgClass}>
+    <section id={id} className={`${bgClass} scroll-mt-20 md:scroll-mt-[88px]`}>
       <div className="container-editorial py-14 md:py-20">
         <div
           className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${

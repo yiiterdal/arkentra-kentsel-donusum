@@ -7,7 +7,7 @@ import {
   technicalInspectionStages,
 } from '../data/hizmetler';
 import { images } from '../data/images';
-import { services } from '../data/site';
+import { serviceSlug, services } from '../data/site';
 
 export const metadata = {
   title: 'Hizmetler | ARKENTRA Kentsel Dönüşüm',
@@ -39,6 +39,7 @@ export default function HizmetlerPage() {
         return (
           <EditorialSplit
             key={service}
+            id={serviceSlug(service)}
             imageSrc={detail.image.src}
             imageAlt={detail.image.alt}
             eyebrow={`Hizmet ${String(index + 1).padStart(2, '0')}`}

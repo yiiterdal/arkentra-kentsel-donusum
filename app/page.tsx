@@ -66,7 +66,7 @@ export default function HomePage() {
         subtitle="İstanbul ve çevre illerde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında birleştirerek kentsel dönüşüm süreçlerini uçtan uca yönetiyoruz."
         eyebrow="Kentsel Dönüşüm ve Danışmanlık"
         videoSrc={heroVideo.local}
-        posterAlt={images.hero.alt}
+        posterAlt="Kentsel dönüşüm hero görseli"
       />
 
       <EditorialSplit

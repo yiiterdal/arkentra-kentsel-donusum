@@ -43,9 +43,7 @@ export default function VideoHero({
 
     const onPlaying = () => {
       markReady();
-      video.play().catch(() => {
-        // Autoplay engellense bile kare görünsün.
-      });
+      video.play().catch(() => {});
     };
 
     const onError = () => {
@@ -78,47 +76,32 @@ export default function VideoHero({
   return (
     <section className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {!failed ? (
-          <>
-            <video
-              key={activeSrc}
-              ref={videoRef}
-              src={activeSrc}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-                videoReady ? 'opacity-100' : 'opacity-0'
-              }`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster={posterSrc}
-            />
-            {!videoReady && (
-              <Image
-                src={posterSrc}
-                alt={posterAlt}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                quality={IMAGE_QUALITY}
-                priority
-              />
-            )}
-          </>
-        ) : (
-          <Image
-            src={posterSrc}
-            alt={posterAlt}
-            fill
-            className="object-cover animate-ken-burns"
-            sizes="100vw"
-            quality={IMAGE_QUALITY}
-            priority
+        <Image
+          src={posterSrc}
+          alt={posterAlt}
+          fill
+          className="object-cover z-0"
+          sizes="100vw"
+          quality={IMAGE_QUALITY}
+          priority
+        />
+        {!failed && (
+          <video
+            key={activeSrc}
+            ref={videoRef}
+            src={activeSrc}
+            className={`absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-700 ${
+              videoReady ? 'opacity-100' : 'opacity-0'
+            }`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
-        <div className="absolute inset-0 flex items-center pt-16 md:pt-[72px] pb-16">
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
+        <div className="absolute inset-0 z-30 flex items-center pt-16 md:pt-[72px] pb-16">
           <div className="container-editorial w-full">
             {eyebrow && (
               <p className="text-brand-300 text-sm font-semibold tracking-[0.2em] uppercase mb-3">

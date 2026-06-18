@@ -7,7 +7,7 @@ import {
   contactPhone,
   contactPhoneHref,
 } from '../data/contact';
-import { footerContent, navLinks, services, siteName } from '../data/site';
+import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
 
 export default function Footer() {
   return (
@@ -54,7 +54,9 @@ export default function Footer() {
             <ol className="space-y-2 text-sm font-light list-none site-footer__muted">
               {services.slice(0, 4).map((service, i) => (
                 <li key={service}>
-                  {i + 1}. {service}
+                  <Link href={serviceHref(service)} className="hover:text-white transition-colors">
+                    {i + 1}. {service}
+                  </Link>
                 </li>
               ))}
             </ol>

@@ -21,6 +21,20 @@ export const services = [
   'Yıkım, İnşaat ve Uygulama Yönetimi',
 ] as const;
 
+export function serviceSlug(name: string): string {
+  return name
+    .toLocaleLowerCase('tr-TR')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ı/g, 'i')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function serviceHref(name: string): string {
+  return `/hizmetler#${serviceSlug(name)}`;
+}
+
 export type ServiceIconId =
   | 'engineering'
   | 'architecture'
