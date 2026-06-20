@@ -11,8 +11,8 @@ export const metadata = {
   description: siteDescription,
   manifest: '/site.webmanifest',
   icons: {
-    icon: [{ url: '/images/logo/app-icon.png', type: 'image/png' }],
-    apple: [{ url: '/images/logo/app-icon.png', sizes: '180x180', type: 'image/png' }],
+    icon: [{ url: '/images/logo/arkentra-app-icon.png', type: 'image/png', sizes: '436x436' }],
+    apple: [{ url: '/images/logo/arkentra-app-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 

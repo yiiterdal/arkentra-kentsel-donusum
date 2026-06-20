@@ -3,8 +3,8 @@
   "short_name": "ARKENTRA",
   "icons": [
     {
-      "src": "/images/logo/app-icon.png",
-      "sizes": "512x512",
+      "src": "/images/logo/arkentra-app-icon.png",
+      "sizes": "436x436",
       "type": "image/png"
     }
   ],
