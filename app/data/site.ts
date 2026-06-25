@@ -168,7 +168,7 @@ export const teamContent = {
     {
       name: 'Mimar Nevzat Yıldırım',
       role: 'Kurucu Ortak',
-      image: '/images/team/nevzat-yildirim.png',
+      image: '/images/team/nevzat-yildirim-portrait.png',
       imageAlt: 'Mimar Nevzat Yıldırım — Arkentra Kurucu Ortak',
       imagePosition: 'object-[center_32%]',
       bio: [
