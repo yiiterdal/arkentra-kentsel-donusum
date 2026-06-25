@@ -14,8 +14,8 @@ export default function YazilarimizPage() {
         title="Yazılarımız"
         subtitle="Hukuk, teknik süreçler ve malik hakları hakkında uzman rehberler."
         eyebrow="Blog"
-        imageSrc={images.cityAerial.src}
-        imageAlt={images.cityAerial.alt}
+        imageSrc={images.yazilarHero.src}
+        imageAlt={images.yazilarHero.alt}
         variant="overlay"
       />
 

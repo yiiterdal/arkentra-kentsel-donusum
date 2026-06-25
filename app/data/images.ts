@@ -97,6 +97,10 @@ export const images = {
     src: pexels(6943663, REMOTE_FULL_WIDTH),
     alt: 'Kentsel dönüşüm ve şehir planlaması',
   },
+  yazilarHero: {
+    src: '/images/yazilar-hero.jpg',
+    alt: 'Kuş bakışı kent planı ve kentsel dönüşüm',
+  },
   freshHome: {
     src: '/images/service-urban-plaza.png',
     alt: 'Yeşil alanlı modern kent meydanı ve kentsel dönüşüm',
