@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import PageHero from '../components/PageHero';
 import SectionIntro from '../components/SectionIntro';
 import { images } from '../data/images';
 import { teamContent } from '../data/site';
+import { IMAGE_QUALITY } from '../lib/image-utils';
 
 export const metadata = {
   title: 'Ekibimiz | ARKENTRA Kentsel Dönüşüm',
@@ -37,21 +39,36 @@ export default function EkibimizPage() {
             title={teamContent.foundersTitle}
             className="mb-12"
           />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-white border border-gray-100 mb-10">
+            {teamContent.founders.map((member) => (
+              <div key={member.name} className="flex flex-col items-center px-6 py-10 md:px-8 md:py-12">
+                <div className="relative h-40 w-40 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                  <Image
+                    src={member.image}
+                    alt={member.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 160px, 192px"
+                    quality={IMAGE_QUALITY}
+                    className={`object-cover grayscale ${member.imagePosition ?? 'object-[center_32%]'}`}
+                  />
+                </div>
+                <h3 className="mt-6 text-lg md:text-xl font-semibold text-gray-900 tracking-tight text-center">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-sm md:text-base text-brand-600 font-medium text-center max-w-[16rem]">
+                  {member.role}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {teamContent.founders.map((member) => (
               <article
-                key={member.name}
+                key={`${member.name}-bio`}
                 className="bg-white border border-gray-100 p-8 md:p-10"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-1 h-12 bg-brand-600 shrink-0" aria-hidden />
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="mt-1 text-base text-brand-600 font-medium">{member.role}</p>
-                  </div>
-                </div>
                 <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed font-light">
                   {member.bio.map((paragraph) => (
                     <p key={paragraph.slice(0, 48)}>{paragraph}</p>

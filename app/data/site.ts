@@ -157,6 +157,9 @@ export const teamContent = {
     {
       name: 'Av. Ferhat Yıldırım',
       role: 'Kurucu Ortak',
+      image: '/images/team/ferhat-yildirim.png',
+      imageAlt: 'Av. Ferhat Yıldırım — Arkentra Kurucu Ortak',
+      imagePosition: 'object-[center_32%]',
       bio: [
         'Kentsel dönüşüm hukuku ve gayrimenkul hukuku alanlarında uzmanlaşmış bir hukuk danışmanı olarak, mülkiyet ilişkileri, kat malikleri süreçleri, riskli yapı tespiti sonrası hukuki yol haritaları ve sözleşme hazırlıkları üzerine çalışır.',
         'Belediye izinleri, ruhsat süreçleri, tapu işlemleri, kat irtifakı ve kat mülkiyeti dönüşümleri, noter sözleşmeleri ve müteahhit-malik ilişkilerinde ortaya çıkan hukuki risklerin yönetilmesinde aktif rol alır. Projelerin hukuki güvenliğini baştan sona sağlar.',
@@ -165,9 +168,23 @@ export const teamContent = {
     {
       name: 'Mimar Nevzat Yıldırım',
       role: 'Kurucu Ortak',
+      image: '/images/team/nevzat-yildirim.png',
+      imageAlt: 'Mimar Nevzat Yıldırım — Arkentra Kurucu Ortak',
+      imagePosition: 'object-[center_32%]',
       bio: [
         'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
         'Kentsel dönüşüm projelerine yönelik teknik danışmanlık ve aşamalı saha denetimi hizmetleri sunar; temelden iskâna kadar her kritik imalat aşamasında yerinde inceleme ve teknik raporlama yapar. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
+      ],
+    },
+    {
+      name: 'Yiğit Erdal',
+      role: 'Medya ve İletişim Sorumlusu',
+      image: '/images/team/yigit-erdal.png',
+      imageAlt: 'Yiğit Erdal — Arkentra Medya ve İletişim Sorumlusu',
+      imagePosition: 'object-center',
+      bio: [
+        'Sosyal medya kanallarının yönetimi, içerik planlaması ve markanın dış iletişim stratejisinden sorumludur. Medya platformları aracılığıyla maliklere ulaşmayı, süreci anlaşılır ve erişilebilir kılmayı hedefler.',
+        'Arkentra\'nın kurumsal iletişimini yönetir; markanın şeffaf, tutarlı ve profesyonel bir çizgide temsil edilmesini sağlar.',
       ],
     },
   ],
