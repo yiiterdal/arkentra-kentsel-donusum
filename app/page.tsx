@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import EditorialSplit from './components/EditorialSplit';
 import FaqSection from './components/FaqSection';
+import FoundersPreview from './components/FoundersPreview';
 import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
@@ -10,7 +11,7 @@ import { faqItems, faqPreviewCount } from './data/sss';
 import { siteDescription, siteName, siteTagline } from './data/site';
 
 export const metadata = {
-  title: 'Ana Sayfa | ARKENTRA Kentsel Dönüşüm',
+  title: 'Ana Sayfa',
   description: siteDescription,
 };
 
@@ -62,9 +63,9 @@ export default function HomePage() {
   return (
     <>
       <VideoHero
-        title="Kentsel Dönüşümde Güvenilir Çözüm Ortağınız"
-        subtitle="İstanbul ve çevre illerde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında birleştirerek kentsel dönüşüm süreçlerini uçtan uca yönetiyoruz."
-        eyebrow="Kentsel Dönüşüm ve Danışmanlık"
+        title="İstanbul Kentsel Dönüşüm Danışmanlığı"
+        subtitle="Bayrampaşa merkezli ARKENTRA; 6306 sayılı Kanun kapsamında riskli yapı tespiti, malik temsili, kat karşılığı sözleşmesi ve aşamalı teknik denetim hizmetleri sunar."
+        eyebrow="Malik Temsilciliği · Hukuk · Mühendislik"
         videoSrc={heroVideo.local}
         posterAlt="Kentsel dönüşüm hero görseli"
       />
@@ -73,22 +74,22 @@ export default function HomePage() {
         imageSrc={images.community.src}
         imageAlt={images.community.alt}
         eyebrow="Hakkımızda"
-        title="Yaşam alanlarını hukuk ve vizyonla yeniden inşa ediyoruz"
+        title="6306 kapsamında malik temsilciliği ve riskli yapı danışmanlığı"
         href="/hakkimizda"
         bg="white"
       >
         <p>
           {siteName}, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti’nin iştiraki
-          olarak İstanbul ve çevre illerde kentsel dönüşüm süreçlerinde malikleri; hukuk,
-          mühendislik, mimarlık ve finans alanlarında tek çatı altında temsil eden bir danışmanlık
-          firmasıdır.
+          olarak Bayrampaşa merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden
+          bağımsız bir kentsel dönüşüm danışmanlık firmasıyız. Riskli yapı tespiti, kat malikleri
+          toplantıları, kat karşılığı inşaat sözleşmesi ve kira yardımı başvurularında yanınızdayız.
         </p>
         <p>
-          Riskli yapıların güvenli, modern ve değer kazandıran yapılara dönüşümünü; yeşil alanları
-          koruyan sürdürülebilir projelerle birlikte yürütüyoruz.
+          İstanbul’un 39 ilçesinde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı
+          altında birleştirerek süreci şeffaf ve mevzuata uygun yönetiyoruz.
         </p>
         <ul className="space-y-2 pt-2">
-          {['Malik temsili ve hukuki danışmanlık', 'Teknik mühendislik ve proje yönetimi', 'Şeffaf ve güvenilir süreç'].map((item) => (
+          {['Riskli yapı tespiti ve 6306 süreç danışmanlığı', 'Kat karşılığı sözleşme müzakeresi', 'Aşamalı teknik denetim ve saha raporları'].map((item) => (
             <li key={item} className="flex items-center gap-2 text-base">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" />
               {item}
@@ -102,7 +103,7 @@ export default function HomePage() {
           <SectionIntro
             eyebrow="Süreç"
             title="Stratejik danışmanlıktan proje teslimine"
-            description="Kentsel dönüşüm sürecinin her aşamasında yanınızdayız; riskli yapı tespitinden tapu tesciline kadar tek elden profesyonel çözüm."
+            description="Riskli yapı tespitinden tapu tesciline; kat malikleri toplantısı, müteahhit seçimi ve aşamalı saha denetimine kadar 6306 kapsamında uçtan uca danışmanlık."
             className="mb-12"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200">
@@ -184,6 +185,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <FoundersPreview />
 
       <FaqSection
         title="Sık sorulan sorular"

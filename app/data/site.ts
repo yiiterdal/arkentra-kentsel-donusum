@@ -1,7 +1,11 @@
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arkentrakentseldonusum.com';
+
 export const siteName = 'ARKENTRA Kentsel Dönüşüm';
-export const siteTagline = 'Kentsel dönüşüm ve gayrimenkul danışmanlığında güvenilir çözüm ortağınız.';
+export const siteTagline =
+  'İstanbul ve Bayrampaşa odaklı kentsel dönüşüm danışmanlığı — riskli yapı tespiti, 6306 malik temsili ve kat karşılığı sözleşme danışmanlığı.';
 export const siteDescription =
-  'Arkentra Kentsel Dönüşüm Danışmanlığı İstanbul, riskli yapı tespiti, müteahhit sözleşmesi, kira yardımı ve malik temsil hizmetleri.';
+  'ARKENTRA Kentsel Dönüşüm Danışmanlığı: İstanbul Bayrampaşa merkezli bağımsız malik temsilcisi. Riskli yapı tespiti, kat karşılığı inşaat sözleşmesi, kira yardımı başvurusu, 6306 sayılı Kanun süreçleri ve aşamalı teknik denetim.';
 
 export const navLinks = [
   { href: '/hizmetler', label: 'HİZMETLER' },
@@ -32,7 +36,7 @@ export function serviceSlug(name: string): string {
 }
 
 export function serviceHref(name: string): string {
-  return `/hizmetler#${serviceSlug(name)}`;
+  return `/hizmetler/${serviceSlug(name)}`;
 }
 
 export type ServiceIconId =
@@ -56,42 +60,42 @@ export const expertiseAreas: readonly ExpertiseItem[] = [
     description:
       'Riskli yapı tespiti, proje incelemesi, aşamalı saha denetimi ve teknik ilerleme raporlarıyla güvenli dönüşüm.',
     icon: 'engineering',
-    href: '/hizmetler',
+    href: '/hizmetler/muhendislik-ve-teknik-danismanlik',
   },
   {
     title: 'Mimarlık ve Proje Geliştirme',
     description:
       'Mimari tasarım, ruhsat süreçleri ve sürdürülebilir proje geliştirme danışmanlığı.',
     icon: 'architecture',
-    href: '/hizmetler',
+    href: '/hizmetler/mimarlik-ve-proje-gelistirme',
   },
   {
     title: 'Hukuki Danışmanlık',
     description:
       'Toplantı organizasyonu, kat karşılığı sözleşmeleri, tapu ve teminat süreçlerinde malik çıkarını koruyan hukuki danışmanlık.',
     icon: 'legal',
-    href: '/hizmetler',
+    href: '/hizmetler/hukuki-danismanlik',
   },
   {
     title: 'Gayrimenkul ve Finans Danışmanlığı',
     description:
       'Kira yardımı, Yarısı Bizden, İADŞP kredileri ve vergi avantajları dahil devlet destekleri hakkında rehberlik.',
     icon: 'finance',
-    href: '/hizmetler',
+    href: '/hizmetler/gayrimenkul-ve-finans-danismanligi',
   },
   {
     title: 'Süreç Yönetimi ve Koordinasyon',
     description:
       '6306 kapsamındaki toplantı süreçlerinden müteahhit görüşmelerine kadar uçtan uca koordinasyon.',
     icon: 'process',
-    href: '/hizmetler',
+    href: '/hizmetler/surec-yonetimi-ve-koordinasyon',
   },
   {
     title: 'Yıkım, İnşaat ve Uygulama Yönetimi',
     description:
       'Temelden iskâna aşamalı teknik denetim, şantiye kontrolü ve teslim öncesi kalite değerlendirmesi.',
     icon: 'construction',
-    href: '/hizmetler',
+    href: '/hizmetler/yikim-insaat-ve-uygulama-yonetimi',
   },
 ] as const;
 
@@ -99,11 +103,11 @@ export const aboutContent = {
   pageTitle: 'HAKKIMIZDA',
   heroTitle: 'Hakkımızda',
   heroSubtitle:
-    'İstanbul merkezli kentsel dönüşüm danışmanlığı; malikler, yatırımcılar ve müteahhitler için bütüncül çözümler.',
+    'Bayrampaşa merkezli, İstanbul genelinde 6306 sayılı Kanun kapsamında malik temsilciliği; riskli yapı tespiti, kat karşılığı sözleşmesi ve aşamalı teknik denetim.',
   lead: {
     eyebrow: 'ARKENTRA',
-    title: 'Kentsel dönüşüm sürecini başından sonuna profesyonelce yönetiyoruz',
-    text: 'Arkentra Kentsel Dönüşüm ve Danışmanlık, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Sanayi ve Ticaret Ltd. Şti’nin iştiraki olarak faaliyet göstermektedir. Mühendislik, mimarlık ve hukuku tek çatı altında buluşturan yenilikçi bir danışmanlık markasıyız; risk analizi ve proje geliştirmeden ruhsat ve uygulama süreçlerine, sözleşmelerden saha denetimine kadar her aşamada güvenli, şeffaf ve planlı çözümler sunuyoruz.',
+    title: '6306 kapsamında malik temsilciliği ve uçtan uca kentsel dönüşüm danışmanlığı',
+    text: 'Arkentra Kentsel Dönüşüm ve Danışmanlık, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Sanayi ve Ticaret Ltd. Şti’nin iştiraki olarak Bayrampaşa merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden bağımsız bir danışmanlık firmasıyız. Riskli yapı tespiti başvurusundan kat malikleri toplantılarına, kat karşılığı inşaat sözleşmesi müzakerelerinden aşamalı saha denetimine kadar hukuk, mühendislik ve mimarlığı tek çatı altında sunuyoruz.',
   },
   expertise: {
     title: 'Uzmanlık alanlarımız',

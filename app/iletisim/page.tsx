@@ -3,8 +3,9 @@ import PageHero from '../components/PageHero';
 import { images } from '../data/images';
 
 export const metadata = {
-  title: 'İletişim | ARKENTRA Kentsel Dönüşüm',
-  description: 'ARKENTRA Kentsel Dönüşüm ile iletişime geçin. Bayrampaşa, İstanbul.',
+  title: 'İletişim',
+  description:
+    'ARKENTRA Kentsel Dönüşüm ile iletişime geçin. Bayrampaşa, İstanbul — riskli yapı ve kentsel dönüşüm danışmanlığı.',
 };
 
 export default function IletisimPage() {

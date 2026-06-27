@@ -1,19 +1,24 @@
 import Link from 'next/link';
 import FaqSection from '../components/FaqSection';
+import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
 import { contactWhatsAppHref } from '../data/contact';
 import { images } from '../data/images';
 import { faqCategories } from '../data/sss';
+import { faqPageSchema } from '../lib/schema';
+
+const allFaqItems = faqCategories.flatMap((category) => category.items);
 
 export const metadata = {
-  title: 'Sık Sorulan Sorular | ARKENTRA Kentsel Dönüşüm',
+  title: 'Sık Sorulan Sorular',
   description:
-    'Kentsel dönüşüm, riskli yapı tespiti, kira yardımı, kat karşılığı sözleşmesi ve malik hakları hakkında sık sorulan sorular.',
+    '6306 sayılı Kanun, riskli yapı tespiti, kira yardımı, kat karşılığı sözleşmesi ve malik hakları hakkında sık sorulan sorular.',
 };
 
 export default function SssPage() {
   return (
     <>
+      <JsonLd data={faqPageSchema(allFaqItems)} />
       <PageHero
         title="Sık Sorulan Sorular"
         subtitle="Kentsel dönüşüm sürecinde en çok merak edilen konulara kısa ve net yanıtlar."

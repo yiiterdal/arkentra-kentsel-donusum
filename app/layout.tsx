@@ -1,15 +1,31 @@
 // app/layout.tsx
 import './globals.css';
+import JsonLd from './components/JsonLd';
 import SiteChrome from './components/SiteChrome';
 import SmoothScrollProvider from './components/SmoothScrollProvider';
+import { siteDescription, siteName, siteUrl } from './data/site';
 import { playfairDisplay, plusJakartaSans } from './fonts';
+import { organizationSchema } from './lib/schema';
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { siteDescription, siteName } from './data/site';
 
-export const metadata = {
-  title: `${siteName} | Kentsel Dönüşüm Danışmanlığı İstanbul`,
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
   description: siteDescription,
   manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    locale: 'tr_TR',
+    siteName,
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630, alt: siteName }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
   icons: {
     icon: [{ url: '/images/logo/arkentra-app-icon.png', type: 'image/png', sizes: '436x436' }],
     apple: [{ url: '/images/logo/arkentra-app-icon.png', sizes: '180x180', type: 'image/png' }],
@@ -24,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
         <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
+        <JsonLd data={organizationSchema()} />
       </head>
       <body className="min-h-screen flex flex-col bg-white font-sans antialiased text-gray-800">
         <a

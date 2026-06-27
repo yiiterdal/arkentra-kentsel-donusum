@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import JsonLd from '../../components/JsonLd';
 import YaziContent from '../../components/YaziContent';
 import { getYaziBySlug, yazilar } from '../../data/yazilar';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+import type { Metadata } from 'next';
 
 interface YaziPageProps {
   params: { slug: string };
@@ -13,13 +16,28 @@ export function generateStaticParams() {
   return yazilar.map((yazi) => ({ slug: yazi.slug }));
 }
 
-export function generateMetadata({ params }: YaziPageProps) {
+export function generateMetadata({ params }: YaziPageProps): Metadata {
   const yazi = getYaziBySlug(params.slug);
-  if (!yazi) return { title: 'Yazı Bulunamadı | ARKENTRA Kentsel Dönüşüm' };
+  if (!yazi) return { title: 'Yazı Bulunamadı' };
+
+  const imageUrl = yazi.imageSrc.startsWith('http') ? yazi.imageSrc : yazi.imageSrc;
 
   return {
-    title: `${yazi.title} | ARKENTRA Kentsel Dönüşüm`,
+    title: yazi.title,
     description: yazi.excerpt,
+    openGraph: {
+      type: 'article',
+      publishedTime: yazi.date,
+      title: yazi.title,
+      description: yazi.excerpt,
+      images: [{ url: imageUrl, alt: yazi.imageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: yazi.title,
+      description: yazi.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -29,6 +47,15 @@ export default function YaziPage({ params }: YaziPageProps) {
 
   return (
     <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-white">
+      <JsonLd data={articleSchema(yazi)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Ana Sayfa', url: '/' },
+          { name: 'Yazılarımız', url: '/yazilarimiz' },
+          { name: yazi.title },
+        ])}
+      />
+
       <div className="container-editorial">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-gray-500 mb-8" aria-label="Breadcrumb">

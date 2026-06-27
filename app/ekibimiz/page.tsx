@@ -1,19 +1,23 @@
 import Image from 'next/image';
+import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
 import SectionIntro from '../components/SectionIntro';
 import { images } from '../data/images';
 import { teamContent } from '../data/site';
 import { IMAGE_QUALITY } from '../lib/image-utils';
 
+import { foundersSchema } from '../lib/schema';
+
 export const metadata = {
-  title: 'Ekibimiz | ARKENTRA Kentsel Dönüşüm',
+  title: 'Ekibimiz',
   description:
-    'ARKENTRA Kentsel Dönüşüm uzman ekibi; kentsel dönüşüm hukuku, mühendislik, mimarlık ve proje yönetiminde deneyimli profesyoneller.',
+    'Av. Ferhat Yıldırım ve Mimar Nevzat Yıldırım liderliğinde kentsel dönüşüm hukuku, riskli yapı tespiti ve aşamalı teknik denetim uzman ekibi.',
 };
 
 export default function EkibimizPage() {
   return (
     <>
+      <JsonLd data={foundersSchema()} />
       <PageHero
         title="Ekibimiz"
         subtitle={teamContent.heroSubtitle}

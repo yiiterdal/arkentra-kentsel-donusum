@@ -1,4 +1,5 @@
 import EditorialSplit from '../components/EditorialSplit';
+import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
 import SectionIntro from '../components/SectionIntro';
 import {
@@ -7,16 +8,19 @@ import {
   technicalInspectionStages,
 } from '../data/hizmetler';
 import { images } from '../data/images';
-import { serviceSlug, services } from '../data/site';
+import { serviceHref, serviceSlug, services } from '../data/site';
+import { serviceCatalogSchema } from '../lib/schema';
 
 export const metadata = {
-  title: 'Hizmetler | ARKENTRA Kentsel Dönüşüm',
-  description: 'Kentsel dönüşüm mühendislik, mimarlık, hukuk, finans danışmanlığı ve süreç yönetimi hizmetleri.',
+  title: 'Hizmetler',
+  description:
+    'Riskli yapı tespiti, kat karşılığı sözleşmesi, 6306 malik toplantıları, kira yardımı danışmanlığı ve aşamalı teknik denetim hizmetleri.',
 };
 
 export default function HizmetlerPage() {
   return (
     <>
+      <JsonLd data={serviceCatalogSchema()} />
       <PageHero
         title="Hizmetlerimiz"
         subtitle="Kentsel dönüşüm sürecinin tamamında, stratejik danışmanlıktan proje teslimine kadar tek noktadan profesyonel çözüm sunuyoruz."
@@ -46,6 +50,8 @@ export default function HizmetlerPage() {
             title={service}
             reverse={index % 2 === 1}
             bg={index % 2 === 0 ? 'white' : 'gray'}
+            href={serviceHref(service)}
+            linkLabel="Detaylı bilgi →"
           >
             <p className="italic text-gray-500">{detail.description}</p>
             <ul className="space-y-2 !mt-4">

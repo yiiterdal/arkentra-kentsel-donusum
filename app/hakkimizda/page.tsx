@@ -1,19 +1,23 @@
 import Link from 'next/link';
 import EditorialSplit from '../components/EditorialSplit';
 import ExpertiseGrid from '../components/ExpertiseGrid';
+import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
 import { images } from '../data/images';
 import { aboutContent, expertiseAreas } from '../data/site';
 
+import { foundersSchema } from '../lib/schema';
+
 export const metadata = {
-  title: 'Hakkımızda | ARKENTRA Kentsel Dönüşüm',
+  title: 'Hakkımızda',
   description:
-    'ARKENTRA, İstanbul merkezli kentsel dönüşüm danışmanlığı. Hukuk, mühendislik ve finans uzmanlığını tek çatı altında sunuyoruz.',
+    'Bayrampaşa merkezli ARKENTRA: 6306 sayılı Kanun kapsamında malik temsilciliği, riskli yapı tespiti, kat karşılığı sözleşmesi ve aşamalı teknik denetim danışmanlığı.',
 };
 
 export default function HakkimizdaPage() {
   return (
     <>
+      <JsonLd data={foundersSchema()} />
       <PageHero
         title={aboutContent.heroTitle}
         subtitle={aboutContent.heroSubtitle}

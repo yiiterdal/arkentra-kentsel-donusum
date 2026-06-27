@@ -3,7 +3,7 @@ import PageHero from '../components/PageHero';
 import { images } from '../data/images';
 
 export const metadata = {
-  title: 'KVKK | ARKENTRA Kentsel Dönüşüm',
+  title: 'KVKK Aydınlatma Metni',
   description:
     'ARKENTRA Kentsel Dönüşüm Kişisel Verilerin İşlenmesi ve Çerez Politikasına İlişkin Aydınlatma Metni.',
 };
