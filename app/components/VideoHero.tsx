@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo } from '../data/images';
 
 interface VideoHeroProps {
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   eyebrow?: string;
   videoSrc?: string;
@@ -129,7 +129,7 @@ export default function VideoHero({
         <div className="absolute inset-0 z-30 flex items-center pt-16 md:pt-[72px] pb-16">
           <div className="container-editorial w-full">
             {eyebrow && (
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-300 md:text-base">
+              <p className="mb-3 text-base font-bold uppercase tracking-[0.2em] text-brand-300 md:text-lg">
                 {eyebrow}
               </p>
             )}
@@ -137,7 +137,7 @@ export default function VideoHero({
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:text-lg">
+              <p className="mt-4 max-w-2xl text-lg font-normal leading-relaxed text-white/90 md:text-xl">
                 {subtitle}
               </p>
             )}

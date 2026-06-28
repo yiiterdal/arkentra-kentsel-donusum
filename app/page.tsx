@@ -63,7 +63,13 @@ export default function HomePage() {
   return (
     <>
       <VideoHero
-        title="İstanbul Kentsel Dönüşüm Danışmanlığı"
+        title={
+          <>
+            İstanbul Kentsel
+            <br />
+            Dönüşüm Danışmanlığı
+          </>
+        }
         subtitle="Bayrampaşa merkezli ARKENTRA; 6306 sayılı Kanun kapsamında riskli yapı tespiti, malik temsili, kat karşılığı sözleşmesi ve aşamalı teknik denetim hizmetleri sunar."
         eyebrow="Malik Temsilciliği · Hukuk · Mühendislik"
         videoSrc={getHeroVideoSrc()}
