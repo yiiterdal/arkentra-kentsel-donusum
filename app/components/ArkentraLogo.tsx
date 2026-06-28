@@ -88,7 +88,7 @@ export default function ArkentraLogo({
     const appIcon = isWhite ? appIcons.white : appIcons.color;
 
     return (
-      <span className={`group inline-flex min-w-0 shrink-0 items-center gap-2.5 ${className}`}>
+      <span className={`group inline-flex min-w-0 max-w-full items-center gap-2 sm:gap-2.5 ${className}`}>
         <span
           className={`relative shrink-0 overflow-hidden ${
             isCompact ? 'h-8 w-8' : 'h-11 w-11'
@@ -105,17 +105,17 @@ export default function ArkentraLogo({
             aria-hidden
           />
         </span>
-        <span className="inline-flex min-w-0 shrink-0 items-stretch gap-1.5">
+        <span className="inline-flex min-w-0 max-w-full items-stretch gap-1.5">
           <span className="w-1 shrink-0 bg-brand-300" aria-hidden />
-          <span className="flex min-w-0 shrink-0 flex-col">
+          <span className="flex min-w-0 flex-col">
             <span
-              className={`block text-lg font-bold uppercase leading-none tracking-tight ${titleClass}`}
+              className={`block text-base font-bold uppercase leading-none tracking-tight sm:text-lg ${titleClass}`}
             >
               ARKENTRA
             </span>
             {!isCompact && (
               <span
-                className={`mt-0.5 hidden min-[480px]:block text-sm font-medium leading-tight tracking-wide ${taglineClass}`}
+                className={`mt-0.5 block text-[10px] font-medium leading-snug tracking-wide sm:text-xs md:text-sm ${taglineClass}`}
               >
                 Kentsel Dönüşüm Danışmanlığı
               </span>

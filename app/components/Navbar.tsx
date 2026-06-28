@@ -70,8 +70,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${headerSurface}`}
     >
-      <div className="container-editorial flex h-16 items-center justify-between md:h-[72px]">
-        <Link href="/" className="flex min-w-0 flex-1 items-center overflow-hidden pr-2" aria-label="ARKENTRA Kentsel Dönüşüm">
+      <div className="container-editorial flex min-h-16 items-center justify-between py-1.5 md:h-[72px] md:py-0">
+        <Link href="/" className="flex min-w-0 flex-1 items-center pr-2" aria-label="ARKENTRA Kentsel Dönüşüm">
           <ArkentraLogo
             variant={overlay ? 'white-full' : 'color-full'}
             className="min-w-0"
