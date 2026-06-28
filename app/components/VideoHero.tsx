@@ -1,11 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo } from '../data/images';
-import { IMAGE_BLUR_DATA_URL } from '../lib/image-utils';
-
-const HERO_POSTER_QUALITY = 95;
 
 interface VideoHeroProps {
   title: string;
@@ -21,6 +17,10 @@ function pickFallbackSrc(isMobile: boolean): string {
   return isMobile ? heroVideo.cdnMobile : heroVideo.cdn;
 }
 
+function isMobileViewport(): boolean {
+  return typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+}
+
 export default function VideoHero({
   title,
   subtitle,
@@ -31,9 +31,16 @@ export default function VideoHero({
   posterAlt,
 }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [activeSrc, setActiveSrc] = useState(videoSrc);
-  const [isMobile, setIsMobile] = useState(false);
-  const [videoVisible, setVideoVisible] = useState(false);
+  const [activeSrc, setActiveSrc] = useState(() =>
+    isMobileViewport() ? mobileVideoSrc : videoSrc,
+  );
+  const [isMobile, setIsMobile] = useState(() => isMobileViewport());
+
+  useLayoutEffect(() => {
+    const mobile = isMobileViewport();
+    setIsMobile(mobile);
+    setActiveSrc(mobile ? mobileVideoSrc : videoSrc);
+  }, [videoSrc, mobileVideoSrc]);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
@@ -41,10 +48,8 @@ export default function VideoHero({
       const mobile = mq.matches;
       setIsMobile(mobile);
       setActiveSrc(mobile ? mobileVideoSrc : videoSrc);
-      setVideoVisible(false);
     };
 
-    sync();
     mq.addEventListener('change', sync);
     return () => mq.removeEventListener('change', sync);
   }, [videoSrc, mobileVideoSrc]);
@@ -53,46 +58,52 @@ export default function VideoHero({
     const video = videoRef.current;
     if (!video) return;
 
+    const tryPlay = () => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+
+      void video.play().catch(() => {
+        // iOS bazen ilk denemede autoplay reddeder; dokununca tekrar dene
+      });
+    };
+
     const onError = () => {
-      setVideoVisible(false);
       const fallback = pickFallbackSrc(isMobile);
       if (activeSrc !== fallback) {
         setActiveSrc(fallback);
       }
     };
 
-    const onPlaying = () => setVideoVisible(true);
-    const onLoadedData = () => {
-      video.play().then(() => setVideoVisible(true)).catch(() => setVideoVisible(false));
-    };
-
+    video.addEventListener('loadedmetadata', tryPlay);
+    video.addEventListener('canplay', tryPlay);
     video.addEventListener('error', onError);
-    video.addEventListener('playing', onPlaying);
-    video.addEventListener('loadeddata', onLoadedData);
     video.load();
+    tryPlay();
+
+    const onFirstTouch = () => tryPlay();
+    document.addEventListener('touchstart', onFirstTouch, { once: true, passive: true });
 
     return () => {
+      video.removeEventListener('loadedmetadata', tryPlay);
+      video.removeEventListener('canplay', tryPlay);
       video.removeEventListener('error', onError);
-      video.removeEventListener('playing', onPlaying);
-      video.removeEventListener('loadeddata', onLoadedData);
+      document.removeEventListener('touchstart', onFirstTouch);
     };
   }, [activeSrc, isMobile]);
 
   return (
     <section className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {/* Poster her zaman altta — video oynamazsa (özellikle iOS) hero boş kalmaz */}
-        <Image
+        {/* Tam çözünürlük poster — Next/Image optimizasyonu mobilde bulanıklaştırıyordu */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={posterSrc}
           alt={posterAlt}
-          fill
-          className="object-cover z-0"
-          sizes="100vw"
-          quality={HERO_POSTER_QUALITY}
-          priority
+          className="absolute inset-0 z-0 h-full w-full object-cover"
+          decoding="async"
           fetchPriority="high"
-          placeholder="blur"
-          blurDataURL={IMAGE_BLUR_DATA_URL}
         />
 
         <video
@@ -100,11 +111,10 @@ export default function VideoHero({
           ref={videoRef}
           src={activeSrc}
           poster={posterSrc}
-          className={`absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden transition-opacity duration-300 ${
-            videoVisible ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden"
           autoPlay
           muted
+          defaultMuted
           loop
           playsInline
           preload="auto"
