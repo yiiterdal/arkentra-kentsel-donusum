@@ -45,8 +45,6 @@ export default function VideoHero({
     return () => mq.removeEventListener('change', sync);
   }, []);
 
-  const activeSrc = isMobile ? mobileSrc : desktopSrc;
-
   useEffect(() => {
     const video = videoRef.current;
     const section = sectionRef.current;
