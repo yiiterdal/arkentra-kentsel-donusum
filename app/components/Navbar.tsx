@@ -36,7 +36,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container-editorial flex items-center justify-between h-16 md:h-[72px]">
-        <Link href="/" className="flex items-center min-w-0 max-w-[58%] sm:max-w-none" aria-label="ARKENTRA Kentsel Dönüşüm">
+        <Link href="/" className="flex min-w-0 flex-1 items-center overflow-hidden pr-2" aria-label="ARKENTRA Kentsel Dönüşüm">
           <ArkentraLogo
             variant={overlay ? 'white-full' : 'color-full'}
             className="min-w-0"
@@ -45,7 +45,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex shrink-0 items-center gap-2 md:gap-4">
           <nav className="hidden xl:flex items-center gap-0.5">
             {navLinks
               .filter((link) => link.href !== '/iletisim')
@@ -99,7 +99,7 @@ export default function Navbar() {
         <div className="xl:hidden bg-white border-t border-gray-100">
           <div className="container-editorial py-4 flex flex-col">
             <div className="pb-4 mb-2 border-b border-gray-100">
-              <ArkentraLogo variant="color-compact" withAppIcon />
+              <ArkentraLogo variant="color-full" withAppIcon />
             </div>
             {navLinks
               .filter((link) => link.href !== '/iletisim')
