@@ -6,7 +6,7 @@ import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
 import VideoHero from './components/VideoHero';
-import { heroVideo, images } from './data/images';
+import { getHeroVideoSrc, heroVideo, images } from './data/images';
 import { faqItems, faqPreviewCount } from './data/sss';
 import { siteDescription, siteName, siteTagline } from './data/site';
 
@@ -66,7 +66,8 @@ export default function HomePage() {
         title="İstanbul Kentsel Dönüşüm Danışmanlığı"
         subtitle="Bayrampaşa merkezli ARKENTRA; 6306 sayılı Kanun kapsamında riskli yapı tespiti, malik temsili, kat karşılığı sözleşmesi ve aşamalı teknik denetim hizmetleri sunar."
         eyebrow="Malik Temsilciliği · Hukuk · Mühendislik"
-        videoSrc={heroVideo.local}
+        videoSrc={getHeroVideoSrc()}
+        posterSrc={heroVideo.poster}
         posterAlt="Kentsel dönüşüm hero görseli"
       />
 
