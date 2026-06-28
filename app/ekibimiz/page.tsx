@@ -44,10 +44,10 @@ export default function EkibimizPage() {
             className="mb-12"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-white border border-gray-100 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 bg-white border border-gray-100 mb-10">
             {teamContent.founders.map((member) => (
-              <div key={member.name} className="flex flex-col items-center px-6 py-10 md:px-8 md:py-12">
-                <div className="relative h-40 w-40 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full bg-gray-100">
+              <div key={member.name} className="flex min-w-0 flex-col items-center px-4 py-10 sm:px-6 md:px-8 md:py-12">
+                <div className="relative h-32 w-32 sm:h-36 sm:w-36 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full bg-gray-100">
                   <Image
                     src={member.image}
                     alt={member.imageAlt}

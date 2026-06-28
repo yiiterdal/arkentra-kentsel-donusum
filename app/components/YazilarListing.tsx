@@ -82,7 +82,7 @@ function FilterMenu({
       {open && (
         <div
           role="listbox"
-          className="absolute left-0 z-20 mt-2 min-w-[220px] max-h-64 overflow-y-auto border border-gray-200 bg-white py-1 shadow-lg"
+          className="absolute left-0 z-20 mt-2 w-max max-w-[calc(100vw-3rem)] min-w-[12rem] max-h-64 overflow-y-auto border border-gray-200 bg-white py-1 shadow-lg"
         >
           {children}
         </div>
@@ -160,7 +160,7 @@ function FeaturedYaziCard({ yazi }: { yazi: Yazi }) {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/80" />
-        <span className="absolute top-4 left-4 px-3 py-1 bg-brand-600 text-white text-[11px] font-semibold uppercase tracking-widest">
+        <span className="absolute top-4 left-4 px-3 py-1 bg-brand-600 text-white text-xs font-semibold uppercase tracking-widest">
           Öne Çıkan
         </span>
       </div>
@@ -198,7 +198,7 @@ function YaziCard({ yazi }: { yazi: Yazi }) {
           quality={IMAGE_QUALITY}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
-        <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-white/95 text-brand-800 text-[11px] font-semibold uppercase tracking-wide">
+        <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-white/95 text-brand-800 text-xs font-semibold uppercase tracking-wide">
           {yazi.konu}
         </span>
       </div>

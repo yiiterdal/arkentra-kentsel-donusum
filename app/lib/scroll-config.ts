@@ -16,6 +16,13 @@ export function shouldUseReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+export function shouldUseSmoothScroll(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (shouldUseReducedMotion()) return false;
+  if (window.matchMedia('(pointer: coarse)').matches) return false;
+  return true;
+}
+
 type NetworkInformation = {
   saveData?: boolean;
   effectiveType?: string;

@@ -5,7 +5,7 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import {
   premiumScrollEasing,
   SCROLL_CONFIG,
-  shouldUseReducedMotion,
+  shouldUseSmoothScroll,
 } from '../lib/scroll-config';
 
 function scrollWindowToTop() {
@@ -64,7 +64,7 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
   }, [pathname]);
 
   useEffect(() => {
-    if (shouldUseReducedMotion()) return;
+    if (!shouldUseSmoothScroll()) return;
 
     let lenis: import('lenis').default | null = null;
     let rafId = 0;
@@ -102,7 +102,7 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
           orientation: 'vertical',
           gestureOrientation: 'vertical',
           smoothWheel: true,
-          syncTouch: true,
+          syncTouch: false,
           infinite: false,
         });
 

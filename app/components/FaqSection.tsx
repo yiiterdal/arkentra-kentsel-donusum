@@ -29,7 +29,7 @@ function FaqAccordionItem({
           {item.question}
         </span>
         <span
-          className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center border transition-all duration-300 ${
+          className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border transition-all duration-300 md:h-7 md:w-7 ${
             isOpen
               ? 'border-brand-600 bg-brand-600 text-white rotate-180'
               : 'border-gray-300 bg-white text-gray-600'

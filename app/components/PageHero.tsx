@@ -23,7 +23,7 @@ export default function PageHero({
   if (variant === 'overlay') {
     return (
       <section className="relative w-full">
-        <div className="relative w-full min-h-[360px] md:min-h-[460px] lg:min-h-[520px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full min-h-[420px] md:min-h-[460px] lg:min-h-[520px] flex items-end overflow-hidden">
           <Image
             key={imageSrc}
             src={imageSrc}
@@ -35,17 +35,17 @@ export default function PageHero({
             priority={priority}
           />
           <div className="absolute inset-0 bg-black/45" />
-          <div className="relative z-10 container-editorial text-center px-6 pb-20 md:pb-24 pt-28 md:pt-32">
+          <div className="relative z-10 container-editorial w-full text-center pb-16 md:pb-24 pt-24 md:pt-32">
             {eyebrow && (
-              <p className="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-white/80 md:text-base">
+              <p className="mb-4 text-base font-bold uppercase tracking-[0.25em] text-white/80 md:mb-5 md:text-base">
                 {eyebrow}
               </p>
             )}
-            <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="font-serif text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
               {title}
             </h1>
             {subtitle && (
-              <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:mt-6 md:text-lg">
+              <p className="mx-auto mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:mt-6 md:text-lg">
                 {subtitle}
               </p>
             )}

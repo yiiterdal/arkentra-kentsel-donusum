@@ -126,7 +126,7 @@ export default function VideoHero({
         />
 
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
-        <div className="absolute inset-0 z-30 flex items-center pt-16 md:pt-[72px] pb-16">
+        <div className="absolute inset-0 z-30 flex items-end pt-16 md:items-center md:pt-[72px] pb-20 md:pb-16">
           <div className="container-editorial w-full">
             {eyebrow && (
               <p className="mb-3 text-base font-bold uppercase tracking-[0.2em] text-brand-300 md:text-lg">

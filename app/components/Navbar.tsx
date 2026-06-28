@@ -43,8 +43,16 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    const root = document.documentElement;
+    if (open) {
+      root.classList.add('lenis-stopped');
+      document.body.style.overflow = 'hidden';
+    } else {
+      root.classList.remove('lenis-stopped');
+      document.body.style.overflow = '';
+    }
     return () => {
+      root.classList.remove('lenis-stopped');
       document.body.style.overflow = '';
     };
   }, [open]);
@@ -59,7 +67,9 @@ export default function Navbar() {
         : 'bg-white/95 backdrop-blur-sm border-b border-gray-100';
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerSurface}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${headerSurface}`}
+    >
       <div className="container-editorial flex h-16 items-center justify-between md:h-[72px]">
         <Link href="/" className="flex min-w-0 flex-1 items-center overflow-hidden pr-2" aria-label="ARKENTRA Kentsel Dönüşüm">
           <ArkentraLogo
@@ -71,7 +81,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex shrink-0 items-center gap-2 md:gap-4">
-          <nav className="hidden xl:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {navLinks
               .filter((link) => link.href !== '/iletisim')
               .map((link) => (
@@ -108,7 +118,7 @@ export default function Navbar() {
             aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className={`xl:hidden p-2 transition-colors ${overlay ? 'text-white' : 'text-gray-800'}`}
+            className={`lg:hidden flex h-11 w-11 items-center justify-center transition-colors ${overlay ? 'text-white' : 'text-gray-800'}`}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {open ? (
@@ -122,8 +132,8 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="xl:hidden border-t border-gray-100 bg-white">
-          <div className="container-editorial flex flex-col py-4">
+        <div className="lg:hidden border-t border-gray-100 bg-white" data-lenis-prevent>
+          <div className="container-editorial flex flex-col py-2">
             {navLinks
               .filter((link) => link.href !== '/iletisim')
               .map((link) => (
@@ -131,7 +141,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`border-b border-gray-50 py-3 text-sm font-medium last:border-0 ${
+                  className={`border-b border-gray-50 py-3.5 text-base font-medium last:border-0 ${
                     isActive(link.href) ? 'text-brand-700' : 'text-gray-700'
                   }`}
                 >

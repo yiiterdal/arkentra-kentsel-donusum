@@ -78,7 +78,7 @@ export default function Footer() {
             <Link href="/kvkk" className="text-sm font-light">
               KVKK Aydınlatma Metni
             </Link>
-            <p className="text-xs site-footer__muted">
+            <p className="text-sm site-footer__muted">
               © {new Date().getFullYear()} {siteName}. Tüm hakları saklıdır.
             </p>
           </div>
