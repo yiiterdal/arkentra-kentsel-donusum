@@ -34,19 +34,18 @@ export default function PageHero({
             quality={IMAGE_QUALITY}
             priority={priority}
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/35" />
+          <div className="absolute inset-0 bg-black/45" />
           <div className="relative z-10 container-editorial text-center px-6 pb-20 md:pb-24 pt-28 md:pt-32">
             {eyebrow && (
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-white/80 md:text-base">
                 {eyebrow}
               </p>
             )}
-            <h1 className="font-serif text-4xl font-medium leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] md:text-5xl lg:text-6xl">
+            <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
               {title}
             </h1>
             {subtitle && (
-              <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-relaxed text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)] md:mt-6 md:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:mt-6 md:text-lg">
                 {subtitle}
               </p>
             )}

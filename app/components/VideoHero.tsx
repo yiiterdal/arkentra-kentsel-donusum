@@ -101,20 +101,19 @@ export default function VideoHero({
           preload="auto"
         />
 
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/80 via-black/45 to-black/15" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/65 via-black/15 to-black/30" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
         <div className="absolute inset-0 z-30 flex items-center pt-16 md:pt-[72px] pb-16">
           <div className="container-editorial w-full">
             {eyebrow && (
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-300 md:text-base">
                 {eyebrow}
               </p>
             )}
-            <h1 className="max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] md:text-4xl lg:text-5xl">
+            <h1 className="max-w-4xl text-2xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)] md:text-lg md:leading-relaxed">
+              <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:text-lg">
                 {subtitle}
               </p>
             )}
