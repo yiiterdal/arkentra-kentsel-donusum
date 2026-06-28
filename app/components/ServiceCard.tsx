@@ -33,9 +33,9 @@ export default function ServiceCard({
         />
       </div>
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-brand-700 transition-colors">
+        <p className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-brand-700 transition-colors">
           {title}
-        </h3>
+        </p>
         <p className="text-gray-600 text-base leading-relaxed font-light line-clamp-3">{description}</p>
         <span className="link-button--card mt-4">
           Detaylı bilgi →

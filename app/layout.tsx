@@ -36,10 +36,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr" className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}>
       <head>
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://images.pexels.com" />
-        <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
         <JsonLd data={organizationSchema()} />
       </head>
       <body className="min-h-screen flex flex-col bg-white font-sans antialiased text-gray-800">

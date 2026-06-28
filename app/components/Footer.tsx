@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="site-footer__heading mb-5">{footerContent.columns.contact}</h4>
+            <p className="site-footer__heading mb-5">{footerContent.columns.contact}</p>
             <div className="text-sm space-y-2.5 font-light">
               <address className="not-italic leading-relaxed">
                 {contactAddressLine1}
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="site-footer__heading mb-5">{footerContent.columns.quickAccess}</h4>
+            <p className="site-footer__heading mb-5">{footerContent.columns.quickAccess}</p>
             <ul className="space-y-2 text-sm font-light">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="site-footer__heading mb-5">{footerContent.columns.services}</h4>
+            <p className="site-footer__heading mb-5">{footerContent.columns.services}</p>
             <ol className="space-y-2 text-sm font-light list-none site-footer__muted">
               {services.slice(0, 4).map((service, i) => (
                 <li key={service}>

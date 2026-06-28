@@ -2,8 +2,8 @@
 export const IMAGE_BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A0AAA//Z';
 
-/** Next/Image encoder quality (1–100) — visually lossless for photos */
-export const IMAGE_QUALITY = 95;
+/** Next/Image encoder quality (1–100) — balance size vs clarity on mobile */
+export const IMAGE_QUALITY = 82;
 
 /** Logos and brand marks — no visible compression */
 export const LOGO_IMAGE_QUALITY = 100;

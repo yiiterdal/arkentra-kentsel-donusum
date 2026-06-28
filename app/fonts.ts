@@ -13,4 +13,5 @@ export const playfairDisplay = Playfair_Display({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-serif',
+  preload: false,
 });

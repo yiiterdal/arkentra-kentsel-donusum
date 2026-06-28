@@ -69,6 +69,7 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
     let lenis: import('lenis').default | null = null;
     let rafId = 0;
     let cancelled = false;
+    let idleId = 0;
 
     const handleAnchorClick = (e: MouseEvent) => {
       if (!lenis) return;
@@ -90,19 +91,20 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
       });
     };
 
-    import('lenis').then(({ default: Lenis }) => {
-      if (cancelled) return;
+    const startLenis = () => {
+      import('lenis').then(({ default: Lenis }) => {
+        if (cancelled) return;
 
-      lenis = new Lenis({
-        lerp: SCROLL_CONFIG.lerp,
-        wheelMultiplier: SCROLL_CONFIG.wheelMultiplier,
-        touchMultiplier: SCROLL_CONFIG.touchMultiplier,
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        syncTouch: true,
-        infinite: false,
-      });
+        lenis = new Lenis({
+          lerp: SCROLL_CONFIG.lerp,
+          wheelMultiplier: SCROLL_CONFIG.wheelMultiplier,
+          touchMultiplier: SCROLL_CONFIG.touchMultiplier,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          syncTouch: true,
+          infinite: false,
+        });
 
       lenisRef.current = lenis;
 
@@ -113,10 +115,16 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
       rafId = requestAnimationFrame(raf);
 
       document.addEventListener('click', handleAnchorClick, { passive: false });
-    });
+      });
+    };
+
+    const idle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 1));
+    const cancelIdle = window.cancelIdleCallback ?? window.clearTimeout;
+    idleId = idle(startLenis, { timeout: 3000 });
 
     return () => {
       cancelled = true;
+      cancelIdle(idleId);
       cancelAnimationFrame(rafId);
       lenis?.destroy();
       lenisRef.current = null;

@@ -48,7 +48,7 @@ export default function FoundersPreview() {
                 />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">{member.name}</h3>
+                <p className="text-lg font-semibold text-gray-900">{member.name}</p>
                 <p className="text-sm text-brand-600 font-medium mt-0.5">{member.role}</p>
                 <p className="text-sm text-gray-600 mt-2 line-clamp-2 font-light">{member.bio[0]}</p>
               </div>

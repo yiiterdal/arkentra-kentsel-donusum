@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { heroVideo } from '../data/images';
-import { IMAGE_QUALITY } from '../lib/image-utils';
+import { IMAGE_BLUR_DATA_URL, IMAGE_QUALITY } from '../lib/image-utils';
 
 interface VideoHeroProps {
   title: string;
@@ -12,6 +12,16 @@ interface VideoHeroProps {
   videoSrc?: string;
   posterSrc?: string;
   posterAlt: string;
+}
+
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function isMobileViewport(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(max-width: 767px)').matches;
 }
 
 export default function VideoHero({
@@ -23,19 +33,39 @@ export default function VideoHero({
   posterAlt,
 }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [enableVideo, setEnableVideo] = useState(false);
   const [activeSrc, setActiveSrc] = useState(videoSrc);
   const [videoReady, setVideoReady] = useState(false);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
+    if (prefersReducedMotion() || isMobileViewport()) return;
+
+    const idle =
+      typeof window.requestIdleCallback === 'function'
+        ? (cb: () => void) => window.requestIdleCallback(cb, { timeout: 2500 })
+        : (cb: () => void) => window.setTimeout(cb, 1);
+    const id = idle(() => setEnableVideo(true));
+    return () => {
+      if (typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(id);
+      } else {
+        window.clearTimeout(id);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enableVideo) return;
+
     setActiveSrc(videoSrc);
     setVideoReady(false);
     setFailed(false);
-  }, [videoSrc]);
+  }, [enableVideo, videoSrc]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || failed) return;
+    if (!video || !enableVideo || failed) return;
 
     const markReady = () => {
       setVideoReady(true);
@@ -59,19 +89,15 @@ export default function VideoHero({
     video.addEventListener('canplay', onPlaying);
     video.addEventListener('error', onError);
 
-    if (!video.paused && video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-      markReady();
-    } else {
-      video.load();
-      video.play().catch(() => {});
-    }
+    video.load();
+    video.play().catch(() => {});
 
     return () => {
       video.removeEventListener('playing', onPlaying);
       video.removeEventListener('canplay', onPlaying);
       video.removeEventListener('error', onError);
     };
-  }, [activeSrc, failed]);
+  }, [activeSrc, enableVideo, failed]);
 
   return (
     <section className="relative w-full">
@@ -84,8 +110,11 @@ export default function VideoHero({
           sizes="100vw"
           quality={IMAGE_QUALITY}
           priority
+          fetchPriority="high"
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR_DATA_URL}
         />
-        {!failed && (
+        {enableVideo && !failed && (
           <video
             key={activeSrc}
             ref={videoRef}
@@ -97,7 +126,7 @@ export default function VideoHero({
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
           />
         )}
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
@@ -112,7 +141,7 @@ export default function VideoHero({
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 text-base md:text-lg text-white/85 max-w-2xl leading-relaxed font-light">
+              <p className="mt-4 text-base md:text-lg text-white/90 max-w-2xl leading-relaxed font-light">
                 {subtitle}
               </p>
             )}
