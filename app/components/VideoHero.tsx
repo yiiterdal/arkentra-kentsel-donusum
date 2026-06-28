@@ -38,13 +38,15 @@ export default function VideoHero({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [activeSrc, setActiveSrc] = useState(videoSrc);
   const [isMobile, setIsMobile] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
     const sync = () => {
       const mobile = mq.matches;
       setIsMobile(mobile);
-      setActiveSrc(pickVideoSrc(videoSrc, mobileVideoSrc));
+      setActiveSrc(mobile ? mobileVideoSrc : videoSrc);
+      setVideoVisible(false);
     };
 
     sync();
@@ -57,28 +59,39 @@ export default function VideoHero({
     if (!video) return;
 
     const onError = () => {
+      setVideoVisible(false);
       const fallback = pickFallbackSrc(isMobile);
       if (activeSrc !== fallback) {
         setActiveSrc(fallback);
       }
     };
 
-    video.addEventListener('error', onError);
-    video.load();
-    video.play().catch(() => {});
+    const onPlaying = () => setVideoVisible(true);
+    const onLoadedData = () => {
+      video.play().then(() => setVideoVisible(true)).catch(() => setVideoVisible(false));
+    };
 
-    return () => video.removeEventListener('error', onError);
+    video.addEventListener('error', onError);
+    video.addEventListener('playing', onPlaying);
+    video.addEventListener('loadeddata', onLoadedData);
+    video.load();
+
+    return () => {
+      video.removeEventListener('error', onError);
+      video.removeEventListener('playing', onPlaying);
+      video.removeEventListener('loadeddata', onLoadedData);
+    };
   }, [activeSrc, isMobile]);
 
   return (
     <section className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {/* Hareket azaltma: yalnızca poster */}
+        {/* Poster her zaman altta — video oynamazsa (özellikle iOS) hero boş kalmaz */}
         <Image
           src={posterSrc}
           alt={posterAlt}
           fill
-          className="object-cover z-0 hidden motion-reduce:block"
+          className="object-cover z-0"
           sizes="100vw"
           quality={HERO_POSTER_QUALITY}
           priority
@@ -87,13 +100,14 @@ export default function VideoHero({
           blurDataURL={IMAGE_BLUR_DATA_URL}
         />
 
-        {/* Tüm ekranlar: video (mobilde 720p, masaüstünde 4K) */}
         <video
           key={activeSrc}
           ref={videoRef}
           src={activeSrc}
           poster={posterSrc}
-          className="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
+          className={`absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden transition-opacity duration-300 ${
+            videoVisible ? 'opacity-100' : 'opacity-0'
+          }`}
           autoPlay
           muted
           loop
