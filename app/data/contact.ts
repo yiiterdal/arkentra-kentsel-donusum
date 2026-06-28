@@ -1,4 +1,4 @@
-export const contactEmail = 'arkentrakentseldonusum@gmail.com';
+export const contactEmail = 'info@arkentrakentseldonusum.com';
 
 export const contactPhone = '0545 832 6199';
 export const contactPhoneHref = 'tel:+905458326199';
