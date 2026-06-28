@@ -2,73 +2,98 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { heroVideo } from '../data/images';
-import { IMAGE_BLUR_DATA_URL, IMAGE_QUALITY } from '../lib/image-utils';
+import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo } from '../data/images';
+import { IMAGE_BLUR_DATA_URL } from '../lib/image-utils';
+
+const HERO_POSTER_QUALITY = 95;
 
 interface VideoHeroProps {
   title: string;
   subtitle?: string;
   eyebrow?: string;
   videoSrc?: string;
+  mobileVideoSrc?: string;
   posterSrc?: string;
   posterAlt: string;
+}
+
+function pickVideoSrc(desktopSrc: string, mobileSrc: string): string {
+  if (typeof window === 'undefined') return desktopSrc;
+  return window.matchMedia('(max-width: 767px)').matches ? mobileSrc : desktopSrc;
+}
+
+function pickFallbackSrc(isMobile: boolean): string {
+  return isMobile ? heroVideo.cdnMobile : heroVideo.cdn;
 }
 
 export default function VideoHero({
   title,
   subtitle,
   eyebrow,
-  videoSrc = heroVideo.local,
+  videoSrc = getHeroVideoSrc(),
+  mobileVideoSrc = getHeroVideoMobileSrc(),
   posterSrc = heroVideo.poster,
   posterAlt,
 }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [activeSrc, setActiveSrc] = useState(videoSrc);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setActiveSrc(videoSrc);
-  }, [videoSrc]);
+    const mq = window.matchMedia('(max-width: 767px)');
+    const sync = () => {
+      const mobile = mq.matches;
+      setIsMobile(mobile);
+      setActiveSrc(pickVideoSrc(videoSrc, mobileVideoSrc));
+    };
+
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, [videoSrc, mobileVideoSrc]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
     const onError = () => {
-      if (activeSrc !== heroVideo.cdn) {
-        setActiveSrc(heroVideo.cdn);
+      const fallback = pickFallbackSrc(isMobile);
+      if (activeSrc !== fallback) {
+        setActiveSrc(fallback);
       }
     };
 
     video.addEventListener('error', onError);
+    video.load();
     video.play().catch(() => {});
 
     return () => video.removeEventListener('error', onError);
-  }, [activeSrc]);
+  }, [activeSrc, isMobile]);
 
   return (
     <section className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {/* Mobil: statik poster — video indirilmez */}
+        {/* Hareket azaltma: yalnızca poster */}
         <Image
           src={posterSrc}
           alt={posterAlt}
           fill
-          className="object-cover z-0 md:hidden motion-reduce:block motion-reduce:md:block"
+          className="object-cover z-0 hidden motion-reduce:block"
           sizes="100vw"
-          quality={IMAGE_QUALITY}
+          quality={HERO_POSTER_QUALITY}
           priority
           fetchPriority="high"
           placeholder="blur"
           blurDataURL={IMAGE_BLUR_DATA_URL}
         />
 
-        {/* Masaüstü: yalnızca video + poster (videonun ilk karesi) — çift görsel yok */}
+        {/* Tüm ekranlar: video (mobilde 720p, masaüstünde 4K) */}
         <video
           key={activeSrc}
           ref={videoRef}
           src={activeSrc}
           poster={posterSrc}
-          className="absolute inset-0 z-0 hidden h-full w-full object-cover md:block motion-reduce:hidden"
+          className="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
           autoPlay
           muted
           loop
