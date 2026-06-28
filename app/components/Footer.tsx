@@ -4,6 +4,7 @@ import {
   contactAddressLine1,
   contactAddressLine2,
   contactEmail,
+  contactInstagramHref,
   contactPhone,
   contactPhoneHref,
 } from '../data/contact';
@@ -34,6 +35,14 @@ export default function Footer() {
               </a>
               <a href={`mailto:${contactEmail}`} className="block">
                 {contactEmail}
+              </a>
+              <a
+                href={contactInstagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                Instagram
               </a>
             </div>
           </div>

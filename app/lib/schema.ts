@@ -2,9 +2,11 @@ import {
   contactAddressLine1,
   contactAddressLine2,
   contactEmail,
+  contactInstagramHref,
   contactMapHref,
   contactPhone,
   contactPhoneHref,
+  contactPostalCode,
 } from '../data/contact';
 import { services, siteName, siteTagline, siteUrl, teamContent } from '../data/site';
 import type { FaqItem } from '../data/sss';
@@ -30,6 +32,7 @@ export function organizationSchema() {
       streetAddress: contactAddressLine1,
       addressLocality: 'Bayrampaşa',
       addressRegion: 'İstanbul',
+      postalCode: contactPostalCode,
       addressCountry: 'TR',
     },
     areaServed: {
@@ -37,7 +40,7 @@ export function organizationSchema() {
       name: 'İstanbul',
     },
     priceRange: '$$',
-    sameAs: [contactMapHref],
+    sameAs: [contactMapHref, contactInstagramHref],
   };
 }
 
