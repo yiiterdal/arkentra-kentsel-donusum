@@ -54,7 +54,7 @@ export default function EkibimizPage() {
                     fill
                     sizes="(max-width: 768px) 160px, 192px"
                     quality={IMAGE_QUALITY}
-                    className="object-contain object-center grayscale"
+                    className="object-cover object-center grayscale"
                   />
                 </div>
                 <h3 className="mt-6 text-lg md:text-xl font-semibold text-gray-900 tracking-tight text-center">
