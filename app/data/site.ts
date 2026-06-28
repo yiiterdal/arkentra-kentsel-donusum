@@ -174,7 +174,7 @@ export const teamContent = {
       role: 'Kurucu Ortak',
       image: '/images/team/mimar-nevzat-yildirim.png',
       imageAlt: 'Mimar Nevzat Yıldırım — Arkentra Kurucu Ortak',
-      imagePosition: 'object-[center_32%]',
+      imagePosition: 'object-center',
       bio: [
         'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
         'Kentsel dönüşüm projelerine yönelik teknik danışmanlık ve aşamalı saha denetimi hizmetleri sunar; temelden iskâna kadar her kritik imalat aşamasında yerinde inceleme ve teknik raporlama yapar. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
