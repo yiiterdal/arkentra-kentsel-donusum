@@ -13,10 +13,6 @@ interface VideoHeroProps {
   posterAlt: string;
 }
 
-function pickFallbackSrc(isMobile: boolean): string {
-  return isMobile ? heroVideo.cdnMobile : heroVideo.cdn;
-}
-
 function isMobileViewport(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
 }
@@ -30,87 +26,98 @@ export default function VideoHero({
   posterSrc = heroVideo.poster,
   posterAlt,
 }: VideoHeroProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [activeSrc, setActiveSrc] = useState(() =>
-    isMobileViewport() ? mobileVideoSrc : videoSrc,
-  );
   const [isMobile, setIsMobile] = useState(() => isMobileViewport());
+  const [desktopSrc, setDesktopSrc] = useState(videoSrc);
+  const mobileSrc = mobileVideoSrc;
+  const activeSrc = isMobile ? mobileSrc : desktopSrc;
 
   useLayoutEffect(() => {
-    const mobile = isMobileViewport();
-    setIsMobile(mobile);
-    setActiveSrc(mobile ? mobileVideoSrc : videoSrc);
-  }, [videoSrc, mobileVideoSrc]);
+    setIsMobile(isMobileViewport());
+    setDesktopSrc(videoSrc);
+  }, [videoSrc]);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
-    const sync = () => {
-      const mobile = mq.matches;
-      setIsMobile(mobile);
-      setActiveSrc(mobile ? mobileVideoSrc : videoSrc);
-    };
-
+    const sync = () => setIsMobile(mq.matches);
     mq.addEventListener('change', sync);
     return () => mq.removeEventListener('change', sync);
-  }, [videoSrc, mobileVideoSrc]);
+  }, []);
+
+  const activeSrc = isMobile ? mobileSrc : desktopSrc;
 
   useEffect(() => {
     const video = videoRef.current;
+    const section = sectionRef.current;
     if (!video) return;
 
-    const tryPlay = () => {
+    const prepareVideo = () => {
       video.muted = true;
       video.defaultMuted = true;
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
+      video.playsInline = true;
+      video.setAttribute('playsinline', 'true');
+      video.setAttribute('webkit-playsinline', 'true');
+    };
 
-      void video.play().catch(() => {
-        // iOS bazen ilk denemede autoplay reddeder; dokununca tekrar dene
-      });
+    const tryPlay = () => {
+      prepareVideo();
+      void video.play().catch(() => {});
     };
 
     const onError = () => {
-      const fallback = pickFallbackSrc(isMobile);
-      if (activeSrc !== fallback) {
-        setActiveSrc(fallback);
+      const fallback = isMobile ? heroVideo.cdnMobile : heroVideo.cdn;
+      if (!video.src.endsWith(fallback)) {
+        video.src = fallback;
+        video.load();
+        tryPlay();
       }
     };
 
-    video.addEventListener('loadedmetadata', tryPlay);
+    video.src = activeSrc;
+    prepareVideo();
+    video.load();
     video.addEventListener('canplay', tryPlay);
     video.addEventListener('error', onError);
-    video.load();
     tryPlay();
 
-    const onFirstTouch = () => tryPlay();
-    document.addEventListener('touchstart', onFirstTouch, { once: true, passive: true });
+    const observer =
+      section &&
+      new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) tryPlay();
+        },
+        { threshold: 0.15 },
+      );
+
+    if (section && observer) observer.observe(section);
+
+    const onHeroTap = () => tryPlay();
+    section?.addEventListener('touchstart', onHeroTap, { passive: true });
 
     return () => {
-      video.removeEventListener('loadedmetadata', tryPlay);
       video.removeEventListener('canplay', tryPlay);
       video.removeEventListener('error', onError);
-      document.removeEventListener('touchstart', onFirstTouch);
+      section?.removeEventListener('touchstart', onHeroTap);
+      observer?.disconnect();
     };
   }, [activeSrc, isMobile]);
 
   return (
-    <section className="relative w-full">
+    <section ref={sectionRef} className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {/* Tam çözünürlük poster — Next/Image optimizasyonu mobilde bulanıklaştırıyordu */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={posterSrc}
           alt={posterAlt}
           className="absolute inset-0 z-0 h-full w-full object-cover"
-          decoding="async"
+          decoding="sync"
           fetchPriority="high"
         />
 
         <video
           key={activeSrc}
           ref={videoRef}
-          src={activeSrc}
-          poster={posterSrc}
           className="absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden"
           autoPlay
           muted

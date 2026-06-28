@@ -154,13 +154,15 @@ export const heroVideo = {
   cdn: 'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero.mp4',
   cdnMobile:
     'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero-mobile.mp4',
-  poster: '/images/hero/poster.webp',
+  poster: '/images/hero/poster.jpg',
+  posterWebp: '/images/hero/poster.webp',
 } as const;
 
 export function getHeroVideoSrc(): string {
   return process.env.NODE_ENV === 'production' ? heroVideo.cdn : heroVideo.local;
 }
 
+/** Same-origin mobile file — Vercel’de daha hızlı yüklenir, iOS autoplay için daha güvenilir. */
 export function getHeroVideoMobileSrc(): string {
-  return process.env.NODE_ENV === 'production' ? heroVideo.cdnMobile : heroVideo.localMobile;
+  return heroVideo.localMobile;
 }

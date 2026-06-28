@@ -27,7 +27,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const overlay = hasHeroUnderNav(pathname) && !scrolled && !open;
+  const heroOverlay = hasHeroUnderNav(pathname) && !scrolled;
+  const overlay = heroOverlay;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -41,19 +42,26 @@ export default function Navbar() {
     setScrolled(window.scrollY > 20);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   const isActive = (href: string) => pathname?.startsWith(href);
 
+  const headerSurface = overlay
+    ? 'bg-transparent border-b border-transparent'
+    : open
+      ? 'bg-white border-b border-gray-100'
+      : scrolled
+        ? 'bg-white shadow-sm border-b border-gray-100'
+        : 'bg-white/95 backdrop-blur-sm border-b border-gray-100';
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        overlay
-          ? 'bg-transparent border-b border-transparent'
-          : scrolled
-            ? 'bg-white shadow-sm border-b border-gray-100'
-            : 'bg-white/95 backdrop-blur-sm border-b border-gray-100'
-      }`}
-    >
-      <div className="container-editorial flex items-center justify-between h-16 md:h-[72px]">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerSurface}`}>
+      <div className="container-editorial flex h-16 items-center justify-between md:h-[72px]">
         <Link href="/" className="flex min-w-0 flex-1 items-center overflow-hidden pr-2" aria-label="ARKENTRA Kentsel Dönüşüm">
           <ArkentraLogo
             variant={overlay ? 'white-full' : 'color-full'}
@@ -98,7 +106,8 @@ export default function Navbar() {
           </Link>
 
           <button
-            aria-label="Menü"
+            aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
+            aria-expanded={open}
             onClick={() => setOpen(!open)}
             className={`xl:hidden p-2 transition-colors ${overlay ? 'text-white' : 'text-gray-800'}`}
           >
@@ -114,11 +123,14 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="xl:hidden bg-white border-t border-gray-100">
-          <div className="container-editorial py-4 flex flex-col">
-            <div className="pb-4 mb-2 border-b border-gray-100">
-              <ArkentraLogo variant="color-full" withAppIcon />
-            </div>
+        <div
+          className={`xl:hidden ${
+            heroOverlay
+              ? 'border-t border-white/10 bg-black/90 backdrop-blur-md'
+              : 'border-t border-gray-100 bg-white'
+          }`}
+        >
+          <div className="container-editorial flex flex-col py-4">
             {navLinks
               .filter((link) => link.href !== '/iletisim')
               .map((link) => (
@@ -126,8 +138,14 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`py-3 text-sm font-medium border-b border-gray-50 last:border-0 ${
-                    isActive(link.href) ? 'text-brand-700' : 'text-gray-700'
+                  className={`border-b py-3 text-sm font-medium last:border-0 ${
+                    heroOverlay
+                      ? isActive(link.href)
+                        ? 'border-white/10 text-white'
+                        : 'border-white/10 text-white/90'
+                      : isActive(link.href)
+                        ? 'border-gray-50 text-brand-700'
+                        : 'border-gray-50 text-gray-700'
                   }`}
                 >
                   {link.label}
@@ -136,7 +154,7 @@ export default function Navbar() {
             <Link
               href="/iletisim"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center px-5 py-2.5 bg-brand-600 text-white text-sm font-semibold"
+              className="mt-3 inline-flex items-center justify-center bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white"
             >
               İletişim
             </Link>
