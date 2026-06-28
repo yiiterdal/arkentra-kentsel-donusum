@@ -22,7 +22,7 @@ export default function PageHero({
 }: PageHeroProps) {
   if (variant === 'overlay') {
     return (
-      <section className="relative w-full pt-16 md:pt-[72px]">
+      <section className="relative w-full">
         <div className="relative w-full min-h-[360px] md:min-h-[460px] lg:min-h-[520px] flex items-center justify-center overflow-hidden">
           <Image
             key={imageSrc}
@@ -35,7 +35,7 @@ export default function PageHero({
             priority={priority}
           />
           <div className="absolute inset-0 bg-black/45" />
-          <div className="relative z-10 container-editorial text-center px-6 py-20 md:py-24">
+          <div className="relative z-10 container-editorial text-center px-6 pb-20 md:pb-24 pt-28 md:pt-32">
             {eyebrow && (
               <p className="text-white/80 text-sm font-semibold tracking-[0.25em] uppercase mb-5">
                 {eyebrow}

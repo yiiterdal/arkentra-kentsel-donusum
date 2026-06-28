@@ -17,6 +17,7 @@ export default function KvkkPage() {
         eyebrow="KVKK"
         imageSrc={images.kvkkPrivacy.src}
         imageAlt={images.kvkkPrivacy.alt}
+        variant="overlay"
       />
 
       <section className="bg-white py-16 md:py-24">

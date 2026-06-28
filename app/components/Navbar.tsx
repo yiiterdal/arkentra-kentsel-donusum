@@ -5,12 +5,29 @@ import { useState, useEffect } from 'react';
 import ArkentraLogo from './ArkentraLogo';
 import { navLinks } from '../data/site';
 
+function hasHeroUnderNav(pathname: string | null): boolean {
+  if (!pathname) return false;
+  if (pathname === '/') return true;
+  if (/^\/yazilarimiz\/[^/]+$/.test(pathname)) return false;
+
+  const heroRoutes = [
+    '/hakkimizda',
+    '/ekibimiz',
+    '/iletisim',
+    '/sss',
+    '/yazilarimiz',
+    '/hizmetler',
+    '/kvkk',
+  ];
+
+  return heroRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const overlay = isHome && !scrolled && !open;
+  const overlay = hasHeroUnderNav(pathname) && !scrolled && !open;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -21,6 +38,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setScrolled(window.scrollY > 20);
   }, [pathname]);
 
   const isActive = (href: string) => pathname?.startsWith(href);
