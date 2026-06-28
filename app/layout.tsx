@@ -1,6 +1,6 @@
 // app/layout.tsx
 import './globals.css';
-import GoogleAnalytics from './components/GoogleAnalytics';
+import { GoogleTagManagerNoscript, GoogleTagManagerScript } from './components/GoogleTagManager';
 import JsonLd from './components/JsonLd';
 import SiteChrome from './components/SiteChrome';
 import SmoothScrollProvider from './components/SmoothScrollProvider';
@@ -43,10 +43,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr" className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}>
       <head>
+        <GoogleTagManagerScript />
         <JsonLd data={organizationSchema()} />
       </head>
       <body className="min-h-screen flex flex-col bg-white font-sans antialiased text-gray-800">
-        <GoogleAnalytics />
+        <GoogleTagManagerNoscript />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2"
