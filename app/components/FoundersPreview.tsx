@@ -44,7 +44,7 @@ export default function FoundersPreview() {
                   fill
                   sizes="96px"
                   quality={IMAGE_QUALITY}
-                  className={`object-cover grayscale group-hover:grayscale-0 transition-all ${member.imagePosition ?? 'object-[center_32%]'}`}
+                  className="object-contain object-center grayscale group-hover:grayscale-0 transition-all"
                 />
               </div>
               <div>

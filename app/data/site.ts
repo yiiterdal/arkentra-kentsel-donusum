@@ -163,7 +163,6 @@ export const teamContent = {
       role: 'Kurucu Ortak',
       image: '/images/team/ferhat-yildirim.png',
       imageAlt: 'Av. Ferhat Yıldırım — Arkentra Kurucu Ortak',
-      imagePosition: 'object-[center_32%]',
       bio: [
         'Kentsel dönüşüm hukuku ve gayrimenkul hukuku alanlarında uzmanlaşmış bir hukuk danışmanı olarak, mülkiyet ilişkileri, kat malikleri süreçleri, riskli yapı tespiti sonrası hukuki yol haritaları ve sözleşme hazırlıkları üzerine çalışır.',
         'Belediye izinleri, ruhsat süreçleri, tapu işlemleri, kat irtifakı ve kat mülkiyeti dönüşümleri, noter sözleşmeleri ve müteahhit-malik ilişkilerinde ortaya çıkan hukuki risklerin yönetilmesinde aktif rol alır. Projelerin hukuki güvenliğini baştan sona sağlar.',
@@ -174,7 +173,6 @@ export const teamContent = {
       role: 'Kurucu Ortak',
       image: '/images/team/mimar-nevzat-yildirim.png',
       imageAlt: 'Mimar Nevzat Yıldırım — Arkentra Kurucu Ortak',
-      imagePosition: 'object-[center_32%]',
       bio: [
         'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
         'Kentsel dönüşüm projelerine yönelik teknik danışmanlık ve aşamalı saha denetimi hizmetleri sunar; temelden iskâna kadar her kritik imalat aşamasında yerinde inceleme ve teknik raporlama yapar. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
