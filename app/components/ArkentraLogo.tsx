@@ -107,7 +107,7 @@ export default function ArkentraLogo({
         </span>
         <span className="inline-flex min-w-0 max-w-full items-stretch gap-1.5">
           <span className="w-1 shrink-0 bg-brand-300" aria-hidden />
-          <span className="flex min-w-0 flex-col">
+          <span className="flex min-w-0 flex-col gap-0">
             <span
               className={`block text-base font-bold uppercase leading-none tracking-tight sm:text-lg ${titleClass}`}
             >
@@ -115,7 +115,7 @@ export default function ArkentraLogo({
             </span>
             {!isCompact && (
               <span
-                className={`mt-0.5 block text-xs font-medium leading-snug tracking-wide sm:text-sm md:text-base ${taglineClass}`}
+                className={`-mt-px block text-xs font-medium leading-none tracking-wide sm:text-sm md:text-base ${taglineClass}`}
               >
                 Kentsel Dönüşüm Danışmanlığı
               </span>
