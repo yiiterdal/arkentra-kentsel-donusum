@@ -17,11 +17,6 @@ interface VideoHeroProps {
   posterAlt: string;
 }
 
-function pickVideoSrc(desktopSrc: string, mobileSrc: string): string {
-  if (typeof window === 'undefined') return desktopSrc;
-  return window.matchMedia('(max-width: 767px)').matches ? mobileSrc : desktopSrc;
-}
-
 function pickFallbackSrc(isMobile: boolean): string {
   return isMobile ? heroVideo.cdnMobile : heroVideo.cdn;
 }
