@@ -154,7 +154,7 @@ export const heroVideo = {
   cdn: 'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero.mp4',
   cdnMobile:
     'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero-mobile.mp4',
-  poster: '/images/hero/poster.jpg',
+  poster: '/images/hero/poster-4k.jpg',
   posterWebp: '/images/hero/poster.webp',
 } as const;
 

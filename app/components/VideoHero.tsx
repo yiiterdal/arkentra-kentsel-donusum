@@ -119,10 +119,10 @@ export default function VideoHero({
           className="absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden"
           autoPlay
           muted
-          defaultMuted
           loop
           playsInline
           preload="auto"
+          poster={posterSrc}
         />
 
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
