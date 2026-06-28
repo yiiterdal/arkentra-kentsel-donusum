@@ -115,7 +115,7 @@ export default function ArkentraLogo({
             </span>
             {!isCompact && (
               <span
-                className={`mt-0.5 block text-[10px] font-medium leading-snug tracking-wide sm:text-xs md:text-sm ${taglineClass}`}
+                className={`mt-0.5 block text-xs font-medium leading-snug tracking-wide sm:text-sm md:text-base ${taglineClass}`}
               >
                 Kentsel Dönüşüm Danışmanlığı
               </span>
