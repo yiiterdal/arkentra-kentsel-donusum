@@ -166,7 +166,7 @@ function FeaturedYaziCard({ yazi }: { yazi: Yazi }) {
       </div>
       <div className="lg:col-span-5 flex flex-col justify-center p-8 md:p-10 lg:p-12 text-white">
         <YaziMeta yazi={yazi} light />
-        <h2 className="mt-4 text-2xl md:text-3xl lg:text-[2rem] font-semibold leading-tight tracking-tight group-hover:text-brand-200 transition-colors">
+        <h2 className="mt-4 text-2xl md:text-3xl lg:text-[2rem] font-semibold leading-tight tracking-tight text-white group-hover:text-brand-200 transition-colors">
           {yazi.title}
         </h2>
         <p className="mt-4 text-base md:text-lg text-white/80 leading-relaxed font-light line-clamp-4">
