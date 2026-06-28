@@ -28,7 +28,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const heroOverlay = hasHeroUnderNav(pathname) && !scrolled;
-  const overlay = heroOverlay;
+  const overlay = heroOverlay && !open;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -51,11 +51,12 @@ export default function Navbar() {
 
   const isActive = (href: string) => pathname?.startsWith(href);
 
-  const headerSurface = overlay
-    ? 'bg-transparent border-b border-transparent'
-    : scrolled
-      ? 'bg-white shadow-sm border-b border-gray-100'
-      : 'bg-white/95 backdrop-blur-sm border-b border-gray-100';
+  const headerSurface =
+    overlay
+      ? 'bg-transparent border-b border-transparent'
+      : open || scrolled
+        ? 'bg-white shadow-sm border-b border-gray-100'
+        : 'bg-white/95 backdrop-blur-sm border-b border-gray-100';
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerSurface}`}>
@@ -121,20 +122,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-40 xl:hidden md:top-[72px]">
-          <button
-            type="button"
-            aria-label="Menüyü kapat"
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setOpen(false)}
-          />
-          <div
-            className={`relative max-h-[calc(100dvh-4rem)] overflow-y-auto md:max-h-[calc(100dvh-72px)] ${
-              heroOverlay
-                ? 'border-t border-white/10 bg-black/95 backdrop-blur-md'
-                : 'border-t border-gray-100 bg-white'
-            }`}
-          >
+        <div className="xl:hidden border-t border-gray-100 bg-white">
           <div className="container-editorial flex flex-col py-4">
             {navLinks
               .filter((link) => link.href !== '/iletisim')
@@ -143,14 +131,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`border-b py-3 text-sm font-medium last:border-0 ${
-                    heroOverlay
-                      ? isActive(link.href)
-                        ? 'border-white/10 text-white'
-                        : 'border-white/10 text-white/90'
-                      : isActive(link.href)
-                        ? 'border-gray-50 text-brand-700'
-                        : 'border-gray-50 text-gray-700'
+                  className={`border-b border-gray-50 py-3 text-sm font-medium last:border-0 ${
+                    isActive(link.href) ? 'text-brand-700' : 'text-gray-700'
                   }`}
                 >
                   {link.label}
@@ -163,7 +145,6 @@ export default function Navbar() {
             >
               İletişim
             </Link>
-          </div>
           </div>
         </div>
       )}
