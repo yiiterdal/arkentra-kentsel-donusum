@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import JsonLd from '../../components/JsonLd';
 import YaziContent from '../../components/YaziContent';
-import { getYaziBySlug, yazilar, FEATURED_YAZI_SLUG } from '../../data/yazilar';
+import { FEATURED_YAZI_SLUG, HIGH_PRIORITY_YAZI_SLUGS, getYaziBySlug, yazilar } from '../../data/yazilar';
 import { siteUrl } from '../../data/site';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
@@ -23,19 +23,34 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
 
   const imageUrl = yazi.imageSrc.startsWith('http') ? yazi.imageSrc : yazi.imageSrc;
   const isFeatured = yazi.slug === FEATURED_YAZI_SLUG;
+  const isHighPriority = HIGH_PRIORITY_YAZI_SLUGS.includes(
+    yazi.slug as (typeof HIGH_PRIORITY_YAZI_SLUGS)[number],
+  );
+
+  const keywordsBySlug: Record<string, string[]> = {
+    [FEATURED_YAZI_SLUG]: [
+      'kentsel dönüşüm kira yardımı 2026',
+      'istanbul kentsel dönüşüm kira desteği',
+      '2026 riskli yapı kira yardımı',
+      'kiracı taşınma yardımı',
+      'bayrampaşa kentsel dönüşüm',
+      '6306 sayılı kanun kira yardımı',
+    ],
+    'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026': [
+      'kentsel dönüşüm danışmanlık ücretleri 2026',
+      'kentsel dönüşüm danışmanlığı ne kadar',
+      'kentsel dönüşüm danışmanlık fiyatları',
+      'kentsel dönüşüm uzmanı ücreti',
+      'kentsel dönüşüm maliyet analizi',
+      'istanbul kentsel dönüşüm danışmanlık firmaları',
+    ],
+  };
 
   return {
     title: yazi.title,
     description: yazi.excerpt,
-    ...(isFeatured && {
-      keywords: [
-        'kentsel dönüşüm kira yardımı 2026',
-        'istanbul kentsel dönüşüm kira desteği',
-        '2026 riskli yapı kira yardımı',
-        'kiracı taşınma yardımı',
-        'bayrampaşa kentsel dönüşüm',
-        '6306 sayılı kanun kira yardımı',
-      ],
+    ...(isHighPriority && {
+      keywords: keywordsBySlug[yazi.slug],
     }),
     alternates: {
       canonical: `${siteUrl}/yazilarimiz/${yazi.slug}`,

@@ -14,6 +14,11 @@ const nextConfig = {
         destination: '/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
         permanent: true,
       },
+      {
+        source: '/post/kentsel-donusum-danismanligi-fiyat-ne-kadar-2026-maliyetleri',
+        destination: '/yazilarimiz/kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
+        permanent: true,
+      },
     ];
   },
   async headers() {

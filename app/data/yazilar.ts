@@ -271,6 +271,78 @@ Biz müteahhit değiliz, sizin çözüm ortağınızız. Hak kaybı yaşamadan g
 Yasal uyarı: Kira yardımı tutarları Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından yıllık olarak güncellenmektedir. En doğru ve kişiye özel bilgi için uzmanlarımızla görüşmeniz tavsiye edilir.`,
   },
   {
+    slug: 'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
+    title: '2026 Kentsel Dönüşüm Danışmanlık Ücreti ve Fiyat Rehberi',
+    excerpt:
+      '2026 kentsel dönüşüm danışmanlık ücretleri neye göre belirlenir? Daire başı fiyatlandırma, hizmet kapsamı, maliyet analizi ve malikler için risk yönetimi rehberi.',
+    date: '2026-06-18',
+    dateLabel: '18 Haziran 2026',
+    readTime: '7 dk okuma',
+    konu: 'Malik Rehberi',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.sozlesme.src,
+    imageAlt: images.yazilar.sozlesme.alt,
+    content: `Kentsel dönüşüm süreci başladığında mülk sahiplerinin zihnini kurcalayan en kritik soru şudur: "Kentsel dönüşüm danışmanlık ücreti ne kadar?" 2026 yılı itibarıyla inşaat maliyetlerinin ve mülkiyet değerlerinin ulaştığı seviyeler, profesyonel bir yol arkadaşı ile çalışmayı opsiyonel olmaktan çıkarıp zorunlu hale getirmiştir.
+
+Arkentra Kentsel Dönüşüm olarak, şeffaflık ilkemiz gereği danışmanlık fiyatlarının nasıl belirlendiğini, hangi kriterlerin maliyeti etkilediğini ve bu hizmetin aslında size nasıl para kazandırdığını tüm detaylarıyla açıklıyoruz.
+
+## Kentsel Dönüşüm Danışmanlık Fiyatları Neye Göre Belirlenir?
+
+Her binanın teknik durumu, malik sayısı ve hukuki geçmişi farklı olduğu için standart bir paket fiyat yerine projeye özel fiyatlandırma modeli uygulanır. Fiyatı etkileyen dört temel sütun şunlardır:
+
+- Bağımsız bölüm (daire/dükkan) sayısı: Projedeki ünite sayısı arttıkça yönetilmesi gereken malik trafiği ve hukuki operasyon büyür. Ancak birim başına düşen maliyet genellikle toplu projelerde daha avantajlı hale gelir.
+- Hukuki karmaşıklık derecesi: Tapu üzerindeki şerhler, veraset sorunları veya uzlaşma sağlanamayan azınlık hisselerinin varlığı, uzman ekibin mesai süresini belirler.
+- Hizmetin kapsamı: Sadece sözleşme denetimi mi istiyorsunuz, yoksa inşaatın son aşamasına kadar sürecek teknik müşavirlik mi? Kapsam genişledikçe fiyat yapısı değişir.
+- Lokasyon ve imar durumu: İstanbul'un merkezi ilçelerindeki yüksek değerli arazilerde hata payı çok düşük olduğu için daha detaylı ve hassas bir danışmanlık süreci kurgulanır.
+
+## Sık Sorulan Sorular
+
+### 1. Kentsel dönüşüm danışmanlık ücreti daire başı mı hesaplanır?
+
+Genellikle evet. Apartman ve site projelerinde maliyetin şeffaf paylaşılması adına daire başı danışmanlık ücreti belirlenir. Ancak büyük ticari projelerde veya kentsel dönüşüm ihalelerinde toplam proje bedeli üzerinden bir yüzde ile de çalışılabilmektedir.
+
+### 2. Danışmanlık ücreti inşaat maliyetinden ayrı mı ödenir?
+
+Bu mülk sahiplerinin tercihine bağlıdır. Bazı durumlarda danışmanlık bedeli malikler tarafından doğrudan karşılanırken, bazı projelerde bu maliyetin müteahhit tarafından üstlenilmesi sözleşme maddesi olarak eklenir. Arkentra olarak tarafsızlığımızı korumak adına malik temsilciliğini önemsiyoruz.
+
+### 3. "Ücretsiz kentsel dönüşüm danışmanlığı" mümkün mü?
+
+Belediyelerin bilgilendirme ofisleri temel bilgileri ücretsiz sağlar. Ancak binanıza özel statik analiz, teknik şartname hazırlığı, müteahhit hukuki denetimi ve yerinde inşaat kontrolü gibi profesyonel ve sorumluluk gerektiren hizmetler, lisanslı uzmanlık gerektiren ücretli hizmetlerdir.
+
+### 4. Danışmanlık fiyatına hangi hizmetler dahildir?
+
+Arkentra'nın kapsamlı danışmanlık paketinde şu hizmetler fiyata dahil edilebilir:
+
+- Riskli yapı tespit süreci yönetimi
+- SPK lisanslı değerleme (şerefiye) raporu organizasyonu
+- Teknik şartnamenin mühendislerce hazırlanması
+- Müteahhit firmaların finansal ve teknik yeterlilik analizi
+- Hukuki sözleşme hazırlığı ve %50+1 salt çoğunluk süreci yönetimi
+
+### 5. En ucuz kentsel dönüşüm danışmanlık firmasını seçmek riskli mi?
+
+Kesinlikle. Kentsel dönüşümde ucuz hizmet, genellikle eksik denetim veya deneyimsiz kadro demektir. İnşaat sırasında yapılacak tek bir mühendislik hatası veya sözleşmedeki bir boşluk, size danışmanlık ücretinin yüzlerce katı zarar olarak dönebilir.
+
+## Danışmanlık Ücreti Size Ne Kadar Para Kazandırır?
+
+Gelin, 2026 rakamlarıyla bir karşılaştırma yapalım:
+
+Senaryo A (danışmansız): Müteahhit ile doğrudan anlaştınız. Sözleşmedeki bir boşluk nedeniyle inşaat 1 yıl gecikti. 10 dairelik bir apartmanda yıllık toplam kira kaybınız ve artan inşaat maliyeti zararı yaklaşık 3.000.000 TL civarındadır.
+
+Senaryo B (Arkentra danışmanlığı ile): Profesyonel destek aldınız. Sözleşmeye gecikme tazminatı ve bina tamamlama sigortası eklendi. İnşaat süresinde bitti, malzeme kalitesi denetlendi ve mülkünüzün değeri piyasanın üzerinde oluştu.
+
+Sonuç: Ödediğiniz danışmanlık ücreti, sizi milyonlarca liralık zarardan kurtarırken mülkünüzün değerine değer katabilir.
+
+## Binanız İçin Şeffaf Fiyat Teklifi Alın
+
+Arkentra olarak her binanın özel olduğuna inanıyoruz. Size internet üzerinden ezber bir fiyat vermek yerine binanızın tapu kayıtlarını inceliyor, malik sayısını ve beklentilerinizi analiz ediyor ve ardından en adil fiyat teklifini hazırlıyoruz.
+
+Milyonluk dairenizi şansa değil, uzmana emanet edin. Kentsel dönüşüm maliyet analiziniz ve size özel danışmanlık fiyat teklifimiz için bize ulaşın:
+
+- Telefon ve WhatsApp: 0545 832 6199
+- Ücretsiz ön inceleme: Web sitemiz üzerinden binanızın bilgilerini bırakın, sizi 24 saat içinde arayalım.`,
+  },
+  {
     slug: 'muteahhit-sozlesme-check-up',
     title:
       'Müteahhit Sözleşmesi İmzalamadan Önce Durun! Arkentra Sözleşme Check-Up ile Haklarınızı Koruyun',
@@ -314,6 +386,11 @@ Kentsel dönüşümde en pahalı sözleşme, imzalandıktan sonra hata olduğu a
 ];
 
 export const FEATURED_YAZI_SLUG = '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar';
+
+export const HIGH_PRIORITY_YAZI_SLUGS = [
+  FEATURED_YAZI_SLUG,
+  'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
+] as const;
 
 export function getYaziBySlug(slug: string): Yazi | undefined {
   return yazilar.find((yazi) => yazi.slug === slug);

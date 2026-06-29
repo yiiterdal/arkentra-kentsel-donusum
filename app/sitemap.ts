@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { FEATURED_YAZI_SLUG, yazilar } from './data/yazilar';
+import { FEATURED_YAZI_SLUG, HIGH_PRIORITY_YAZI_SLUGS, yazilar } from './data/yazilar';
 import { serviceSlug, services, siteUrl } from './data/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,8 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articleRoutes: MetadataRoute.Sitemap = yazilar.map((yazi) => ({
     url: `${siteUrl}/yazilarimiz/${yazi.slug}`,
     lastModified: yazi.date,
-    changeFrequency: yazi.slug === FEATURED_YAZI_SLUG ? 'weekly' : 'monthly',
-    priority: yazi.slug === FEATURED_YAZI_SLUG ? 0.95 : 0.7,
+    changeFrequency: HIGH_PRIORITY_YAZI_SLUGS.includes(
+      yazi.slug as (typeof HIGH_PRIORITY_YAZI_SLUGS)[number],
+    )
+      ? 'weekly'
+      : 'monthly',
+    priority: yazi.slug === FEATURED_YAZI_SLUG ? 0.95 : HIGH_PRIORITY_YAZI_SLUGS.includes(
+        yazi.slug as (typeof HIGH_PRIORITY_YAZI_SLUGS)[number],
+      )
+      ? 0.9
+      : 0.7,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...articleRoutes];
