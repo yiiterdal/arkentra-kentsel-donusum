@@ -2,6 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
+  async redirects() {
+    return [
+      {
+        source: '/post/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
+        destination: '/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
+        permanent: true,
+      },
+      {
+        source: '/yazilarimiz/2026-kentsel-donusum-kira-yardimi-basvuru',
+        destination: '/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

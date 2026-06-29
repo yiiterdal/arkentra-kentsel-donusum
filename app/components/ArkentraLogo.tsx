@@ -19,13 +19,13 @@ type ArkentraLogoProps = {
 const appIcons = {
   color: {
     src: '/images/logo/arkentra-app-icon.png',
-    width: 436,
-    height: 436,
+    width: 512,
+    height: 512,
   },
   white: {
-    src: '/images/logo/arkentra-app-icon-white.png',
-    width: 426,
-    height: 426,
+    src: '/images/logo/arkentra-app-icon.png',
+    width: 512,
+    height: 512,
   },
 } as const;
 
@@ -107,15 +107,15 @@ export default function ArkentraLogo({
         </span>
         <span className="inline-flex min-w-0 max-w-full items-stretch gap-1.5">
           <span className="w-1 shrink-0 bg-brand-300" aria-hidden />
-          <span className="flex min-w-0 flex-col gap-0">
+          <span className="flex min-w-0 flex-col justify-center gap-0.5">
             <span
-              className={`block text-base font-bold uppercase leading-none tracking-tight sm:text-lg ${titleClass}`}
+              className={`block text-base font-bold uppercase leading-tight tracking-tight sm:text-lg ${titleClass}`}
             >
               ARKENTRA
             </span>
             {!isCompact && (
               <span
-                className={`-mt-1.5 block text-xs font-medium leading-none tracking-wide sm:-mt-2 sm:text-sm md:text-base ${taglineClass}`}
+                className={`block text-xs font-medium leading-snug tracking-wide sm:text-sm md:text-base ${taglineClass}`}
               >
                 Kentsel Dönüşüm Danışmanlığı
               </span>

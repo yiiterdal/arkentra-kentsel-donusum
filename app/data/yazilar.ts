@@ -198,56 +198,77 @@ Hukuki süreçlerin sonunda rapor kesinleşirse bina yasal olarak yıkılması g
 Riskli yapı tespit süreci, hata kabul etmeyen teknik ve hukuki bir süreçtir. Süreci profesyonelce yönetmek için Arkentra uzman ekibimizle iletişime geçebilirsiniz.`,
   },
   {
-    slug: '2026-kentsel-donusum-kira-yardimi-basvuru',
-    title: '2026 Kentsel Dönüşüm Kira Yardımı Nasıl Başvurulur?',
+    slug: '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
+    title: '2026 Kentsel Dönüşüm Kira Yardımı Ne Kadar Oldu? (İstanbul Güncel Rakamlar)',
     excerpt:
-      '2026 İstanbul kira yardımı tutarları, taşınma desteği ve malik ile kiracı için gerekli başvuru belgeleri.',
-    date: '2025-03-29',
-    dateLabel: '29 Mart 2025',
-    readTime: '3 dk okuma',
+      '2026 İstanbul kentsel dönüşüm kira yardımı tutarları, taşınma desteği, kiracı hakları ve başvuru belgeleri. Bayrampaşa, Pendik, Maltepe ve Kartal için güncel rakamlar.',
+    date: '2026-06-15',
+    dateLabel: '15 Haziran 2026',
+    readTime: '6 dk okuma',
     konu: 'Mevzuat',
     tur: 'Rehber',
     imageSrc: images.yazilar.kiraYardimi.src,
     imageAlt: images.yazilar.kiraYardimi.alt,
-    content: `İstanbul'da beklenen deprem riski ve yapı stokunun yaşlanması, kentsel dönüşümü bir zorunluluk haline getirdi. Evini yenilemek isteyen mülk sahiplerinin en büyük soru işareti ise değişmiyor: İnşaat süresince nerede kalacağım ve devlet kiramı karşılayacak mı?
+    content: `İstanbul'da beklenen büyük deprem riski ve yapı stokunun yaşlanması, kentsel dönüşümü bir tercih değil, zorunluluk haline getirdi. Ancak evini yenilemek isteyen mülk sahiplerinin aklındaki en büyük soru işareti değişmiyor: İnşaat süresince nerede kalacağım ve devlet kiramı karşılayacak mı?
 
-## 2026 İstanbul Kira Yardımı Tutarları
+2026 yılına girerken, artan kira maliyetleri karşısında Çevre, Şehircilik ve İklim Değişikliği Bakanlığı ile yerel yönetimler destek paketlerini güncelledi. İster Bayrampaşa'da, ister Pendik veya Maltepe'de ikamet edin, kentsel dönüşüm sürecinde cebinizi rahatlatacak güncel kira yardımı rakamlarını ve başvuru şartlarını sizler için derledik.
 
-2025 sonu itibarıyla yapılan düzenlemelerle birlikte, İstanbul'da riskli yapı sahiplerine ödenen kira yardımı tutarları 8.500 TL'dir.
+## 2026 İstanbul Kentsel Dönüşüm Kira Yardımı Tutarları
 
-## Taşınma Yardımı
+2025 sonu itibarıyla yapılan düzenlemelerle birlikte, İstanbul'da riskli yapı sahiplerine ödenen kira yardımı tutarları ciddi oranda artırıldı. Bu rakamlar, binanın bulunduğu ilçeye veya risk durumuna göre değişiklik gösterebilmektedir.
 
-Hem konut hem de iş yeri için hak sahibine bir defaya mahsus taşınma desteği hibe olarak verilir. Hak sahibine tek seferde 125.000 TL taşınma desteği ödenir. Daire veya iş yerinde oturan kiracıysa kiracıya, değilse ev sahibine ödeme yapılır.
+Bakanlık ve ilgili kurumların belirlediği güncel rakamlar şu şekildedir:
 
-## Başvuru İçin Gerekli Belgeler
+### Konut Maliki (Ev Sahibi)
+- Aylık kira yardımı: 8.000 TL (Bakanlık) / 10.000 TL (İBB Riskli Yapı)*
+- Taşınma yardımı (tek seferlik): 16.000 TL
 
-### Konut veya İş Yeri Maliki
-- Müracaat dilekçesi
-- Nüfus cüzdanı fotokopisi (iş yeri için imza sirküleri)
-- Tapu senedi ve güncel taşınmaz kaydı
-- Yıkılan yapılar formu (yıkım ruhsatı)
-- Riskli bina tespit raporu inceleme formu
-- Ziraat Bankası vadesiz TL hesap cüzdanı fotokopisi
+### Kiracı
+- Aylık kira yardımı: Kira yardımı alamaz
+- Taşınma yardımı (tek seferlik): 16.000 TL
 
-### Konut Kiracısı
-- Müracaat dilekçesi ve kimlik fotokopisi
-- Riskli bina tespit raporu inceleme formu
-- Tahliye edildiğine dair adres bilgileri raporu
-- Yıkım ruhsatı ve banka hesap bilgileri
+### Sınırlı Ayni Hak Sahibi
+- Aylık kira yardımı: Kira yardımı alamaz
+- Taşınma yardımı (tek seferlik): 40.000 TL
 
-### İş Yeri Kiracısı
-- İmza sirküleri ve yetkili kimlik fotokopisi
-- Oda sicil kaydı ve tahliye belgesi
-- Yıkım ruhsatı ve riskli bina tespit raporu inceleme formu
-- Ziraat Bankası hesap cüzdanı fotokopisi
+Önemli not: İstanbul Büyükşehir Belediyesi (İBB), "Hızlı Tarama Testi" sonucunda en riskli grupta olduğu tespit edilen binalar için kira yardımını 10.000 TL'ye kadar çıkarmıştır.
 
-Önemli: Riskli yapı tahliye edilip yıkıldıktan sonra 1 yıl içinde başvuru yapılmalıdır.
+## Kira Yardımı mı, Faiz Destekli Kredi mi?
 
-## Arkentra ile Süreci Yönetin
+Kentsel dönüşüm sürecinde devlet iki farklı finansal destek sunar, ancak bunlardan sadece birini seçebilirsiniz:
 
-Kentsel dönüşüm sadece eski binayı yıkıp yenisini yapmak değildir; kira yardımından vergi muafiyetlerine kadar tüm yasal haklarınızı eksiksiz kullanmanız gereken bir süreçtir. Arkentra olarak riskli yapı tespit başvurusu, kira yardımı dosyasının hazırlanması ve müteahhit sözleşmelerinin hukuki denetimi gibi tüm aşamaları sizin adınıza yürütüyoruz.
+- Kira Yardımı: 18 ay boyunca hibe olarak verilir, geri ödenmez.
+- Faiz Destekli Dönüşüm Kredisi: Binanızı yenilemek için bankadan çekeceğiniz kredinin faiz masrafının bir kısmını devlet karşılar.
 
-Yasal uyarı: Kira yardımı tutarları Bakanlık tarafından yıllık olarak güncellenmektedir. En doğru bilgi için uzmanlarımızla görüşmeniz tavsiye edilir.`,
+Eğer Kartal veya Pendik gibi bölgelerde müteahhitle "kat karşılığı" değil de "taahhüt" usulü (yani inşaat parasını sizin ödediğiniz model) ile anlaştıysanız, düşük faizli kredi desteği kira yardımından daha avantajlı olabilir. Ancak binanız kat karşılığı yapılıyorsa, kira yardımı almak en mantıklı seçenektir.
+
+## Kiracılar Kentsel Dönüşümden Yararlanabilir mi?
+
+Evet, kiracılar da mağdur edilmemektedir. Riskli ilan edilen binada en az 1 yıldır oturduğunu belgeleyen kiracılar, tek seferlik taşınma yardımı (İstanbul için 16.000 TL) alabilirler. Ancak kiracılara aylık düzenli kira ödemesi yapılmaz; bu hak sadece tapu sahiplerine (maliklere) aittir.
+
+## Başvuru İçin Gerekli Belgeler Nelerdir?
+
+Bayrampaşa merkez ofisimizden veya e-Devlet üzerinden yönetebileceğiniz süreç için şu belgeleri hazırlamanız gerekir:
+
+- Riskli Yapı Tespit Raporu: Binanızın 6306 sayılı kanun kapsamında riskli olduğunu gösteren onaylı rapor.
+- Tapu Belgesi ve Kimlik Fotokopisi.
+- Adres Bilgileri Raporu: Nüfus müdürlüğünden alınacak, riskli yapıda ikamet ettiğinizi gösteren belge.
+- Yıkım Tutanağı: Binanın boşaltılıp yıkıldığını kanıtlayan belge.
+- Ziraat Bankası Hesap Cüzdanı: Ödemelerin yatırılacağı hesaba ait IBAN.
+
+## Arkentra ile Süreci Tek Noktadan Yönetin
+
+Kentsel dönüşüm sadece eski binayı yıkıp yenisini yapmak değildir; kira yardımından vergi muafiyetlerine kadar tüm yasal haklarınızı eksiksiz kullanmanız gereken bir süreçtir.
+
+Arkentra Kentsel Dönüşüm olarak, Bayrampaşa'daki merkezimizden Pendik, Kartal ve Maltepe başta olmak üzere İstanbul'un her noktasına hizmet veriyoruz:
+
+- Riskli yapı tespit başvurusu
+- Kira yardımı dosyasının hazırlanması
+- Müteahhit sözleşmelerinin hukuki denetimi
+
+Biz müteahhit değiliz, sizin çözüm ortağınızız. Hak kaybı yaşamadan güvenli evlerinize kavuşmanızı sağlıyoruz.
+
+Yasal uyarı: Kira yardımı tutarları Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından yıllık olarak güncellenmektedir. En doğru ve kişiye özel bilgi için uzmanlarımızla görüşmeniz tavsiye edilir.`,
   },
   {
     slug: 'muteahhit-sozlesme-check-up',
