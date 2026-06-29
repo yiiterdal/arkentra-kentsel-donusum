@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex mb-5" aria-label={siteName}>
-              <ArkentraLogo variant="white-full" />
+              <ArkentraLogo variant="white-full" withAppIcon />
             </Link>
             <p className="text-sm leading-relaxed font-light site-footer__muted">{footerContent.tagline}</p>
           </div>
