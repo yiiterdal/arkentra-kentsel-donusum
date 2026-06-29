@@ -313,6 +313,16 @@ Kentsel dönüşümde en pahalı sözleşme, imzalandıktan sonra hata olduğu a
   },
 ];
 
+export const FEATURED_YAZI_SLUG = '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar';
+
 export function getYaziBySlug(slug: string): Yazi | undefined {
   return yazilar.find((yazi) => yazi.slug === slug);
+}
+
+export function getFeaturedYazi(): Yazi | undefined {
+  return getYaziBySlug(FEATURED_YAZI_SLUG);
+}
+
+export function getYaziHref(slug: string): string {
+  return `/yazilarimiz/${slug}`;
 }

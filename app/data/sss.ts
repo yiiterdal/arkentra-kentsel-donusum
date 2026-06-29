@@ -1,6 +1,8 @@
 export type FaqItem = {
   question: string;
   answer: string;
+  readMoreHref?: string;
+  readMoreLabel?: string;
 };
 
 export type FaqCategory = {
@@ -90,7 +92,9 @@ export const faqCategories: FaqCategory[] = [
       {
         question: '2026 kentsel dönüşüm kira yardımı ne kadar?',
         answer:
-          'İstanbul’da riskli yapı maliklerine ödenen kira yardımı tutarı güncel düzenlemelere göre belirlenir. Ayrıca taşınma desteği gibi ek haklar da mevcuttur. Kesin tutarlar için uzman ekibimizle görüşmenizi öneririz.',
+          'İstanbul’da konut maliklerine Bakanlık kapsamında aylık 8.000 TL, İBB riskli yapı desteğiyle 10.000 TL’ye kadar kira yardımı ödenir. Taşınma desteği malikler için 16.000 TL, kiracılar için 16.000 TL tek seferlik hibe olarak verilir.',
+        readMoreHref: '/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
+        readMoreLabel: '2026 kira yardımı rehberini okuyun →',
       },
       {
         question: 'Kira yardımına kimler başvurabilir?',
@@ -133,5 +137,12 @@ export const faqCategories: FaqCategory[] = [
 ];
 
 export const faqItems: FaqItem[] = faqCategories.flatMap((category) => category.items);
+
+const kiraYardimiFaq = faqCategories.find((category) => category.id === 'finans-destek')!.items[0];
+
+export const faqHomePreview: FaqItem[] = [
+  kiraYardimiFaq,
+  ...faqItems.filter((item) => item.question !== kiraYardimiFaq.question).slice(0, 4),
+];
 
 export const faqPreviewCount = 5;

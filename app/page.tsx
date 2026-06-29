@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import EditorialSplit from './components/EditorialSplit';
 import FaqSection from './components/FaqSection';
+import FeaturedYaziCard from './components/FeaturedYaziCard';
 import FoundersPreview from './components/FoundersPreview';
 import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
 import VideoHero from './components/VideoHero';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo, images } from './data/images';
-import { faqItems, faqPreviewCount } from './data/sss';
+import { faqHomePreview, faqPreviewCount } from './data/sss';
+import { getFeaturedYazi } from './data/yazilar';
 import { siteDescription, siteName, siteTagline } from './data/site';
 
 export const metadata = {
@@ -60,6 +62,8 @@ const lifecycle = [
 ];
 
 export default function HomePage() {
+  const featuredYazi = getFeaturedYazi();
+
   return (
     <>
       <VideoHero
@@ -105,6 +109,20 @@ export default function HomePage() {
           ))}
         </ul>
       </EditorialSplit>
+
+      {featuredYazi && (
+        <section className="bg-white py-14 md:py-20 border-t border-gray-100">
+          <div className="container-editorial">
+            <SectionIntro
+              eyebrow="Güncel rehber"
+              title="2026 kentsel dönüşüm kira yardımı"
+              description="İstanbul’daki güncel kira ve taşınma desteği tutarları, başvuru belgeleri ve malik-kiracı hakları."
+              className="mb-8"
+            />
+            <FeaturedYaziCard yazi={featuredYazi} />
+          </div>
+        </section>
+      )}
 
       <section className="bg-gray-50 py-14 md:py-20">
         <div className="container-editorial">
@@ -199,7 +217,7 @@ export default function HomePage() {
       <FaqSection
         title="Sık sorulan sorular"
         description="Kentsel dönüşüm sürecinde maliklerin en çok merak ettiği konulara kısa yanıtlar."
-        items={faqItems.slice(0, faqPreviewCount)}
+        items={faqHomePreview.slice(0, faqPreviewCount)}
         allLinkHref="/sss"
       />
 

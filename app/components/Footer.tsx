@@ -9,8 +9,11 @@ import {
   contactPhoneHref,
 } from '../data/contact';
 import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
+import { FEATURED_YAZI_SLUG, getFeaturedYazi } from '../data/yazilar';
 
 export default function Footer() {
+  const featuredYazi = getFeaturedYazi();
+
   return (
     <footer className="site-footer">
       <div className="container-editorial py-14 md:py-16">
@@ -55,6 +58,11 @@ export default function Footer() {
                   <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
+              {featuredYazi && (
+                <li>
+                  <Link href={`/yazilarimiz/${FEATURED_YAZI_SLUG}`}>2026 Kira Yardımı Rehberi</Link>
+                </li>
+              )}
             </ul>
           </div>
 

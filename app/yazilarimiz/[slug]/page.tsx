@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import JsonLd from '../../components/JsonLd';
 import YaziContent from '../../components/YaziContent';
-import { getYaziBySlug, yazilar } from '../../data/yazilar';
+import { getYaziBySlug, yazilar, FEATURED_YAZI_SLUG } from '../../data/yazilar';
+import { siteUrl } from '../../data/site';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
 import type { Metadata } from 'next';
@@ -21,10 +22,24 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
   if (!yazi) return { title: 'Yazı Bulunamadı' };
 
   const imageUrl = yazi.imageSrc.startsWith('http') ? yazi.imageSrc : yazi.imageSrc;
+  const isFeatured = yazi.slug === FEATURED_YAZI_SLUG;
 
   return {
     title: yazi.title,
     description: yazi.excerpt,
+    ...(isFeatured && {
+      keywords: [
+        'kentsel dönüşüm kira yardımı 2026',
+        'istanbul kentsel dönüşüm kira desteği',
+        '2026 riskli yapı kira yardımı',
+        'kiracı taşınma yardımı',
+        'bayrampaşa kentsel dönüşüm',
+        '6306 sayılı kanun kira yardımı',
+      ],
+    }),
+    alternates: {
+      canonical: `${siteUrl}/yazilarimiz/${yazi.slug}`,
+    },
     openGraph: {
       type: 'article',
       publishedTime: yazi.date,

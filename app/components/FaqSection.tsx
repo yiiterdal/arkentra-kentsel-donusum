@@ -50,9 +50,19 @@ function FaqAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <p className="pb-5 md:pb-6 text-gray-600 leading-relaxed font-light text-[15px] md:text-base pr-8">
-            {item.answer}
-          </p>
+          <div className="pb-5 md:pb-6 pr-8">
+            <p className="text-gray-600 leading-relaxed font-light text-[15px] md:text-base">
+              {item.answer}
+            </p>
+            {item.readMoreHref && (
+              <Link
+                href={item.readMoreHref}
+                className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800 transition-colors"
+              >
+                {item.readMoreLabel ?? 'Devamını okuyun →'}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
