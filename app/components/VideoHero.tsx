@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo } from '../data/images';
+import { shouldLoadHeavyMedia, shouldUseReducedMotion } from '../lib/scroll-config';
 
 interface VideoHeroProps {
   title: ReactNode;
@@ -17,6 +18,13 @@ function isMobileViewport(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
 }
 
+function scheduleIdle(callback: () => void, timeoutMs: number): () => void {
+  const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1));
+  const cancel = window.cancelIdleCallback ?? window.clearTimeout;
+  const id = idle(callback, { timeout: timeoutMs });
+  return () => cancel(id);
+}
+
 export default function VideoHero({
   title,
   subtitle,
@@ -30,8 +38,11 @@ export default function VideoHero({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(() => isMobileViewport());
   const [desktopSrc, setDesktopSrc] = useState(videoSrc);
+  const [loadVideo, setLoadVideo] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
   const mobileSrc = mobileVideoSrc;
   const activeSrc = isMobile ? mobileSrc : desktopSrc;
+  const activePoster = isMobile ? heroVideo.posterMobile : posterSrc;
 
   useLayoutEffect(() => {
     setIsMobile(isMobileViewport());
@@ -46,6 +57,20 @@ export default function VideoHero({
   }, []);
 
   useEffect(() => {
+    setVideoVisible(false);
+
+    if (shouldUseReducedMotion() || !shouldLoadHeavyMedia()) {
+      setLoadVideo(false);
+      return;
+    }
+
+    setLoadVideo(false);
+    return scheduleIdle(() => setLoadVideo(true), isMobile ? 2200 : 1200);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (!loadVideo) return;
+
     const video = videoRef.current;
     const section = sectionRef.current;
     if (!video) return;
@@ -72,12 +97,17 @@ export default function VideoHero({
       }
     };
 
+    const onReady = () => {
+      setVideoVisible(true);
+      tryPlay();
+    };
+
     video.src = activeSrc;
     prepareVideo();
     video.load();
+    video.addEventListener('loadeddata', onReady);
     video.addEventListener('canplay', tryPlay);
     video.addEventListener('error', onError);
-    tryPlay();
 
     const observer =
       section &&
@@ -94,36 +124,41 @@ export default function VideoHero({
     section?.addEventListener('touchstart', onHeroTap, { passive: true });
 
     return () => {
+      video.removeEventListener('loadeddata', onReady);
       video.removeEventListener('canplay', tryPlay);
       video.removeEventListener('error', onError);
       section?.removeEventListener('touchstart', onHeroTap);
       observer?.disconnect();
     };
-  }, [activeSrc, isMobile]);
+  }, [loadVideo, activeSrc, isMobile]);
 
   return (
     <section ref={sectionRef} className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={posterSrc}
+          src={activePoster}
           alt={posterAlt}
           className="absolute inset-0 z-0 h-full w-full object-cover"
-          decoding="sync"
+          decoding="async"
           fetchPriority="high"
         />
 
-        <video
-          key={activeSrc}
-          ref={videoRef}
-          className="absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={posterSrc}
-        />
+        {loadVideo && (
+          <video
+            key={activeSrc}
+            ref={videoRef}
+            className={`absolute inset-0 z-[1] h-full w-full object-cover motion-reduce:hidden transition-opacity duration-700 ${
+              videoVisible ? 'opacity-100' : 'opacity-0'
+            }`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster={activePoster}
+          />
+        )}
 
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
         <div className="absolute inset-0 z-30 flex items-end pt-16 md:items-center md:pt-[72px] pb-20 md:pb-16">

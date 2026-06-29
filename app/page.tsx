@@ -66,6 +66,13 @@ export default function HomePage() {
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero/poster.webp"
+        type="image/webp"
+        fetchPriority="high"
+      />
       <VideoHero
         title={
           <>
