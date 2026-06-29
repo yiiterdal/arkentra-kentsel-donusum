@@ -63,7 +63,7 @@ function FilterMenu({
         onClick={onToggle}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className={`inline-flex items-center gap-2 border px-4 py-2.5 text-sm transition-colors ${
+        className={`inline-flex max-w-full items-center gap-1.5 border px-3 py-2 text-xs sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm transition-colors ${
           open
             ? 'border-brand-700 bg-brand-50 text-brand-800'
             : 'border-gray-300 bg-white text-gray-800 hover:border-brand-600 hover:bg-gray-50'
@@ -127,7 +127,7 @@ function YaziCard({ yazi }: { yazi: Yazi }) {
   return (
     <Link
       href={`/yazilarimiz/${yazi.slug}`}
-      className="group flex flex-col overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+      className="group flex min-w-0 flex-col overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
         <Image
@@ -135,17 +135,17 @@ function YaziCard({ yazi }: { yazi: Yazi }) {
           src={yazi.imageSrc}
           alt={yazi.imageAlt}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           quality={IMAGE_QUALITY}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
-        <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-white/95 text-brand-800 text-xs font-semibold uppercase tracking-wide">
+        <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate px-2.5 py-1 bg-white/95 text-brand-800 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
           {yazi.konu}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6 md:p-7">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
+      <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6 md:p-7">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] sm:text-xs text-gray-500 mb-3">
           <span className="font-medium text-brand-700">{yazi.tur}</span>
           <span aria-hidden="true">·</span>
           <time dateTime={yazi.date}>{yazi.dateLabel}</time>
@@ -156,10 +156,10 @@ function YaziCard({ yazi }: { yazi: Yazi }) {
             </>
           )}
         </div>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-900 leading-snug mb-3 group-hover:text-brand-800 transition-colors line-clamp-3">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 leading-snug mb-3 break-words group-hover:text-brand-800 transition-colors line-clamp-3">
           {yazi.title}
         </h2>
-        <p className="text-gray-600 leading-relaxed font-light text-[15px] line-clamp-3 flex-1">
+        <p className="text-gray-600 leading-relaxed font-light text-sm sm:text-[15px] line-clamp-3 flex-1 break-words">
           {yazi.excerpt}
         </p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:gap-2.5 transition-all">
@@ -228,8 +228,8 @@ export default function YazilarListing() {
           </h2>
         </div>
 
-        <div className="mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-gray-200">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="mb-8 md:mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-gray-200">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
             <FilterMenu
               label="Konu"
               value={selectedKonu}
@@ -318,7 +318,7 @@ export default function YazilarListing() {
           <div className="space-y-10 md:space-y-14">
             {featuredYazi && <FeaturedYaziCard yazi={featuredYazi} />}
             {otherYazilar.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                 {otherYazilar.map((yazi) => (
                   <YaziCard key={yazi.slug} yazi={yazi} />
                 ))}

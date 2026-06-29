@@ -142,6 +142,14 @@ export const images = {
       src: pexels(8293774, REMOTE_EDITORIAL_WIDTH),
       alt: 'Sözleşme ve kontrol listesi incelemesi, müteahhit check-up',
     },
+    danismanlik: {
+      src: pexels(590020, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Kentsel dönüşüm danışmanlık ücreti ve gayrimenkul maliyet analizi',
+    },
+    katKarsiligi: {
+      src: pexels(2219024, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Kat karşılığı inşaat sözleşmesi, mimari plan ve teknik şartname',
+    },
   },
 } as const;
 

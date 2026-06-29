@@ -103,8 +103,8 @@ Arkentra Kentsel Dönüşüm ve Danışmanlık olarak; uzman hukukçu ve teknik 
     readTime: '3 dk okuma',
     konu: 'Hukuk',
     tur: 'Rehber',
-    imageSrc: images.yazilar.sozlesme.src,
-    imageAlt: images.yazilar.sozlesme.alt,
+    imageSrc: images.yazilar.katKarsiligi.src,
+    imageAlt: images.yazilar.katKarsiligi.alt,
     content: `Bir mülk sahibi için Kat Karşılığı İnşaat Sözleşmesi, sadece kağıt üzerinde bir imza değil; mülkünüzün geleceğini, ailenizin huzurunu ve milyonlarca liralık bir yatırımı müteahhide emanet etmektir. 2026 yılına girerken, değişen maliyetler ve hukuki düzenlemeler ışığında standart matbu sözleşmeler artık mülk sahiplerini korumaya yetmiyor.
 
 ## Kat Karşılığı İnşaat Sözleşmesi Nedir?
@@ -280,8 +280,8 @@ Yasal uyarı: Kira yardımı tutarları Çevre, Şehircilik ve İklim Değişikl
     readTime: '7 dk okuma',
     konu: 'Malik Rehberi',
     tur: 'Rehber',
-    imageSrc: images.yazilar.sozlesme.src,
-    imageAlt: images.yazilar.sozlesme.alt,
+    imageSrc: images.yazilar.danismanlik.src,
+    imageAlt: images.yazilar.danismanlik.alt,
     content: `Kentsel dönüşüm süreci başladığında mülk sahiplerinin zihnini kurcalayan en kritik soru şudur: "Kentsel dönüşüm danışmanlık ücreti ne kadar?" 2026 yılı itibarıyla inşaat maliyetlerinin ve mülkiyet değerlerinin ulaştığı seviyeler, profesyonel bir yol arkadaşı ile çalışmayı opsiyonel olmaktan çıkarıp zorunlu hale getirmiştir.
 
 Arkentra Kentsel Dönüşüm olarak, şeffaflık ilkemiz gereği danışmanlık fiyatlarının nasıl belirlendiğini, hangi kriterlerin maliyeti etkilediğini ve bu hizmetin aslında size nasıl para kazandırdığını tüm detaylarıyla açıklıyoruz.

@@ -31,9 +31,9 @@ export default function FeaturedYaziCard({ yazi }: { yazi: Yazi }) {
   return (
     <Link
       href={`/yazilarimiz/${yazi.slug}`}
-      className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden bg-gray-900 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+      className="group relative grid min-w-0 grid-cols-1 lg:grid-cols-12 overflow-hidden bg-gray-900 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
     >
-      <div className="relative lg:col-span-7 min-h-[260px] lg:min-h-[420px] overflow-hidden">
+      <div className="relative lg:col-span-7 min-h-[220px] sm:min-h-[260px] lg:min-h-[420px] overflow-hidden">
         <Image
           src={yazi.imageSrc}
           alt={yazi.imageAlt}
@@ -48,12 +48,12 @@ export default function FeaturedYaziCard({ yazi }: { yazi: Yazi }) {
           Öne Çıkan
         </span>
       </div>
-      <div className="lg:col-span-5 flex flex-col justify-center p-8 md:p-10 lg:p-12 text-white">
+      <div className="lg:col-span-5 flex min-w-0 flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-12 text-white">
         <YaziMeta yazi={yazi} light />
-        <h2 className="mt-4 text-2xl md:text-3xl lg:text-[2rem] font-semibold leading-tight tracking-tight text-white group-hover:text-brand-200 transition-colors">
+        <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-semibold leading-tight tracking-tight text-white break-words group-hover:text-brand-200 transition-colors">
           {yazi.title}
         </h2>
-        <p className="mt-4 text-base md:text-lg text-white/80 leading-relaxed font-light line-clamp-4">
+        <p className="mt-4 text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-light line-clamp-4 break-words">
           {yazi.excerpt}
         </p>
         <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-300 group-hover:gap-3 transition-all">

@@ -114,7 +114,7 @@ export default function YaziPage({ params }: YaziPageProps) {
             )}
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-6 sm:mb-8 leading-tight break-words">
             {yazi.title}
           </h1>
 
