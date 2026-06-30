@@ -9,10 +9,10 @@ const featuredFounders = teamContent.founders.filter((member) =>
 
 export default function FoundersPreview() {
   return (
-    <section className="bg-gray-50 py-14 md:py-20 border-t border-gray-100">
+    <section className="bg-gray-50 py-14 md:py-20 border-t border-gray-100 [content-visibility:visible]">
       <div className="container-editorial">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-          <div>
+          <div className="min-w-0">
             <p className="text-brand-600 text-sm font-semibold tracking-[0.2em] uppercase mb-3">
               Kurucu Ekip
             </p>
@@ -30,27 +30,27 @@ export default function FoundersPreview() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {featuredFounders.map((member) => (
             <Link
               key={member.name}
               href="/ekibimiz"
-              className="group flex items-center gap-5 bg-white border border-gray-100 p-6 md:p-8 hover:border-brand-200 transition-colors"
+              className="group flex min-w-0 items-center gap-4 overflow-hidden bg-white border border-gray-100 p-5 sm:gap-5 sm:p-6 md:p-8 hover:border-brand-200 transition-colors"
             >
-              <div className="relative h-20 w-20 md:h-24 md:w-24 shrink-0 overflow-hidden rounded-full bg-gray-100">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-gray-100 sm:h-24 sm:w-24">
                 <Image
                   src={member.image}
                   alt={member.imageAlt}
                   fill
-                  sizes="96px"
+                  sizes="(max-width: 640px) 80px, 96px"
                   quality={IMAGE_QUALITY}
                   className="object-cover object-center grayscale group-hover:grayscale-0 transition-all"
                 />
               </div>
-              <div>
-                <p className="text-lg font-semibold text-gray-900">{member.name}</p>
-                <p className="text-sm text-brand-600 font-medium mt-0.5">{member.role}</p>
-                <p className="text-sm text-gray-600 mt-2 line-clamp-2 font-light">{member.bio[0]}</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-base font-semibold text-gray-900 sm:text-lg">{member.name}</p>
+                <p className="mt-0.5 text-sm font-medium text-brand-600">{member.role}</p>
+                <p className="mt-2 line-clamp-2 text-sm font-light text-gray-600">{member.bio[0]}</p>
               </div>
             </Link>
           ))}

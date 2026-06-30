@@ -14,6 +14,8 @@ type ArkentraLogoProps = {
   className?: string;
   priority?: boolean;
   withAppIcon?: boolean;
+  /** Override app icon color when using withAppIcon (e.g. green icon + white text in footer). */
+  appIconVariant?: 'color' | 'white';
 };
 
 const appIcons = {
@@ -23,7 +25,7 @@ const appIcons = {
     height: 512,
   },
   white: {
-    src: '/images/logo/arkentra-app-icon.png',
+    src: '/images/logo/arkentra-app-icon-white.png',
     width: 512,
     height: 512,
   },
@@ -73,6 +75,7 @@ export default function ArkentraLogo({
   className = '',
   priority = false,
   withAppIcon = false,
+  appIconVariant,
 }: ArkentraLogoProps) {
   const asset = logoAssets[variant];
   const isWhite = variant.startsWith('white');
@@ -85,7 +88,8 @@ export default function ArkentraLogo({
       : 'text-gray-900 group-hover:text-brand-800 transition-colors';
     const taglineClass = isWhite ? 'text-white' : 'text-gray-800';
 
-    const appIcon = isWhite ? appIcons.white : appIcons.color;
+    const iconTone = appIconVariant ?? (isWhite ? 'white' : 'color');
+    const appIcon = iconTone === 'white' ? appIcons.white : appIcons.color;
 
     return (
       <span className={`group inline-flex min-w-0 max-w-full flex-row items-center gap-2.5 ${className}`}>
