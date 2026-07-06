@@ -150,6 +150,18 @@ export const images = {
       src: pexels(2219024, REMOTE_EDITORIAL_WIDTH),
       alt: 'Kat karşılığı inşaat sözleşmesi, mimari plan ve teknik şartname',
     },
+    toplanti: {
+      src: pexels(3184292, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Toplantı masasında imza ve karar süreci, kat malikleri toplantısı',
+    },
+    malikTemsilcisi: {
+      src: pexels(3184465, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Danışmanlık görüşmesi, malik temsilcisi kentsel dönüşüm',
+    },
+    kaynakRehberi: {
+      src: pexels(669996, REMOTE_EDITORIAL_WIDTH),
+      alt: 'Kentsel dönüşüm istatistikleri ve veri tablosu, kaynak rehberi',
+    },
   },
 } as const;
 

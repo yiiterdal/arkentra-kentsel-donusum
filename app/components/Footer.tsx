@@ -9,10 +9,10 @@ import {
   contactPhoneHref,
 } from '../data/contact';
 import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
-import { FEATURED_YAZI_SLUG, getFeaturedYazi } from '../data/yazilar';
+import { getSpotlightYazilar } from '../data/yazilar';
 
 export default function Footer() {
-  const featuredYazi = getFeaturedYazi();
+  const spotlightYazilar = getSpotlightYazilar(undefined, 4);
 
   return (
     <footer className="site-footer">
@@ -58,11 +58,11 @@ export default function Footer() {
                   <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
-              {featuredYazi && (
-                <li>
-                  <Link href={`/yazilarimiz/${FEATURED_YAZI_SLUG}`}>2026 Kira Yardımı Rehberi</Link>
+              {spotlightYazilar.map((yazi) => (
+                <li key={yazi.slug}>
+                  <Link href={`/yazilarimiz/${yazi.slug}`}>{yazi.title}</Link>
                 </li>
-              )}
+              ))}
             </ul>
           </div>
 

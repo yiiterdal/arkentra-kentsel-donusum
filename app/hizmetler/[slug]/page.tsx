@@ -4,7 +4,7 @@ import JsonLd from '../../components/JsonLd';
 import PageHero from '../../components/PageHero';
 import { serviceDetails } from '../../data/hizmetler';
 import { serviceSlug, services } from '../../data/site';
-import { FEATURED_YAZI_SLUG, getFeaturedYazi } from '../../data/yazilar';
+import { getYazilarForService } from '../../data/yazilar';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
 import { breadcrumbSchema, servicePageSchema } from '../../lib/schema';
 import type { Metadata } from 'next';
@@ -42,8 +42,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
   const detail = serviceDetails[serviceName];
   const slug = params.slug;
-  const featuredYazi = getFeaturedYazi();
-  const showKiraRehberi = slug === serviceSlug('Gayrimenkul ve Finans Danışmanlığı') && featuredYazi;
+  const relatedYazilar = getYazilarForService(slug);
 
   return (
     <>
@@ -78,19 +77,20 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             ))}
           </ul>
 
-          {showKiraRehberi && (
-            <div className="mt-10 border border-brand-100 bg-brand-50/60 p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-wide text-brand-800 mb-2">
-                İlgili rehber
+          {relatedYazilar.length > 0 && (
+            <div className="mt-10 space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-brand-800">
+                İlgili rehberler
               </p>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{featuredYazi.title}</h3>
-              <p className="text-gray-700 leading-relaxed font-light mb-4">{featuredYazi.excerpt}</p>
-              <Link
-                href={`/yazilarimiz/${FEATURED_YAZI_SLUG}`}
-                className="link-button link-button--ghost"
-              >
-                Kira yardımı rehberini okuyun →
-              </Link>
+              {relatedYazilar.map((yazi) => (
+                <div key={yazi.slug} className="border border-brand-100 bg-brand-50/60 p-6 md:p-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{yazi.title}</h3>
+                  <p className="text-gray-700 leading-relaxed font-light mb-4">{yazi.excerpt}</p>
+                  <Link href={`/yazilarimiz/${yazi.slug}`} className="link-button link-button--ghost">
+                    Rehberi okuyun →
+                  </Link>
+                </div>
+              ))}
             </div>
           )}
 

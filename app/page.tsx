@@ -7,6 +7,7 @@ import ImageBanner from './components/ImageBanner';
 import SectionIntro from './components/SectionIntro';
 import ServiceCard from './components/ServiceCard';
 import VideoHero from './components/VideoHero';
+import YaziSpotlightSection from './components/YaziSpotlightSection';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo, images } from './data/images';
 import { faqHomePreview, faqPreviewCount } from './data/sss';
 import { getFeaturedYazi } from './data/yazilar';
@@ -130,6 +131,12 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      <YaziSpotlightSection
+        excludeSlug={featuredYazi?.slug}
+        limit={3}
+        bg="gray"
+      />
 
       <section className="bg-gray-50 py-14 md:py-20">
         <div className="container-editorial">

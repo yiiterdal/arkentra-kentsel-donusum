@@ -7,6 +7,7 @@ export interface Yazi {
   slug: string;
   title: string;
   excerpt: string;
+  summary: string;
   content: string;
   date: string;
   dateLabel: string;
@@ -43,6 +44,8 @@ export const yazilar: Yazi[] = [
       'Riskli Yapı Kesinleşmeden Alınan Kentsel Dönüşüm Kararlarının Hukuki Geçerliliği',
     excerpt:
       'Yargıtay 5. Hukuk Dairesi’nin 20.05.2025 tarihli emsal kararı çerçevesinde, riskli yapı süreci tamamlanmadan alınan toplantı ve sözleşme kararlarının hukuki geçerliliği.',
+    summary:
+      'Riskli yapı tespiti kesinleşmeden alınan kentsel dönüşüm kararları hukuka aykırı olabilir. Kat mülkiyeti devam ettiği sürece Kat Mülkiyeti Kanunu geçerlidir ve yeniden yapım kararları oybirliği gerektirir.',
     date: '2025-05-25',
     dateLabel: '25 Mayıs 2025',
     readTime: '5 dk okuma',
@@ -98,6 +101,8 @@ Arkentra Kentsel Dönüşüm ve Danışmanlık olarak; uzman hukukçu ve teknik 
       '2026 Kat Karşılığı İnşaat Sözleşmesi Rehberi: Müteahhitle Anlaşmadan Önce Bilmeniz Gereken 10 Kritik Madde',
     excerpt:
       'Kat karşılığı inşaat sözleşmesinde teknik şartname, şerefiye paylaşımı, gecikme tazminatı ve bina tamamlama sigortası gibi kritik maddeler.',
+    summary:
+      'Kat karşılığı inşaat sözleşmesi noter huzurunda yapılmalıdır. İmzalamadan önce teknik şartname, şerefiye paylaşımı, gecikme tazminatı ve bina tamamlama sigortası maddelerini mutlaka kontrol edin.',
     date: '2025-12-25',
     dateLabel: '25 Aralık 2025',
     readTime: '3 dk okuma',
@@ -150,6 +155,8 @@ Elinizde bir sözleşme taslağı mı var? İmzalamadan önce Arkentra uzmanlar�
     title: 'Riskli Yapı Tespitine Nasıl İtiraz Edilir? 2026 Hukuki ve Teknik Hak Arama Rehberi',
     excerpt:
       'Tapu şerhi, 15 günlük idari itiraz süresi, teknik heyet incelemesi ve idare mahkemesi yollarıyla riskli yapı tespitine itiraz rehberi.',
+    summary:
+      'Riskli yapı tespitine tebliğ veya muhtarlık ilanından itibaren 15 gün içinde idari itiraz yapılmalıdır. İtiraz reddedilirse 30 gün içinde idare mahkemesinde dava açılabilir.',
     date: '2025-12-22',
     dateLabel: '22 Aralık 2025',
     readTime: '3 dk okuma',
@@ -202,6 +209,8 @@ Riskli yapı tespit süreci, hata kabul etmeyen teknik ve hukuki bir süreçtir.
     title: '2026 Kentsel Dönüşüm Kira Yardımı Ne Kadar Oldu? (İstanbul Güncel Rakamlar)',
     excerpt:
       '2026 İstanbul kentsel dönüşüm kira yardımı tutarları, taşınma desteği, kiracı hakları ve başvuru belgeleri. Bayrampaşa, Pendik, Maltepe ve Kartal için güncel rakamlar.',
+    summary:
+      '2026 yılında İstanbul’da konut malikleri aylık 8.000 TL (Bakanlık) kira yardımı alabilir; İBB riskli yapı desteğiyle bu tutar 10.000 TL’ye çıkabilir. Tek seferlik taşınma yardımı 16.000 TL’dir.',
     date: '2026-06-15',
     dateLabel: '15 Haziran 2026',
     readTime: '6 dk okuma',
@@ -275,6 +284,8 @@ Yasal uyarı: Kira yardımı tutarları Çevre, Şehircilik ve İklim Değişikl
     title: '2026 Kentsel Dönüşüm Danışmanlık Ücreti ve Fiyat Rehberi',
     excerpt:
       '2026 kentsel dönüşüm danışmanlık ücretleri neye göre belirlenir? Daire başı fiyatlandırma, hizmet kapsamı, maliyet analizi ve malikler için risk yönetimi rehberi.',
+    summary:
+      'Kentsel dönüşüm danışmanlık ücreti daire sayısı, hukuki karmaşıklık ve hizmet kapsamına göre belirlenir. Standart paket yoktur; her proje için özel fiyatlandırma yapılır.',
     date: '2026-06-18',
     dateLabel: '18 Haziran 2026',
     readTime: '7 dk okuma',
@@ -348,6 +359,8 @@ Milyonluk dairenizi şansa değil, uzmana emanet edin. Kentsel dönüşüm maliy
       'Müteahhit Sözleşmesi İmzalamadan Önce Durun! Arkentra Sözleşme Check-Up ile Haklarınızı Koruyun',
     excerpt:
       'Kat karşılığı inşaat sözleşmelerinde hukuki, teknik ve finansal risk alanları ile Arkentra Sözleşme Check-Up süreci.',
+    summary:
+      'Müteahhit sözleşmesini imzalamadan önce hukuki tuzaklar, teknik şartname eksiklikleri ve finansal güvenceleri (bina tamamlama sigortası, teminat mektubu) kontrol ettirin.',
     date: '2025-12-21',
     dateLabel: '21 Aralık 2025',
     readTime: '2 dk okuma',
@@ -383,14 +396,348 @@ Bina tamamlama sigortası veya kesin teminat mektubu gibi zorunlulukların sözl
 
 Kentsel dönüşümde en pahalı sözleşme, imzalandıktan sonra hata olduğu anlaşılan sözleşmedir. Binanızın geleceğini şansa bırakmayın; müteahhidin sunduğu teklifi imzalamadan önce Arkentra uzmanlarına gönderin.`,
   },
+  {
+    slug: 'kat-malikleri-toplantisi-nasil-yapilir-2026',
+    title: 'Kat Malikleri Toplantısı Nasıl Yapılır? 2026 Güncel Rehber ve Gündem Örneği',
+    excerpt:
+      '6306 sayılı Kanun kapsamında kat malikleri toplantısı nasıl yapılır? Çağrı, tebligat, salt çoğunluk, gündem maddeleri ve 2026 yönetmelik değişiklikleri.',
+    summary:
+      'Kat malikleri toplantısı için tüm maliklere en az 15 gün önceden tebligat gönderilmelidir. 6306 kapsamında birçok karar arsa payı salt çoğunluğu (%50+1) ile alınabilir; ancak riskli yapı süreci kesinleşmeden toplantı yapılması hukuki risk taşır.',
+    date: '2026-07-06',
+    dateLabel: '6 Temmuz 2026',
+    readTime: '5 dk okuma',
+    konu: 'Mevzuat',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.toplanti.src,
+    imageAlt: images.yazilar.toplanti.alt,
+    content: `Kentsel dönüşüm sürecinin en kritik adımlarından biri kat malikleri toplantısıdır. Müteahhit seçimi, kat karşılığı inşaat sözleşmesi onayı ve yeniden yapım kararları bu toplantılarda alınır. 2026 yılında yürürlüğe giren yönetmelik değişiklikleriyle birlikte toplantı süreçleri daha sıkı denetim altına alınmıştır.
+
+## Kat Malikleri Toplantısı Nedir?
+
+6306 sayılı Afet Riski Altındaki Alanların Dönüştürülmesi Hakkında Kanun kapsamında, riskli yapı statüsündeki binalarda maliklerin bir araya gelerek yeniden yapım, müteahhit seçimi ve sözleşme onayı gibi kararları aldığı resmi toplantıdır. Bu toplantılar Ek-12 formatında tutanak tutulur ve noter onayı gerektirir.
+
+## Toplantı Öncesi Hazırlık Adımları
+
+### 1. Riskli Yapı Sürecinin Tamamlanması
+Toplantı yapılmadan önce riskli yapı tespit raporunun kesinleşmiş olması gerekir. Kesinleşmeden alınan kararlar Yargıtay kararlarıyla iptal edilebilmektedir. Detaylı bilgi için [riskli yapı kesinleşmeden alınan kararlar](/yazilarimiz/riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari) yazımızı okuyabilirsiniz.
+
+### 2. Malik Listesinin Hazırlanması
+Tapu müdürlüğünden güncel malik listesi alınmalı; vekâletname ile temsil edilen maliklerin belgeleri dosyaya eklenmelidir.
+
+### 3. Gündem Maddelerinin Belirlenmesi
+Gündemde şu maddeler yer almalıdır:
+
+- Yeniden yapım kararı
+- Müteahhit seçimi ve teklif değerlendirmesi
+- Kat karşılığı inşaat sözleşmesi taslağının onayı
+- Malik temsilcisi atanması (varsa)
+- Teknik şartname ve mimari proje onayı
+
+### 4. Tebligat ve Çağrı
+Tüm maliklere toplantı tarihi, saati, yeri ve gündem maddeleri en az 15 gün önceden tebligatla bildirilmelidir. Adresinde bulunamayan malikler için muhtarlıkta 15 günlük ilan süreci işletilir.
+
+## Toplantı Günü: Nasıl İlerler?
+
+- Toplantı yeter sayısı: Arsa payının salt çoğunluğunun (%50+1) temsil edilmesi gerekir
+- Başkan ve sekreter seçimi yapılır
+- Gündem maddeleri tek tek oylanır
+- Her karar için ayrı oy pusulası kullanılır
+- Tutanak Ek-12 formatında düzenlenir ve katılanlar imzalar
+- Tutanak noter huzurunda onaylatılır
+
+## Salt Çoğunluk ile Alınabilecek Kararlar
+
+6306 sayılı Kanun kapsamında aşağıdaki kararlar arsa payı salt çoğunluğu ile alınabilir:
+
+- Yeniden yapım kararı
+- Kat karşılığı inşaat sözleşmesi yapılması
+- Müteahhit seçimi
+- Malik temsilcisi atanması
+- Teknik şartname onayı
+
+## Sık Yapılan Hatalar
+
+- Riskli yapı süreci kesinleşmeden toplantı yapılması
+- Tebligat süresine uyulmaması
+- Gündemde olmayan konuların oylanması
+- Tutanak formatının hatalı doldurulması
+- Azınlık maliklerin haklarının gözetilmemesi
+
+## Malik Temsilcisi Atanmalı mı?
+
+Çoğu malik toplantılara katılamayabilir veya süreci takip edemeyebilir. Bu durumda bağımsız bir malik temsilcisi atanması, hem hukuki hem teknik açıdan maliklerin çıkarını korur. Arkentra, müteahhit değil; yalnızca malikleri temsil eden danışmanlık firmasıdır.
+
+## Sonuç
+
+Kat malikleri toplantısı, kentsel dönüşümün hukuki temelini oluşturur. Hatalı bir toplantı, tüm sürecin iptaline ve yıllarca süren mahkeme davalarına yol açabilir. Toplantı öncesi profesyonel destek almak, maliklerin hak kaybı yaşamaması için kritik önem taşır.`,
+  },
+  {
+    slug: 'malik-temsilcisi-kentsel-donusum-nedir',
+    title: 'Malik Temsilcisi Kentsel Dönüşüm Nedir? Görevleri ve Neden Gereklidir?',
+    excerpt:
+      'Kentsel dönüşümde malik temsilcisi kimdir, ne iş yapar? Müteahhit ile farkı, görevleri, seçimi ve maliklerin haklarını koruma rehberi.',
+    summary:
+      'Malik temsilcisi, kentsel dönüşüm sürecinde kat maliklerini bağımsız şekilde temsil eden danışmanlık firmasıdır. Müteahhit değildir; hukuki, teknik ve finansal çıkarları yalnızca malikler adına savunur.',
+    date: '2026-07-06',
+    dateLabel: '6 Temmuz 2026',
+    readTime: '4 dk okuma',
+    konu: 'Malik Rehberi',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.malikTemsilcisi.src,
+    imageAlt: images.yazilar.malikTemsilcisi.alt,
+    content: `"Malik temsilcisi" terimi kentsel dönüşüm sürecinde sıkça duyulur; ancak çoğu malik bu kavramın müteahhitlikten farkını tam olarak bilmez. Oysa doğru temsilci seçimi, milyonlarca liralık mülkünüzün güvenliği için belirleyicidir.
+
+## Malik Temsilcisi Nedir?
+
+Malik temsilcisi, 6306 sayılı Kanun kapsamında kentsel dönüşüm sürecini kat malikleri adına yöneten, hukuki ve teknik danışmanlık sunan bağımsız bir firmadır. Müteahhit değildir; inşaat yapmaz, arsa payı talep etmez. Tek çıkarı, maliklerin haklarını korumaktır.
+
+## Müteahhit ile Malik Temsilcisi Arasındaki Fark
+
+| | Müteahhit | Malik Temsilcisi |
+|---|---|---|
+| Amaç | İnşaat yapıp kar elde etmek | Maliklerin haklarını korumak |
+| Taraf | Kendi çıkarı | Maliklerin çıkarı |
+| Gelir modeli | Arsa payı / satış karı | Danışmanlık ücreti |
+| Sözleşme | Kendi lehine hazırlar | Malik lehine denetler |
+
+Bu fark, sözleşme müzakerelerinde ve inşaat denetiminde kritik önem taşır.
+
+## Malik Temsilcisinin Görevleri
+
+### Hukuki Danışmanlık
+- Kat malikleri toplantısı organizasyonu ve tutanak hazırlığı
+- Kat karşılığı inşaat sözleşmesi hazırlığı ve denetimi
+- Noter, tapu ve idari başvuru süreçlerinin koordinasyonu
+- İhtarname ve hukuki süreçlerin yönetimi
+
+### Teknik Danışmanlık
+- Riskli yapı tespit sürecinin yönetimi
+- Teknik şartname hazırlığı ve denetimi
+- İnşaat aşamalarında saha denetimi
+- Malzeme kalitesi ve proje uygunluk kontrolü
+
+### Finansal Danışmanlık
+- Kira yardımı ve devlet destekleri başvuru rehberliği
+- Şerefiye raporu organizasyonu
+- Müteahhit finansal yeterlilik analizi
+- Proje fizibilite değerlendirmesi
+
+## Malik Temsilcisi Nasıl Seçilir?
+
+Kat malikleri toplantısında arsa payı salt çoğunluğu (%50+1) ile malik temsilcisi atanabilir. Seçimde dikkat edilmesi gerekenler:
+
+- Firmanın müteahhit veya inşaat şirketi olmaması
+- Hukuk, mühendislik ve mimarlık uzmanlığının tek çatı altında bulunması
+- Referans projeler ve deneyim
+- Şeffaf fiyatlandırma ve yazılı hizmet sözleşmesi
+- Bakanlık yetkili kuruluş statüsü (riskli yapı tespiti için)
+
+## Ne Zaman Malik Temsilcisi Gerekir?
+
+- Binanız riskli yapı ilan edildiğinde
+- Müteahhit teklifleri değerlendirilirken
+- Sözleşme imzalanmadan önce
+- İnşaat sürecinde denetim gerektiğinde
+- Malikler arasında anlaşmazlık olduğunda
+
+## Arkentra Farkı
+
+Arkentra Kentsel Dönüşüm, Bayrampaşa merkezli bağımsız malik temsilcisi olarak İstanbul'un 39 ilçesinde hizmet vermektedir. Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti'nin iştiraki olarak; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında sunuyoruz.
+
+Müteahhit değiliz. Sizin tarafınızdayız.`,
+  },
+  {
+    slug: 'kentsel-donusum-kaynak-rehberi-2026',
+    title:
+      'Kentsel Dönüşüm Kaynak Rehberi 2026: İstatistikler, Destek Tutarları ve Süre Tablosu',
+    excerpt:
+      'Türkiye ve İstanbul kentsel dönüşüm istatistikleri, 2026 kira yardımı tutarları, destek süreleri ve malik hakları — tek sayfada güncel kaynak.',
+    summary:
+      'Türkiye’de 6,7 milyondan fazla bağımsız bölüm riskli yapı kapsamındadır. 2026’da İstanbul’da konut malikleri aylık 8.000–10.000 TL kira yardımı, 16.000 TL taşınma desteği alabilir. Kira yardımı süresi 18 aydır.',
+    date: '2026-07-06',
+    dateLabel: '6 Temmuz 2026',
+    readTime: '8 dk okuma',
+    konu: 'Mevzuat',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.kaynakRehberi.src,
+    imageAlt: images.yazilar.kaynakRehberi.alt,
+    content: `Bu sayfa, kentsel dönüşüm süreciyle ilgili güncel rakamları, destek tutarlarını ve süreleri tek bir kaynakta toplamak amacıyla hazırlanmıştır. Gazeteciler, araştırmacılar ve malikler için referans niteliğindedir.
+
+> Kaynak: Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, İstanbul Büyükşehir Belediyesi ve 6306 sayılı Kanun. Rakamlar yıllık olarak güncellenmektedir.
+
+## Türkiye Geneli Kentsel Dönüşüm Rakamları
+
+| Gösterge | Rakam | Kaynak |
+|---|---|---|
+| Riskli yapı kapsamındaki bağımsız bölüm sayısı | 6,7 milyon+ | Bakanlık, 2025 |
+| Riskli yapı tespit edilen bina sayısı (kümülatif) | 1,5 milyon+ | Bakanlık, 2025 |
+| Kentsel dönüşüm kapsamında tamamlanan bağımsız bölüm | 1,2 milyon+ | Bakanlık, 2025 |
+| Ortalama kentsel dönüşüm süresi (başvuru–teslim) | 24–36 ay | Sektör ortalaması |
+
+## 2026 İstanbul Destek Tutarları Tablosu
+
+| Destek Türü | Konut Maliki | Kiracı | Sınırlı Ayni Hak Sahibi |
+|---|---|---|---|
+| Aylık kira yardımı (Bakanlık) | 8.000 TL | — | — |
+| Aylık kira yardımı (İBB riskli yapı) | 10.000 TL* | — | — |
+| Tek seferlik taşınma yardımı | 16.000 TL | 16.000 TL | 40.000 TL |
+| Kira yardımı süresi | 18 ay | — | — |
+
+*İBB desteği, Hızlı Tarama Testi sonucunda en riskli grupta tespit edilen binalar için geçerlidir.
+
+Detaylı başvuru rehberi: [2026 Kira Yardımı Rehberi](/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar)
+
+## Kentsel Dönüşüm Süre Tablosu
+
+| Aşama | Ortalama Süre | Not |
+|---|---|---|
+| Riskli yapı tespit başvurusu | 2–4 hafta | Lisanslı kuruluş |
+| Tespit raporu ve tebliğ | 4–8 hafta | 15 günlük itiraz süresi |
+| Kat malikleri toplantısı | 2–4 hafta | Tebligat + toplantı |
+| Müteahhit seçimi ve sözleşme | 4–8 hafta | Noter onayı |
+| Yıkım ve ruhsat | 2–3 ay | Belediye süreci |
+| İnşaat | 18–30 ay | Proje büyüklüğüne göre |
+| İskân ve tapu devri | 1–2 ay | Son aşama |
+
+## Hukuki Süreler (Hak Düşürücü)
+
+| İşlem | Süre | Sonuç |
+|---|---|---|
+| Riskli yapı tespitine idari itiraz | 15 gün | Hak düşürücü |
+| İdari itiraz reddine karşı dava | 30 gün | İdare mahkemesi |
+| Tahliye süresi (kesinleşme sonrası) | Min. 60 gün | İdare kararı |
+| Kira yardımı başvurusu | Yıkım sonrası | 18 ay ödeme |
+
+## Malik Hakları Özet Tablosu
+
+- **Salt çoğunluk (%50+1):** Yeniden yapım, müteahhit seçimi, sözleşme onayı (6306 kesinleştikten sonra)
+- **Oybirliği:** Kat mülkiyeti devam ederken yeniden yapım kararı (634 sayılı KMK)
+- **Kira yardımı:** Yalnızca tapu sahipleri (malikler)
+- **Taşınma yardımı:** Malikler, kiracılar ve sınırlı ayni hak sahipleri
+- **Vergi muafiyeti:** KDV, damga vergisi, tapu harcı istisnaları (şartlara bağlı)
+
+## İndirilebilir Kaynaklar
+
+Aşağıdaki rehberlerimiz, kentsel dönüşüm sürecinin farklı aşamalarında referans olarak kullanılabilir:
+
+- [Kat Malikleri Toplantısı Nasıl Yapılır?](/yazilarimiz/kat-malikleri-toplantisi-nasil-yapilir-2026)
+- [Riskli Yapı Tespitine İtiraz Rehberi](/yazilarimiz/riskli-yapi-tespitine-nasil-itiraz-edilir)
+- [Kat Karşılığı İnşaat Sözleşmesi 10 Kritik Madde](/yazilarimiz/2026-kat-karsiligi-insaat-sozlesmesi-rehberi)
+- [Malik Temsilcisi Nedir?](/yazilarimiz/malik-temsilcisi-kentsel-donusum-nedir)
+- [Müteahhit Sözleşmesi Check-Up](/yazilarimiz/muteahhit-sozlesme-check-up)
+
+## Bu Sayfayı Nasıl Alıntılayabilirsiniz?
+
+Bu sayfayı kaynak göstermek için:
+
+> Arkentra Kentsel Dönüşüm, "Kentsel Dönüşüm Kaynak Rehberi 2026", arkentrakentseldonusum.com/yazilarimiz/kentsel-donusum-kaynak-rehberi-2026, Erişim tarihi: [tarih].
+
+Sorularınız için: info@arkentrakentseldonusum.com
+
+*Son güncelleme: Temmuz 2026. Rakamlar Bakanlık ve İBB duyurularına göre değişebilir.*`,
+  },
 ];
 
 export const FEATURED_YAZI_SLUG = '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar';
 
 export const HIGH_PRIORITY_YAZI_SLUGS = [
   FEATURED_YAZI_SLUG,
+  'kentsel-donusum-kaynak-rehberi-2026',
+  'kat-malikleri-toplantisi-nasil-yapilir-2026',
+  'malik-temsilcisi-kentsel-donusum-nedir',
   'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
+  'riskli-yapi-tespitine-nasil-itiraz-edilir',
+  '2026-kat-karsiligi-insaat-sozlesmesi-rehberi',
+  'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari',
+  'muteahhit-sozlesme-check-up',
 ] as const;
+
+export const yaziKeywordsBySlug: Record<string, string[]> = {
+  [FEATURED_YAZI_SLUG]: [
+    'kentsel dönüşüm kira yardımı 2026',
+    'istanbul kentsel dönüşüm kira desteği',
+    '2026 riskli yapı kira yardımı',
+    'kiracı taşınma yardımı',
+    'bayrampaşa kentsel dönüşüm',
+    '6306 sayılı kanun kira yardımı',
+  ],
+  'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026': [
+    'kentsel dönüşüm danışmanlık ücretleri 2026',
+    'kentsel dönüşüm danışmanlığı ne kadar',
+    'kentsel dönüşüm danışmanlık fiyatları',
+    'daire başı fiyat 2026',
+    'istanbul kentsel dönüşüm danışmanlık firmaları',
+  ],
+  'riskli-yapi-tespitine-nasil-itiraz-edilir': [
+    'riskli yapı tespitine itiraz',
+    'riskli yapı itiraz süreci',
+    '6306 riskli yapı itiraz',
+  ],
+  '2026-kat-karsiligi-insaat-sozlesmesi-rehberi': [
+    'kat karşılığı inşaat sözleşmesi',
+    'kat karşılığı sözleşme danışmanlık',
+    'kentsel dönüşüm sözleşme maddeleri',
+  ],
+  'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari': [
+    'kentsel dönüşüm müteahhit mağdurları',
+    'riskli yapı kesinleşmeden karar',
+    '6306 malik temsilciliği',
+  ],
+  'muteahhit-sozlesme-check-up': [
+    'müteahhit sözleşmesi kontrol',
+    'kat karşılığı sözleşme denetimi',
+    'kentsel dönüşüm sözleşme check up',
+  ],
+  'kat-malikleri-toplantisi-nasil-yapilir-2026': [
+    'kat malikleri toplantısı nasıl yapılır',
+    'kentsel dönüşüm toplantı gündemi',
+    '6306 kat malikleri toplantısı 2026',
+    'ek-12 toplantı tutanağı',
+    'salt çoğunluk kentsel dönüşüm',
+  ],
+  'malik-temsilcisi-kentsel-donusum-nedir': [
+    'malik temsilcisi kentsel dönüşüm nedir',
+    'kentsel dönüşüm malik temsilcisi',
+    'bağımsız malik temsilcisi istanbul',
+    'malik temsilcisi ile müteahhit farkı',
+  ],
+  'kentsel-donusum-kaynak-rehberi-2026': [
+    'kentsel dönüşüm istatistikleri 2026',
+    'istanbul kentsel dönüşüm rakamları',
+    '6306 sayılı kanun destek tutarları',
+    'kentsel dönüşüm kira yardımı tablosu',
+    'kentsel dönüşüm süre tablosu',
+  ],
+};
+
+export const serviceYaziSlugs: Record<string, string[]> = {
+  'muhendislik-ve-teknik-danismanlik': [
+    'riskli-yapi-tespitine-nasil-itiraz-edilir',
+    'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari',
+  ],
+  'mimarlik-ve-proje-gelistirme': ['2026-kat-karsiligi-insaat-sozlesmesi-rehberi'],
+  'hukuki-danismanlik': [
+    '2026-kat-karsiligi-insaat-sozlesmesi-rehberi',
+    'muteahhit-sozlesme-check-up',
+    'kat-malikleri-toplantisi-nasil-yapilir-2026',
+    'malik-temsilcisi-kentsel-donusum-nedir',
+    'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari',
+  ],
+  'gayrimenkul-ve-finans-danismanligi': [
+    FEATURED_YAZI_SLUG,
+    'kentsel-donusum-kaynak-rehberi-2026',
+    'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
+  ],
+  'surec-yonetimi-ve-koordinasyon': [
+    'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari',
+    'kat-malikleri-toplantisi-nasil-yapilir-2026',
+    FEATURED_YAZI_SLUG,
+  ],
+  'yikim-insaat-ve-uygulama-yonetimi': [
+    'muteahhit-sozlesme-check-up',
+    '2026-kat-karsiligi-insaat-sozlesmesi-rehberi',
+  ],
+};
 
 export function getYaziBySlug(slug: string): Yazi | undefined {
   return yazilar.find((yazi) => yazi.slug === slug);
@@ -398,6 +745,51 @@ export function getYaziBySlug(slug: string): Yazi | undefined {
 
 export function getFeaturedYazi(): Yazi | undefined {
   return getYaziBySlug(FEATURED_YAZI_SLUG);
+}
+
+export function getSpotlightYazilar(excludeSlug?: string, limit = 4): Yazi[] {
+  const priority = HIGH_PRIORITY_YAZI_SLUGS.map((slug) => getYaziBySlug(slug)).filter(
+    (yazi): yazi is Yazi => yazi !== undefined && yazi.slug !== excludeSlug,
+  );
+
+  if (priority.length >= limit) {
+    return priority.slice(0, limit);
+  }
+
+  const rest = yazilar.filter(
+    (yazi) =>
+      yazi.slug !== excludeSlug &&
+      !HIGH_PRIORITY_YAZI_SLUGS.includes(yazi.slug as (typeof HIGH_PRIORITY_YAZI_SLUGS)[number]),
+  );
+
+  return [...priority, ...rest].slice(0, limit);
+}
+
+export function getRelatedYazilar(currentSlug: string, limit = 3): Yazi[] {
+  const current = getYaziBySlug(currentSlug);
+  if (!current) return getSpotlightYazilar(currentSlug, limit);
+
+  const others = yazilar.filter((yazi) => yazi.slug !== currentSlug);
+  const sameKonu = others.filter((yazi) => yazi.konu === current.konu);
+  const otherPriority = getSpotlightYazilar(currentSlug, limit).filter(
+    (yazi) => yazi.konu !== current.konu,
+  );
+
+  const combined = [...sameKonu, ...otherPriority];
+  const seen = new Set<string>();
+
+  return combined
+    .filter((yazi) => {
+      if (seen.has(yazi.slug)) return false;
+      seen.add(yazi.slug);
+      return true;
+    })
+    .slice(0, limit);
+}
+
+export function getYazilarForService(serviceSlugValue: string): Yazi[] {
+  const slugs = serviceYaziSlugs[serviceSlugValue] ?? [];
+  return slugs.map((slug) => getYaziBySlug(slug)).filter((yazi): yazi is Yazi => Boolean(yazi));
 }
 
 export function getYaziHref(slug: string): string {

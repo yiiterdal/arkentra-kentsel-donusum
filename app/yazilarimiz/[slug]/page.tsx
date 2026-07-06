@@ -3,7 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import JsonLd from '../../components/JsonLd';
 import YaziContent from '../../components/YaziContent';
-import { FEATURED_YAZI_SLUG, HIGH_PRIORITY_YAZI_SLUGS, getYaziBySlug, yazilar } from '../../data/yazilar';
+import YaziCta from '../../components/YaziCta';
+import YaziSummary from '../../components/YaziSummary';
+import { getRelatedYazilar, getYaziBySlug, yazilar, yaziKeywordsBySlug } from '../../data/yazilar';
+import YaziCard from '../../components/YaziCard';
 import { siteUrl } from '../../data/site';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
@@ -22,36 +25,12 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
   if (!yazi) return { title: 'Yazı Bulunamadı' };
 
   const imageUrl = yazi.imageSrc.startsWith('http') ? yazi.imageSrc : yazi.imageSrc;
-  const isFeatured = yazi.slug === FEATURED_YAZI_SLUG;
-  const isHighPriority = HIGH_PRIORITY_YAZI_SLUGS.includes(
-    yazi.slug as (typeof HIGH_PRIORITY_YAZI_SLUGS)[number],
-  );
-
-  const keywordsBySlug: Record<string, string[]> = {
-    [FEATURED_YAZI_SLUG]: [
-      'kentsel dönüşüm kira yardımı 2026',
-      'istanbul kentsel dönüşüm kira desteği',
-      '2026 riskli yapı kira yardımı',
-      'kiracı taşınma yardımı',
-      'bayrampaşa kentsel dönüşüm',
-      '6306 sayılı kanun kira yardımı',
-    ],
-    'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026': [
-      'kentsel dönüşüm danışmanlık ücretleri 2026',
-      'kentsel dönüşüm danışmanlığı ne kadar',
-      'kentsel dönüşüm danışmanlık fiyatları',
-      'kentsel dönüşüm uzmanı ücreti',
-      'kentsel dönüşüm maliyet analizi',
-      'istanbul kentsel dönüşüm danışmanlık firmaları',
-    ],
-  };
+  const keywords = yaziKeywordsBySlug[yazi.slug];
 
   return {
     title: yazi.title,
     description: yazi.excerpt,
-    ...(isHighPriority && {
-      keywords: keywordsBySlug[yazi.slug],
-    }),
+    ...(keywords && { keywords }),
     alternates: {
       canonical: `${siteUrl}/yazilarimiz/${yazi.slug}`,
     },
@@ -74,6 +53,8 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
 export default function YaziPage({ params }: YaziPageProps) {
   const yazi = getYaziBySlug(params.slug);
   if (!yazi) notFound();
+
+  const relatedYazilar = getRelatedYazilar(params.slug, 3);
 
   return (
     <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-white">
@@ -130,7 +111,27 @@ export default function YaziPage({ params }: YaziPageProps) {
             />
           </div>
 
+          <YaziSummary text={yazi.summary} />
+
           <YaziContent content={yazi.content} />
+
+          <YaziCta />
+
+          {relatedYazilar.length > 0 && (
+            <div className="mt-14 border-t border-gray-100 pt-10">
+              <p className="text-sm font-semibold uppercase tracking-wide text-brand-700 mb-2">
+                İlgili yazılar
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                Bu konuda okuyabileceğiniz diğer rehberler
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {relatedYazilar.map((item) => (
+                  <YaziCard key={item.slug} yazi={item} compact />
+                ))}
+              </div>
+            </div>
+          )}
 
           <Link
             href="/yazilarimiz"
