@@ -1,4 +1,4 @@
-# Greyhawk Capital — Marketing Site
+# Greyhawk Capital : Marketing Site
 
 Minimal Next.js 14 + TypeScript + Tailwind site scaffold.
 

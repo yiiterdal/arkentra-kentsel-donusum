@@ -29,7 +29,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: 'Hangi bölgelerde hizmet veriyorsunuz?',
         answer:
-          'Merkezimiz Bayrampaşa, İstanbul’da olmakla birlikte İstanbul’un 39 ilçesinde ve çevre illerde kentsel dönüşüm danışmanlığı hizmeti sunuyoruz.',
+          'Merkezimiz İstanbul’da olmakla birlikte İstanbul’un 39 ilçesinde ve çevre illerde kentsel dönüşüm danışmanlığı hizmeti sunuyoruz.',
       },
     ],
   },

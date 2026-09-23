@@ -2,13 +2,13 @@
 export const IMAGE_BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A0AAA//Z';
 
-/** Next/Image encoder quality (1–100) — balance size vs clarity on mobile */
+/** Next/Image encoder quality (1–100) : balance size vs clarity on mobile */
 export const IMAGE_QUALITY = 82;
 
-/** Logos and brand marks — no visible compression */
+/** Logos and brand marks : no visible compression */
 export const LOGO_IMAGE_QUALITY = 100;
 
-/** Remote source widths — match typical viewport; Next/Image serves AVIF/WebP */
+/** Remote source widths : match typical viewport; Next/Image serves AVIF/WebP */
 export const REMOTE_HERO_WIDTH = 1920;
 export const REMOTE_EDITORIAL_WIDTH = 1920;
 export const REMOTE_FULL_WIDTH = REMOTE_HERO_WIDTH;

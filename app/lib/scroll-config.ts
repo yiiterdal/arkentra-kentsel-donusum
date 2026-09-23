@@ -1,4 +1,4 @@
-/** Lenis — light premium feel: low lerp, near-native multipliers */
+/** Lenis : light premium feel: low lerp, near-native multipliers */
 export const SCROLL_CONFIG = {
   lerp: 0.1,
   wheelMultiplier: 1.05,
@@ -6,7 +6,7 @@ export const SCROLL_CONFIG = {
   anchorDuration: 1.1,
 } as const;
 
-/** Ease-out quint — slow, confident landing for in-page anchors */
+/** Ease-out quint : slow, confident landing for in-page anchors */
 export function premiumScrollEasing(t: number): number {
   return 1 - Math.pow(1 - t, 5);
 }

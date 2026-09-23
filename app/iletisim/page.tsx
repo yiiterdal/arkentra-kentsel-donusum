@@ -5,7 +5,7 @@ import { images } from '../data/images';
 export const metadata = {
   title: 'İletişim',
   description:
-    'ARKENTRA Kentsel Dönüşüm ile iletişime geçin. Bayrampaşa, İstanbul — riskli yapı ve kentsel dönüşüm danışmanlığı.',
+    'ARKENTRA Kentsel Dönüşüm ile iletişime geçin. İstanbul merkezli riskli yapı ve kentsel dönüşüm danışmanlığı.',
 };
 
 export default function IletisimPage() {

@@ -18,7 +18,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       'Kazı, temel, taşıyıcı sistem ve kritik imalat aşamalarında yoğunlaştırılmış saha denetimi',
       'İnce inşaat, tesisat, cephe ve iç mimari aşamalarında aylık yerinde teknik inceleme ve ilerleme raporları',
       'Tespit edilen eksikliklere ilişkin ihtar, uyarı ve düzeltme talebi taslaklarının hazırlanması',
-      'En fazla beş mimari etüt alternatifinin hazırlanması veya yüklenici projelerinin karşılaştırmalı teknik değerlendirmesi',
+      'Mimari etüt alternatifinin hazırlanması veya yüklenici projelerinin karşılaştırmalı teknik değerlendirmesi',
     ],
   },
   'Mimarlık ve Proje Geliştirme': {

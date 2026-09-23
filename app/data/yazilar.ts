@@ -208,7 +208,7 @@ Riskli yapı tespit süreci, hata kabul etmeyen teknik ve hukuki bir süreçtir.
     slug: '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar',
     title: '2026 Kentsel Dönüşüm Kira Yardımı Ne Kadar Oldu? (İstanbul Güncel Rakamlar)',
     excerpt:
-      '2026 İstanbul kentsel dönüşüm kira yardımı tutarları, taşınma desteği, kiracı hakları ve başvuru belgeleri. Bayrampaşa, Pendik, Maltepe ve Kartal için güncel rakamlar.',
+      '2026 İstanbul kentsel dönüşüm kira yardımı tutarları, taşınma desteği, kiracı hakları ve başvuru belgeleri. Pendik, Maltepe ve Kartal için güncel rakamlar.',
     summary:
       '2026 yılında İstanbul’da konut malikleri aylık 8.000 TL (Bakanlık) kira yardımı alabilir; İBB riskli yapı desteğiyle bu tutar 10.000 TL’ye çıkabilir. Tek seferlik taşınma yardımı 16.000 TL’dir.',
     date: '2026-06-15',
@@ -220,7 +220,7 @@ Riskli yapı tespit süreci, hata kabul etmeyen teknik ve hukuki bir süreçtir.
     imageAlt: images.yazilar.kiraYardimi.alt,
     content: `İstanbul'da beklenen büyük deprem riski ve yapı stokunun yaşlanması, kentsel dönüşümü bir tercih değil, zorunluluk haline getirdi. Ancak evini yenilemek isteyen mülk sahiplerinin aklındaki en büyük soru işareti değişmiyor: İnşaat süresince nerede kalacağım ve devlet kiramı karşılayacak mı?
 
-2026 yılına girerken, artan kira maliyetleri karşısında Çevre, Şehircilik ve İklim Değişikliği Bakanlığı ile yerel yönetimler destek paketlerini güncelledi. İster Bayrampaşa'da, ister Pendik veya Maltepe'de ikamet edin, kentsel dönüşüm sürecinde cebinizi rahatlatacak güncel kira yardımı rakamlarını ve başvuru şartlarını sizler için derledik.
+2026 yılına girerken, artan kira maliyetleri karşısında Çevre, Şehircilik ve İklim Değişikliği Bakanlığı ile yerel yönetimler destek paketlerini güncelledi. İster Pendik, ister Maltepe veya İstanbul’un diğer ilçelerinde ikamet edin, kentsel dönüşüm sürecinde cebinizi rahatlatacak güncel kira yardımı rakamlarını ve başvuru şartlarını sizler için derledik.
 
 ## 2026 İstanbul Kentsel Dönüşüm Kira Yardımı Tutarları
 
@@ -257,7 +257,7 @@ Evet, kiracılar da mağdur edilmemektedir. Riskli ilan edilen binada en az 1 y�
 
 ## Başvuru İçin Gerekli Belgeler Nelerdir?
 
-Bayrampaşa merkez ofisimizden veya e-Devlet üzerinden yönetebileceğiniz süreç için şu belgeleri hazırlamanız gerekir:
+İstanbul merkez ofisimizden veya e-Devlet üzerinden yönetebileceğiniz süreç için şu belgeleri hazırlamanız gerekir:
 
 - Riskli Yapı Tespit Raporu: Binanızın 6306 sayılı kanun kapsamında riskli olduğunu gösteren onaylı rapor.
 - Tapu Belgesi ve Kimlik Fotokopisi.
@@ -269,7 +269,7 @@ Bayrampaşa merkez ofisimizden veya e-Devlet üzerinden yönetebileceğiniz sür
 
 Kentsel dönüşüm sadece eski binayı yıkıp yenisini yapmak değildir; kira yardımından vergi muafiyetlerine kadar tüm yasal haklarınızı eksiksiz kullanmanız gereken bir süreçtir.
 
-Arkentra Kentsel Dönüşüm olarak, Bayrampaşa'daki merkezimizden Pendik, Kartal ve Maltepe başta olmak üzere İstanbul'un her noktasına hizmet veriyoruz:
+Arkentra Kentsel Dönüşüm olarak, İstanbul’daki merkezimizden Pendik, Kartal ve Maltepe başta olmak üzere İstanbul'un her noktasına hizmet veriyoruz:
 
 - Riskli yapı tespit başvurusu
 - Kira yardımı dosyasının hazırlanması
@@ -542,7 +542,7 @@ Kat malikleri toplantısında arsa payı salt çoğunluğu (%50+1) ile malik tem
 
 ## Arkentra Farkı
 
-Arkentra Kentsel Dönüşüm, Bayrampaşa merkezli bağımsız malik temsilcisi olarak İstanbul'un 39 ilçesinde hizmet vermektedir. Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti'nin iştiraki olarak; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında sunuyoruz.
+Arkentra Kentsel Dönüşüm, İstanbul merkezli bağımsız malik temsilcisi olarak İstanbul'un 39 ilçesinde hizmet vermektedir. Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti'nin iştiraki olarak; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı altında sunuyoruz.
 
 Müteahhit değiliz. Sizin tarafınızdayız.`,
   },
@@ -551,7 +551,7 @@ Müteahhit değiliz. Sizin tarafınızdayız.`,
     title:
       'Kentsel Dönüşüm Kaynak Rehberi 2026: İstatistikler, Destek Tutarları ve Süre Tablosu',
     excerpt:
-      'Türkiye ve İstanbul kentsel dönüşüm istatistikleri, 2026 kira yardımı tutarları, destek süreleri ve malik hakları — tek sayfada güncel kaynak.',
+      'Türkiye ve İstanbul kentsel dönüşüm istatistikleri, 2026 kira yardımı tutarları, destek süreleri ve malik hakları : tek sayfada güncel kaynak.',
     summary:
       'Türkiye’de 6,7 milyondan fazla bağımsız bölüm riskli yapı kapsamındadır. 2026’da İstanbul’da konut malikleri aylık 8.000–10.000 TL kira yardımı, 16.000 TL taşınma desteği alabilir. Kira yardımı süresi 18 aydır.',
     date: '2026-07-06',
@@ -578,10 +578,10 @@ Müteahhit değiliz. Sizin tarafınızdayız.`,
 
 | Destek Türü | Konut Maliki | Kiracı | Sınırlı Ayni Hak Sahibi |
 |---|---|---|---|
-| Aylık kira yardımı (Bakanlık) | 8.000 TL | — | — |
-| Aylık kira yardımı (İBB riskli yapı) | 10.000 TL* | — | — |
+| Aylık kira yardımı (Bakanlık) | 8.000 TL | : | : |
+| Aylık kira yardımı (İBB riskli yapı) | 10.000 TL* | : | : |
 | Tek seferlik taşınma yardımı | 16.000 TL | 16.000 TL | 40.000 TL |
-| Kira yardımı süresi | 18 ay | — | — |
+| Kira yardımı süresi | 18 ay | : | : |
 
 *İBB desteği, Hızlı Tarama Testi sonucunda en riskli grupta tespit edilen binalar için geçerlidir.
 
@@ -658,7 +658,7 @@ export const yaziKeywordsBySlug: Record<string, string[]> = {
     'istanbul kentsel dönüşüm kira desteği',
     '2026 riskli yapı kira yardımı',
     'kiracı taşınma yardımı',
-    'bayrampaşa kentsel dönüşüm',
+    'istanbul kentsel dönüşüm',
     '6306 sayılı kanun kira yardımı',
   ],
   'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026': [

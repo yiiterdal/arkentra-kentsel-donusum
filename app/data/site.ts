@@ -3,9 +3,9 @@ export const siteUrl =
 
 export const siteName = 'ARKENTRA Kentsel Dönüşüm';
 export const siteTagline =
-  'İstanbul ve Bayrampaşa odaklı kentsel dönüşüm danışmanlığı — riskli yapı tespiti, 6306 malik temsili ve kat karşılığı sözleşme danışmanlığı.';
+  'İstanbul merkezli bağımsız kentsel dönüşüm danışmanlığı: riskli yapı tespiti, 6306 malik temsili ve kat karşılığı sözleşme danışmanlığı.';
 export const siteDescription =
-  'ARKENTRA Kentsel Dönüşüm Danışmanlığı: İstanbul Bayrampaşa merkezli bağımsız malik temsilcisi. Riskli yapı tespiti, kat karşılığı inşaat sözleşmesi, kira yardımı başvurusu, 6306 sayılı Kanun süreçleri ve aşamalı teknik denetim.';
+  'ARKENTRA Kentsel Dönüşüm Danışmanlığı: İstanbul merkezli bağımsız malik temsilcisi. Riskli yapı tespiti, kat karşılığı inşaat sözleşmesi, kira yardımı başvurusu, 6306 sayılı Kanun süreçleri ve aşamalı teknik denetim.';
 
 export const navLinks = [
   { href: '/hizmetler', label: 'HİZMETLER' },
@@ -103,11 +103,11 @@ export const aboutContent = {
   pageTitle: 'HAKKIMIZDA',
   heroTitle: 'Hakkımızda',
   heroSubtitle:
-    'Bayrampaşa merkezli, İstanbul genelinde 6306 sayılı Kanun kapsamında malik temsilciliği; riskli yapı tespiti, kat karşılığı sözleşmesi ve aşamalı teknik denetim.',
+    'İstanbul merkezli ARKENTRA; 6306 sayılı Kanun kapsamında malik temsilciliği, riskli yapı tespiti, kat karşılığı sözleşmesi ve aşamalı teknik denetim.',
   lead: {
     eyebrow: 'ARKENTRA',
     title: '6306 kapsamında malik temsilciliği ve uçtan uca kentsel dönüşüm danışmanlığı',
-    text: 'Arkentra Kentsel Dönüşüm ve Danışmanlık, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Sanayi ve Ticaret Ltd. Şti’nin iştiraki olarak Bayrampaşa merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden bağımsız bir danışmanlık firmasıyız. Riskli yapı tespiti başvurusundan kat malikleri toplantılarına, kat karşılığı inşaat sözleşmesi müzakerelerinden aşamalı saha denetimine kadar hukuk, mühendislik ve mimarlığı tek çatı altında sunuyoruz.',
+    text: 'Arkentra Kentsel Dönüşüm ve Danışmanlık, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Sanayi ve Ticaret Ltd. Şti’nin iştiraki olarak İstanbul merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden bağımsız bir danışmanlık firmasıyız. Riskli yapı tespiti başvurusundan kat malikleri toplantılarına, kat karşılığı sözleşmelerine, proje çizimi ve sahada teknik denetimlere kadar hukuk, mühendislik ve mimarlığı tek çatı altında sunuyoruz.',
   },
   expertise: {
     title: 'Uzmanlık alanlarımız',
@@ -162,7 +162,7 @@ export const teamContent = {
       name: 'Av. Ferhat Yıldırım',
       role: 'Kurucu Ortak',
       image: '/images/team/ferhat-yildirim.png',
-      imageAlt: 'Av. Ferhat Yıldırım — Arkentra Kurucu Ortak',
+      imageAlt: 'Av. Ferhat Yıldırım , Arkentra Kurucu Ortak',
       bio: [
         'Kentsel dönüşüm hukuku ve gayrimenkul hukuku alanlarında uzmanlaşmış bir hukuk danışmanı olarak, mülkiyet ilişkileri, kat malikleri süreçleri, riskli yapı tespiti sonrası hukuki yol haritaları ve sözleşme hazırlıkları üzerine çalışır.',
         'Belediye izinleri, ruhsat süreçleri, tapu işlemleri, kat irtifakı ve kat mülkiyeti dönüşümleri, noter sözleşmeleri ve müteahhit-malik ilişkilerinde ortaya çıkan hukuki risklerin yönetilmesinde aktif rol alır. Projelerin hukuki güvenliğini baştan sona sağlar.',
@@ -172,7 +172,7 @@ export const teamContent = {
       name: 'Mimar Nevzat Yıldırım',
       role: 'Kurucu Ortak',
       image: '/images/team/mimar-nevzat-yildirim.png',
-      imageAlt: 'Mimar Nevzat Yıldırım — Arkentra Kurucu Ortak',
+      imageAlt: 'Mimar Nevzat Yıldırım , Arkentra Kurucu Ortak',
       bio: [
         'Kentsel dönüşüm projelerinin teknik omurgasını oluşturan mimari planlamayı, mühendislik koordinasyonunu ve belediye süreçlerini yönetir. Riskli yapı analizleri, statik ve mimari proje entegrasyonu, yapı denetim süreçleri ve ruhsat başvurularının hazırlanmasında görev alır.',
         'Kentsel dönüşüm projelerine yönelik teknik danışmanlık ve aşamalı saha denetimi hizmetleri sunar; temelden iskâna kadar her kritik imalat aşamasında yerinde inceleme ve teknik raporlama yapar. Projelerin mimari açıdan sürdürülebilir, güvenli ve yönetmeliklere uygun olmasını sağlar.',
@@ -182,7 +182,7 @@ export const teamContent = {
       name: 'Yiğit Erdal',
       role: 'Medya ve İletişim Sorumlusu',
       image: '/images/team/yigit-erdal.png',
-      imageAlt: 'Yiğit Erdal — Arkentra Medya ve İletişim Sorumlusu',
+      imageAlt: 'Yiğit Erdal , Arkentra Medya ve İletişim Sorumlusu',
       imagePosition: 'object-center',
       bio: [
         'Sosyal medya kanallarının yönetimi, içerik planlaması ve markanın dış iletişim stratejisinden sorumludur. Medya platformları aracılığıyla maliklere ulaşmayı, süreci anlaşılır ve erişilebilir kılmayı hedefler.',

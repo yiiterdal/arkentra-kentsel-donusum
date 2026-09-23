@@ -168,9 +168,9 @@ export const images = {
 export const heroVideo = {
   /** Full 4K source (3840×2160), stored in Git LFS. */
   local: '/videos/arkentra-hero.mp4',
-  /** 720p mobile — ~4 MB, tuned for phone screens without visible quality loss. */
+  /** 720p mobile : ~4 MB, tuned for phone screens without visible quality loss. */
   localMobile: '/videos/arkentra-hero-mobile-720.mp4',
-  /** GitHub Media CDN — guaranteed full 4K on production (Vercel LFS can miss). */
+  /** GitHub Media CDN : guaranteed full 4K on production (Vercel LFS can miss). */
   cdn: 'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero.mp4',
   cdnMobile:
     'https://media.githubusercontent.com/media/yiiterdal/arkentra-kentsel-donusum/main/public/videos/arkentra-hero-mobile-720.mp4',
@@ -183,7 +183,7 @@ export function getHeroVideoSrc(): string {
   return process.env.NODE_ENV === 'production' ? heroVideo.cdn : heroVideo.local;
 }
 
-/** Same-origin mobile file — Vercel’de daha hızlı yüklenir, iOS autoplay için daha güvenilir. */
+/** Same-origin mobile file : Vercel’de daha hızlı yüklenir, iOS autoplay için daha güvenilir. */
 export function getHeroVideoMobileSrc(): string {
   return heroVideo.localMobile;
 }

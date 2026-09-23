@@ -82,7 +82,7 @@ export default function HomePage() {
             Dönüşüm Danışmanlığı
           </>
         }
-        subtitle="Bayrampaşa merkezli ARKENTRA; 6306 sayılı Kanun kapsamında riskli yapı tespiti, malik temsili, kat karşılığı sözleşmesi ve aşamalı teknik denetim hizmetleri sunar."
+        subtitle="İstanbul merkezli ARKENTRA Kentsel Dönüşüm Danışmanlık Hizmetleri Tic. Ltd. Şti.; 6306 sayılı Kanun kapsamında riskli yapı tespiti, malik temsili, kat karşılığı sözleşmesi ve aşamalı teknik denetim hizmetleri sunar."
         eyebrow="Malik Temsilciliği · Hukuk · Mühendislik"
         videoSrc={getHeroVideoSrc()}
         mobileVideoSrc={getHeroVideoMobileSrc()}
@@ -100,9 +100,10 @@ export default function HomePage() {
       >
         <p>
           {siteName}, Üçyıldız Kentsel Dönüşüm Mühendislik İnşaat Taahhüt Ltd. Şti’nin iştiraki
-          olarak Bayrampaşa merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden
+          olarak İstanbul merkezli faaliyet gösterir. Müteahhit değiliz; malikleri temsil eden
           bağımsız bir kentsel dönüşüm danışmanlık firmasıyız. Riskli yapı tespiti, kat malikleri
-          toplantıları, kat karşılığı inşaat sözleşmesi ve kira yardımı başvurularında yanınızdayız.
+          toplantıları, kat karşılığı sözleşmeleri, proje çizimi ve sahada teknik denetimler ile
+          kira yardımı başvurularında yanınızdayız.
         </p>
         <p>
           İstanbul’un 39 ilçesinde; hukuk, mühendislik, mimarlık ve finans uzmanlığını tek çatı
