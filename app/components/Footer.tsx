@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import ArkentraLogo from './ArkentraLogo';
-import {
-  contactAddressLine1,
-  contactAddressLine2,
-  contactEmail,
-  contactInstagramHref,
-  contactPhone,
-  contactPhoneHref,
-} from '../data/contact';
+import { contactEmail, contactInstagramHref } from '../data/contact';
 import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
 import { getSpotlightYazilar } from '../data/yazilar';
 
@@ -28,14 +21,6 @@ export default function Footer() {
           <div>
             <p className="site-footer__heading mb-5">{footerContent.columns.contact}</p>
             <div className="text-sm space-y-2.5 font-light">
-              <address className="not-italic leading-relaxed">
-                {contactAddressLine1}
-                <br />
-                {contactAddressLine2}
-              </address>
-              <a href={contactPhoneHref} className="block">
-                {contactPhone}
-              </a>
               <a href={`mailto:${contactEmail}`} className="block">
                 {contactEmail}
               </a>

@@ -43,7 +43,7 @@ export default function SssPage() {
           </h2>
           <p className="text-gray-600 font-light leading-relaxed mb-8">
             Uzman ekibimiz projenize özel sorularınızı yanıtlamak için hazır. WhatsApp veya
-            telefon ile hemen ulaşabilirsiniz.
+            e-posta ile hemen ulaşabilirsiniz.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a

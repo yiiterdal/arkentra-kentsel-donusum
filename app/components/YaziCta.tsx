@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { contactPhone, contactWhatsAppHref } from '../data/contact';
+import { contactWhatsAppHref } from '../data/contact';
 
 export default function YaziCta() {
   return (
@@ -30,12 +30,6 @@ export default function YaziCta() {
           İletişim formu
         </Link>
       </div>
-      <p className="mt-4 text-sm text-gray-400">
-        Telefon:{' '}
-        <a href={`tel:+905458326199`} className="text-white hover:underline">
-          {contactPhone}
-        </a>
-      </p>
     </div>
   );
 }

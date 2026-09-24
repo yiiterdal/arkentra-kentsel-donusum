@@ -1,13 +1,4 @@
-import {
-  contactAddressLine1,
-  contactAddressLine2,
-  contactEmail,
-  contactInstagramHref,
-  contactMapHref,
-  contactPhone,
-  contactPhoneHref,
-  contactPostalCode,
-} from '../data/contact';
+import { contactEmail, contactInstagramHref } from '../data/contact';
 import { services, siteName, siteTagline, siteUrl, teamContent } from '../data/site';
 import type { FaqItem } from '../data/sss';
 import type { Yazi } from '../data/yazilar';
@@ -25,14 +16,10 @@ export function organizationSchema() {
     logo: `${siteUrl}/images/logo/arkentra-logo-color.png`,
     image: `${siteUrl}/images/og-default.jpg`,
     description: siteTagline,
-    telephone: contactPhone,
     email: contactEmail,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: contactAddressLine1,
-      addressLocality: 'Bayrampaşa',
-      addressRegion: 'İstanbul',
-      postalCode: contactPostalCode,
+      addressLocality: 'İstanbul',
       addressCountry: 'TR',
     },
     areaServed: {
@@ -40,7 +27,7 @@ export function organizationSchema() {
       name: 'İstanbul',
     },
     priceRange: '$$',
-    sameAs: [contactMapHref, contactInstagramHref],
+    sameAs: [contactInstagramHref],
   };
 }
 

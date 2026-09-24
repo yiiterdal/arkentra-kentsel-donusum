@@ -350,7 +350,7 @@ Arkentra olarak her binanın özel olduğuna inanıyoruz. Size internet üzerind
 
 Milyonluk dairenizi şansa değil, uzmana emanet edin. Kentsel dönüşüm maliyet analiziniz ve size özel danışmanlık fiyat teklifimiz için bize ulaşın:
 
-- Telefon ve WhatsApp: 0545 832 6199
+- WhatsApp: Web sitemizdeki WhatsApp butonundan bize yazın.
 - Ücretsiz ön inceleme: Web sitemiz üzerinden binanızın bilgilerini bırakın, sizi 24 saat içinde arayalım.`,
   },
   {

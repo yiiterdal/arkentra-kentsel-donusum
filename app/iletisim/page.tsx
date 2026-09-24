@@ -13,7 +13,7 @@ export default function IletisimPage() {
     <>
       <PageHero
         title="İletişim"
-        subtitle="Telefon, e-posta veya WhatsApp üzerinden bize ulaşabilirsiniz."
+        subtitle="E-posta, Instagram veya WhatsApp üzerinden bize ulaşabilirsiniz."
         eyebrow="Bize Ulaşın"
         imageSrc={images.blueprint.src}
         imageAlt={images.blueprint.alt}
