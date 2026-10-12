@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 
 function renderInline(text: string): ReactNode[] {
   const parts: ReactNode[] = [];
@@ -97,9 +97,19 @@ function renderTable(block: string, index: number) {
   );
 }
 
-function renderBlock(block: string, index: number) {
+function renderBlock(block: string, index: number): ReactNode {
   const trimmed = block.trim();
   if (!trimmed) return null;
+
+  const newline = trimmed.indexOf('\n');
+  if (trimmed.startsWith('#') && newline !== -1) {
+    return (
+      <Fragment key={index}>
+        {renderBlock(trimmed.slice(0, newline), 0)}
+        {renderBlock(trimmed.slice(newline + 1), 1)}
+      </Fragment>
+    );
+  }
 
   if (trimmed.startsWith('> ')) {
     const quoteText = trimmed

@@ -17,6 +17,7 @@ function hasHeroUnderNav(pathname: string | null): boolean {
     '/sss',
     '/yazilarimiz',
     '/hizmetler',
+    '/kentsel-donusum-danismanligi',
     '/kvkk',
   ];
 
@@ -57,7 +58,9 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const isActive = (href: string) => pathname?.startsWith(href);
+  const isActive = (href: string) =>
+    pathname?.startsWith(href) ||
+    (href === '/hizmetler' && pathname === '/kentsel-donusum-danismanligi');
 
   const headerSurface =
     overlay

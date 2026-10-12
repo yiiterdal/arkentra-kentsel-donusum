@@ -11,11 +11,14 @@ import YaziSpotlightSection from './components/YaziSpotlightSection';
 import { getHeroVideoMobileSrc, getHeroVideoSrc, heroVideo, images } from './data/images';
 import { faqHomePreview, faqPreviewCount } from './data/sss';
 import { getFeaturedYazi } from './data/yazilar';
-import { siteDescription, siteName, siteTagline } from './data/site';
+import { siteDescription, siteName, siteTagline, siteUrl } from './data/site';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Ana Sayfa',
-  description: siteDescription,
+export const metadata: Metadata = {
+  title: { absolute: 'Kentsel Dönüşüm Danışmanlığı ve Malik Temsilciliği | ARKENTRA' },
+  description:
+    'İstanbul’da kat maliklerini temsil eden bağımsız kentsel dönüşüm danışmanlığı: riskli yapı tespiti, müteahhit seçimi ve kat karşılığı sözleşme desteği.',
+  alternates: { canonical: siteUrl },
 };
 
 const featuredServices = [

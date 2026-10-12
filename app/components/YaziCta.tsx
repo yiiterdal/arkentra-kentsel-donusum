@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { contactWhatsAppHref } from '../data/contact';
+import { contactEmail, contactWhatsAppHref } from '../data/contact';
 
 export default function YaziCta() {
   return (
@@ -23,11 +23,17 @@ export default function YaziCta() {
         >
           WhatsApp ile yazın
         </a>
+        <a
+          href={`mailto:${contactEmail}`}
+          className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+        >
+          E-posta gönderin
+        </a>
         <Link
           href="/iletisim"
           className="inline-flex items-center justify-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
         >
-          İletişim formu
+          İletişim sayfası
         </Link>
       </div>
     </div>

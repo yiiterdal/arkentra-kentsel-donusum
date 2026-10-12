@@ -99,7 +99,7 @@ export function articleSchema(yazi: Yazi) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: yazi.title,
-    description: yazi.excerpt,
+    description: yazi.metaDescription ?? yazi.excerpt,
     datePublished: yazi.date,
     image: yazi.imageSrc.startsWith('http') ? yazi.imageSrc : `${siteUrl}${yazi.imageSrc}`,
     author: {

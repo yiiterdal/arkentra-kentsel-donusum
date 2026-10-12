@@ -2,7 +2,7 @@ import Link from 'next/link';
 import ArkentraLogo from './ArkentraLogo';
 import { contactEmail, contactInstagramHref } from '../data/contact';
 import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
-import { getSpotlightYazilar } from '../data/yazilar';
+import { CORE_SERVICE_LINK, getSpotlightYazilar } from '../data/yazilar';
 
 export default function Footer() {
   const spotlightYazilar = getSpotlightYazilar(undefined, 4);
@@ -54,10 +54,15 @@ export default function Footer() {
           <div>
             <p className="site-footer__heading mb-5">{footerContent.columns.services}</p>
             <ol className="space-y-2 text-sm font-light list-none site-footer__muted">
+              <li>
+                <Link href={CORE_SERVICE_LINK.href} className="hover:text-white transition-colors">
+                  1. {CORE_SERVICE_LINK.title}
+                </Link>
+              </li>
               {services.slice(0, 4).map((service, i) => (
                 <li key={service}>
                   <Link href={serviceHref(service)} className="hover:text-white transition-colors">
-                    {i + 1}. {service}
+                    {i + 2}. {service}
                   </Link>
                 </li>
               ))}

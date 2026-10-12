@@ -1,14 +1,33 @@
 import { images } from './images';
+import { serviceSlug, services } from './site';
 
 export type YaziKonu = 'Hukuk' | 'Mühendislik' | 'Malik Rehberi' | 'Finans' | 'Mevzuat';
 export type YaziTur = 'Rehber' | 'Haber' | 'Uzman Görüşü';
 
+export interface YaziKaynak {
+  label: string;
+  href: string;
+}
+
+export interface YaziSoru {
+  question: string;
+  answer: string;
+}
+
 export interface Yazi {
   slug: string;
   title: string;
+  /** Google sonuçlarında görünen başlık; verilmezse `title` kullanılır. */
+  seoTitle?: string;
   excerpt: string;
+  /** 140–160 karakterlik meta açıklama; verilmezse `excerpt` kullanılır. */
+  metaDescription?: string;
   summary: string;
   content: string;
+  faq?: YaziSoru[];
+  sources?: YaziKaynak[];
+  /** Yalnızca uzman yazıyı gerçekten incelediyse doldurulmalı. */
+  reviewedBy?: string;
   date: string;
   dateLabel: string;
   readTime?: string;
@@ -636,12 +655,303 @@ Sorularınız için: info@arkentrakentseldonusum.com
 
 *Son güncelleme: Temmuz 2026. Rakamlar Bakanlık ve İBB duyurularına göre değişebilir.*`,
   },
+  {
+    slug: 'kentsel-donusumde-muteahhit-secimi',
+    title: 'Kentsel Dönüşümde Müteahhit Seçerken Nelere Dikkat Edilmeli?',
+    seoTitle: 'Kentsel Dönüşüm Müteahhit Seçimi: 10 Kontrol Noktası',
+    excerpt:
+      'Referans projeler, mali güç, teminat, teklif karşılaştırması ve tehlike işaretleri: kentsel dönüşümde doğru müteahhidi seçmek için kat maliklerine adım adım rehber.',
+    metaDescription:
+      'Kentsel dönüşümde müteahhit seçerken referans, mali güç, teminat ve teklifleri nasıl kontrol edersiniz? Kat malikleri için 10 maddelik kontrol rehberi.',
+    summary:
+      'Müteahhidi daire paylaşım oranına göre değil; tamamlanmış referans projelerine, mali gücüne, verebileceği teminatlara ve aynı teknik şartname üzerinden verdiği teklife göre seçin. 6306 sayılı Kanun kapsamında müteahhit seçimi, hisseleri oranında maliklerin salt çoğunluğu ile kararlaştırılır.',
+    date: '2026-10-12',
+    dateLabel: '12 Ekim 2026',
+    readTime: '8 dk okuma',
+    konu: 'Malik Rehberi',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.muteahhitSecimi.src,
+    imageAlt: images.yazilar.muteahhitSecimi.alt,
+    content: `Kentsel dönüşümde binanın kaderini belirleyen kararların başında müteahhit seçimi gelir. Riskli yapı tespiti ve kat malikleri toplantısı süreci başlatır; ancak binanızın ne kadar sürede, hangi kalitede ve hangi güvencelerle yeniden yapılacağını büyük ölçüde seçtiğiniz müteahhit belirler.
+
+Uygulamada en sık gördüğümüz hata, müteahhidin yalnızca teklif ettiği daire paylaşım oranına bakılarak seçilmesidir. Kâğıt üzerinde en yüksek oranı veren teklif, teminatı zayıf veya teknik şartnamesi belirsiz olduğu için çoğu zaman en riskli teklif olur.
+
+## Müteahhit Seçimi Neden Bu Kadar Kritik?
+
+Kat karşılığı modelde müteahhit, inşaatın finansmanını büyük ölçüde kendi payına düşecek bağımsız bölümlerin satışından sağlar. Bu nedenle mali gücü yetersiz bir müteahhit, satışlar beklendiği gibi gitmediğinde işi yavaşlatabilir veya durdurabilir. İnşaatı yarım kalan bir binada malikler hem kira ödemeye devam eder hem de uzun bir hukuki süreçle karşılaşır.
+
+## 1. Tamamlanmış Referans Projelerini Yerinde Görün
+
+Müteahhidin gösterdiği görseller veya devam eden şantiyeler yerine, iskânı alınmış ve oturulan binalarını isteyin.
+
+- En az üç tamamlanmış projenin adresini isteyin ve binaları gezin
+- Mümkünse o binalardaki maliklerle konuşun: teslim süresine uyuldu mu, eksikler giderildi mi?
+- Taahhüt edilen malzemelerle gerçekte kullanılan malzemeleri karşılaştırın
+- Ortak alanların (otopark, sığınak, çatı, asansör) bakım durumuna bakın
+
+## 2. Şirketin Kimliğini ve Geçmişini Kontrol Edin
+
+- Ticaret Sicili Gazetesi kayıtları: kuruluş tarihi, sermaye, ortaklık yapısı ve son değişiklikler
+- Vergi ve SGK borcu bulunmadığına dair güncel belgeler
+- Şirketin ve ortaklarının üstlendiği devam eden proje sayısı
+- Daha önce aynı ortaklarla kurulup kapanmış şirketler olup olmadığı
+
+Kısa süre önce kurulmuş bir şirket tek başına olumsuz değildir; ancak bu durumda ortakların önceki projeleri ve vereceği teminatlar daha da önem kazanır.
+
+## 3. Mali Gücü Teminatla Ölçün
+
+Müteahhidin mali gücünü anlamanın en net yolu, sözleşmede hangi teminatları vermeyi kabul ettiğine bakmaktır.
+
+- Banka teminat mektubu verebiliyor mu? Tutarı ve süresi ne?
+- Bina tamamlama sigortası yaptırmayı kabul ediyor mu?
+- Kira yardımını kim, hangi süre boyunca ve hangi takvimle ödeyecek?
+- Arsa paylarının devrini inşaatın ilerleme aşamalarına bağlamayı kabul ediyor mu?
+
+Teminat vermekten kaçınan bir müteahhidin teklifi, paylaşım oranı ne kadar yüksek olursa olsun dikkatle değerlendirilmelidir.
+
+## 4. Teklifleri Aynı Şartname Üzerinden İsteyin
+
+Farklı müteahhitlerden gelen teklifleri karşılaştırmanın tek sağlıklı yolu, hepsinden aynı proje varsayımı ve aynı teknik şartname üzerinden teklif istemektir. Aksi halde bir teklif daha fazla metrekare, diğeri daha iyi malzeme vaat eder ve karşılaştırma imkânsız hale gelir.
+
+| Kriter | Neye bakmalı? |
+|---|---|
+| Daire paylaşımı | Malik ve müteahhit payı; net ve brüt metrekare ayrı ayrı |
+| Teslim süresi | Ruhsat tarihinden değil, belirli bir başlangıç tarihinden itibaren |
+| Teknik şartname | Marka, seri ve standartlar tek tek yazılı mı? |
+| Teminatlar | Teminat mektubu, bina tamamlama sigortası, aşamalı tapu devri |
+| Gecikme cezası | Aylık tutar ve hesaplama yöntemi |
+| Kira yardımı | Tutar, süre ve ödeme takvimi |
+| Ek ödeme | Maliklerden fark ödemesi isteniyor mu? Hangi koşulda? |
+
+## 5. Teklif Mektubunda Bulunması Gerekenler
+
+- Her malike teslim edilecek bağımsız bölümün kat, cephe ve metrekare bilgisi
+- Proje ve ruhsat süreçlerinin hangi tarafça, hangi süre içinde yürütüleceği
+- İnşaat başlangıç ve bitiş tarihi
+- Teminat türleri ve tutarları
+- Teklifin geçerlilik süresi
+
+Sözlü vaatler sözleşmeye yazılmadığı sürece hiçbir güvence sağlamaz.
+
+## 6. Müteahhit Payının Satışını Takip Edin
+
+6306 sayılı Kanun'un 6. maddesinin 13. fıkrasına göre, bu Kanun kapsamındaki uygulamalarda müteahhidin payına düşen bağımsız bölümlerin satışı inşaatın ilerleme seviyesine göre ve İdarenin izniyle yapılabilir. İdare inşaatın tamamlanma oranını belirler; bu oranın yüzde on altındaki oranda satışa izin verir. Tamamlanma oranında veya bu oranın üzerinde satış için ise bütün maliklerin muvafakati gerekir.
+
+Bu nedenle sözleşme imzalanırken, müteahhidin satış yapmak için sizden muvafakat istediğinde nasıl bir süreç işleyeceğini önceden konuşun.
+
+## 7. Tehlike İşaretlerini Tanıyın
+
+- Piyasa ortalamasının çok üzerinde paylaşım oranı vaat edilmesi
+- Sözleşmenin hemen imzalanması için baskı yapılması
+- "Matbu sözleşme, değiştirilemez" denilmesi
+- Arsa paylarının tamamının inşaat başlamadan devrinin istenmesi
+- Tamamlanmış ve iskânlı referans proje gösterilememesi
+- Bazı maliklere diğerlerinden habersiz ek ödeme veya ayrıcalık teklif edilmesi
+
+Son madde özellikle önemlidir. Maliklere ayrı ayrı yapılan vaatler, malikler arasındaki güveni bozar ve ileride sözleşmenin uygulanmasında ciddi uyuşmazlıklara yol açabilir.
+
+## 8. Seçim Kararını Usulüne Uygun Alın
+
+6306 sayılı Kanun'un 6. maddesine göre riskli yapılarda yeniden bina yaptırılması, kat karşılığı ve diğer usullerle yeniden değerlendirme kararları, maliklerin hisseleri oranında salt çoğunluğu ile alınır. Çoğunluk kişi sayısına göre değil, arsa payına göre hesaplanır.
+
+Toplantının nasıl yapılacağını [Kat Malikleri Toplantısı Nasıl Yapılır?](/yazilarimiz/kat-malikleri-toplantisi-nasil-yapilir-2026) rehberimizde anlattık. Riskli yapı süreci kesinleşmeden alınan kararların risklerini ise [bu yazımızda](/yazilarimiz/riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari) ele aldık.
+
+## 9. Sözleşmeyi İmzalamadan Önce İnceletin
+
+Müteahhit seçildikten sonra en kritik aşama sözleşmedir. Teslim süresi, gecikme cezası, teminatlar, aşamalı tapu devri ve fesih koşulları yazılı olarak netleşmelidir. Detaylar için [Kat Karşılığı İnşaat Sözleşmesi Rehberi](/yazilarimiz/2026-kat-karsiligi-insaat-sozlesmesi-rehberi) yazımıza göz atabilirsiniz.
+
+## 10. Müteahhit İşi Bırakırsa Ne Olur?
+
+6306 sayılı Kanun'un 6. maddesinin 14. fıkrası, müteahhitten kaynaklanan sebeplerle bir yıl içinde inşaata başlanmaması veya inşaatın en az altı aydır projenin bitirilmesini gerektirecek seviyede ekip ve ekipmanla sürdürülmemesi halinde, maliklerin hisseleri oranında salt çoğunluğu ile sözleşmenin feshine karar alınabileceğini düzenler.
+
+Bu kararla Başkanlığa başvurulur. Başkanlık durumu tespit ederse müteahhide 30 gün süre verir; bu sürede işe başlanmaz veya devam edilmezse sözleşmeler kendiliğinden feshedilmiş sayılır. Fesih tarihine kadar müteahhit tarafından hak sahiplerine yapılan kira yardımı ödemeleri geri istenemez.
+
+Bu güvence önemlidir; ancak süreç yine de zaman kaybı demektir. Doğru müteahhidi baştan seçmek her zaman daha ucuzdur.
+
+## ARKENTRA Bu Süreçte Ne Yapar?
+
+ARKENTRA müteahhit değildir; yalnızca kat maliklerini temsil eden bağımsız bir danışmanlık firmasıdır. Müteahhit seçiminde:
+
+- Teklif almak için ortak teknik şartname ve teklif formatı hazırlarız
+- Gelen teklifleri teknik, ticari ve hukuki açıdan karşılaştırmalı olarak raporlarız
+- Müteahhidin referanslarını ve teminat yapısını değerlendiririz
+- Sözleşme müzakerelerinde maliklerin yanında yer alırız
+
+Sürecin tamamını nasıl yönettiğimizi [Kentsel Dönüşüm Danışmanlığı](/kentsel-donusum-danismanligi) sayfamızda bulabilirsiniz.`,
+    faq: [
+      {
+        question: 'Kaç müteahhitten teklif almalıyız?',
+        answer:
+          'Kesin bir sayı yoktur; ancak sağlıklı bir karşılaştırma için en az üç müteahhitten, aynı proje varsayımı ve aynı teknik şartname üzerinden yazılı teklif almanızı öneriyoruz.',
+      },
+      {
+        question: 'Müteahhidi belediye mi seçer?',
+        answer:
+          'Malikler tarafından yürütülen uygulamalarda müteahhidi malikler, hisseleri oranında salt çoğunlukla seçer. Başkanlığın resen uygulama yaptığı istisnai durumlar (6306 sayılı Kanun madde 6/A) bunun dışındadır.',
+      },
+      {
+        question: 'En yüksek daire payını veren müteahhidi seçmek doğru mu?',
+        answer:
+          'Tek başına doğru bir ölçüt değildir. Paylaşım oranı; teminatlar, teslim süresi, teknik şartname ve müteahhidin mali gücüyle birlikte değerlendirilmelidir. Teminatsız yüksek oran, uzun vadede maliklere daha pahalıya mal olabilir.',
+      },
+      {
+        question: 'Müteahhit bazı maliklere ayrıca para teklif ederse ne yapmalıyız?',
+        answer:
+          'Bu durumu diğer maliklerle ve danışmanınızla paylaşın. Tüm maliklere aynı koşulların uygulanması ve verilen tüm taahhütlerin sözleşmeye yazılması, ileride çıkabilecek uyuşmazlıkları önler.',
+      },
+    ],
+    sources: [
+      {
+        label: '6306 sayılı Afet Riski Altındaki Alanların Dönüştürülmesi Hakkında Kanun (madde 6)',
+        href: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6306&MevzuatTur=1&MevzuatTertip=5',
+      },
+      {
+        label: '6098 sayılı Türk Borçlar Kanunu (eser sözleşmesi hükümleri)',
+        href: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6098&MevzuatTur=1&MevzuatTertip=5',
+      },
+    ],
+  },
+  {
+    slug: 'kentsel-donusumde-kat-malikleri-haklari',
+    title: 'Kentsel Dönüşümde Kat Malikleri Hakları Nelerdir?',
+    seoTitle: 'Kentsel Dönüşümde Kat Malikleri Hakları: 2026 Rehberi',
+    excerpt:
+      'Riskli yapı tespitine itirazdan oy hakkına, teklifi inceleme süresinden rayiç değer güvencesine kadar kentsel dönüşümde kat maliklerinin sahip olduğu haklar.',
+    metaDescription:
+      'Kentsel dönüşümde kat maliklerinin itiraz, oy, teklif inceleme, kira yardımı ve sözleşme hakları nelerdir? Karara katılmazsanız ne olur? 6306 rehberi.',
+    summary:
+      '6306 sayılı Kanun, kararların hisseleri oranında salt çoğunlukla alınmasına izin verir; ancak karara katılmayan maliklere de güvenceler tanır. Teklif size noter veya muhtarlık ilanıyla bildirilir, 15 gün inceleme süreniz olur ve payınız ancak Başkanlıkça belirlenen rayiç değerden az olmamak üzere açık artırmayla satılabilir.',
+    date: '2026-10-12',
+    dateLabel: '12 Ekim 2026',
+    readTime: '9 dk okuma',
+    konu: 'Hukuk',
+    tur: 'Rehber',
+    imageSrc: images.yazilar.malikHaklari.src,
+    imageAlt: images.yazilar.malikHaklari.alt,
+    content: `Kentsel dönüşüm sürecinde kat maliklerinin en çok sorduğu soru şudur: "Ben kabul etmezsem ne olur?" 6306 sayılı Kanun, binaların çoğunluk kararıyla yenilenebilmesini sağlarken karara katılmayan maliklere de önemli güvenceler tanır. Haklarınızı bilmek, hem çoğunluk hem de azınlık tarafında olsanız da hak kaybını önler.
+
+Bu rehberde 6306 sayılı Kanun'un güncel metnine (7471 sayılı Kanun'la 2023'te yapılan değişiklikler dahil) dayanarak kat maliklerinin temel haklarını özetledik.
+
+## Kimler Hak Sahibidir?
+
+Kentsel dönüşümde asıl karar hakkı tapuda kayıtlı maliklere aittir. Kiracılar ve sınırlı ayni hak sahipleri (örneğin intifa hakkı sahipleri) karar sürecinde oy kullanmaz; ancak Kanun onlara da bazı yardımlardan yararlanma imkânı tanır.
+
+## 1. Riskli Yapı Tespitini Öğrenme ve İtiraz Hakkı
+
+Binanız riskli yapı olarak tespit edildiğinde bu durum maliklere bildirilir. Tespitin hatalı olduğunu düşünüyorsanız, yönetmelikte öngörülen süre içinde itiraz edebilirsiniz. İtirazlar, üniversite öğretim üyelerinin de yer aldığı teknik heyetlerce incelenir.
+
+Süreler hak düşürücü olduğu için tebligatı aldığınız gün harekete geçmeniz gerekir. Adım adım süreç için [Riskli Yapı Tespitine Nasıl İtiraz Edilir?](/yazilarimiz/riskli-yapi-tespitine-nasil-itiraz-edilir) rehberimizi okuyabilirsiniz.
+
+## 2. Toplantıya Çağrılma ve Oy Hakkı
+
+Riskli yapılarda yeniden bina yaptırılması, kat karşılığı veya diğer usullerle değerlendirme, payların satışı gibi kararlar maliklerin hisseleri oranında salt çoğunluğu ile alınır.
+
+Burada kritik nokta şudur: Çoğunluk kişi sayısına göre değil, arsa payına göre hesaplanır. On dairelik bir binada dört malik, arsa paylarının yarısından fazlasına sahipse karar alabilir.
+
+Toplantı usulü için [Kat Malikleri Toplantısı Nasıl Yapılır?](/yazilarimiz/kat-malikleri-toplantisi-nasil-yapilir-2026) yazımıza, riskli yapı süreci kesinleşmeden alınan kararların hukuki riskleri için [bu Yargıtay kararı analizimize](/yazilarimiz/riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari) bakabilirsiniz.
+
+## 3. Teklifi İnceleme Hakkı (15 Gün)
+
+Salt çoğunlukla karar alındığında, karar ve anlaşma şartlarını içeren teklif ya da teklifin incelenebileceği yer, karara katılmayan maliklere noter aracılığıyla veya ilgili muhtarlıkta 15 gün süreyle ilan edilerek bildirilir. Muhtarlık ilanında ilanın son günü bildirim tarihi sayılır.
+
+Bildirimde ayrıca, 15 gün içinde teklifi incelemez veya kabul etmezseniz arsa payınızın Kanun kapsamında satılacağı belirtilir. Bu süre, teklifi bir uzmana inceletmek için size tanınmış en önemli zaman aralığıdır.
+
+## 4. Payınızın Rayiç Değerin Altında Satılmaması
+
+Karara katılmayan maliklerin arsa payları, Başkanlıkça rayiç değeri tespit ettirilerek ve bu değerden az olmamak üzere, anlaşma sağlayan diğer paydaşlara açık artırma usulüyle satılır.
+
+Riskli yapılarda satış; anlaşma sağlayan diğer paydaşlara veya yapılan anlaşmaya uymayı kabul eden üçüncü kişilere satış gerçekleşinceye kadar tekrarlanır. Payınız üzerindeki ipotek ve haciz gibi haklar ise satış sonrasında satış bedeli üzerinde devam eder.
+
+## 5. Kira Yardımı ve Geçici Konut
+
+Anlaşma ile tahliye edilen yapıların maliklerine, kiracılarına ve yapıda ikamet etmek şartıyla sınırlı ayni hak sahiplerine geçici konut veya işyeri tahsisi ya da kira yardımı yapılabilir. Kanun "yapılabilir" ifadesini kullandığı için tutarlar, süreler ve şartlar her yıl idari düzenlemelerle belirlenir.
+
+Güncel tutarlar ve başvuru belgeleri için [Kira Yardımı Rehberimizi](/yazilarimiz/2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar) inceleyebilirsiniz.
+
+## 6. Sözleşmede Eşit ve Yazılı Güvence
+
+Kat karşılığı inşaat sözleşmesi, sizin adınıza teslim edilecek bağımsız bölümü, teslim süresini, gecikme cezasını ve teminatları belirleyen belgedir. Sözleşme noterde düzenleme şeklinde yapılmalı, tüm maliklere verilen taahhütler yazılı olarak yer almalıdır.
+
+İmzadan önce kontrol etmeniz gereken maddeleri [Kat Karşılığı İnşaat Sözleşmesi Rehberimizde](/yazilarimiz/2026-kat-karsiligi-insaat-sozlesmesi-rehberi) topladık.
+
+## 7. Müteahhit İşi Bırakırsa Fesih Hakkı
+
+Müteahhitten kaynaklanan sebeplerle bir yıl içinde inşaata başlanmazsa veya inşaat en az altı aydır yeterli ekip ve ekipmanla sürdürülmüyorsa, malikler hisseleri oranında salt çoğunlukla sözleşmenin feshine karar alabilir. Başkanlık durumu tespit ederse müteahhide 30 gün süre verir; bu sürede işe devam edilmezse sözleşmeler kendiliğinden feshedilmiş sayılır.
+
+## 8. Müteahhit Payının Erken Satışına Karşı Güvence
+
+Müteahhidin payına düşen bağımsız bölümler, inşaatın ilerleme seviyesine göre ve İdarenin izniyle satılabilir. İnşaatın tamamlanma oranında veya bu oranın üzerinde satış yapılabilmesi için bütün maliklerin muvafakati gerekir. Bu kural, inşaat tamamlanmadan müteahhidin tüm payını satıp işi bırakması riskine karşı maliklere güvence sağlar.
+
+## 9. Temsilci ve Danışman Seçme Hakkı
+
+Malikler, süreci kendi adlarına takip edecek bir temsil heyeti oluşturabilir veya bağımsız bir danışmanla çalışabilir. Müteahhitten bağımsız bir temsilcinin rolünü [Malik Temsilcisi Nedir?](/yazilarimiz/malik-temsilcisi-kentsel-donusum-nedir) yazımızda anlattık.
+
+## Haklar Özet Tablosu
+
+| Hak | Dayanak | Dikkat edilecek nokta |
+|---|---|---|
+| Riskli yapı tespitine itiraz | 6306 ve Uygulama Yönetmeliği | Süre hak düşürücüdür |
+| Oy hakkı | 6306 m. 6/1 | Çoğunluk arsa payına göre hesaplanır |
+| Teklifi inceleme | 6306 m. 6/1 | Bildirimden itibaren 15 gün |
+| Rayiç değer güvencesi | 6306 m. 6/1 | Satış rayiç değerin altında yapılamaz |
+| Kira yardımı | 6306 m. 5 | Tutar ve şartlar idarece belirlenir |
+| Fesih | 6306 m. 6/14 | Başkanlık tespiti ve 30 günlük süre gerekir |
+| Erken satışa karşı güvence | 6306 m. 6/13 | Tamamlanma oranı ve üzerinde tüm maliklerin muvafakati |
+
+## Hak Kaybı Yaşamamak İçin Kontrol Listesi
+
+- Tapu kaydınızdaki adres ve elektronik tebligat bilgilerinizin güncel olduğundan emin olun
+- Muhtarlık ilanlarını ve noter tebligatlarını takip edin
+- Size bildirilen teklifi 15 günlük süre dolmadan inceletin
+- Toplantı tutanaklarının ve sözleşmenin bir örneğini mutlaka alın
+- Sözlü vaatlerin sözleşmeye yazılmasını isteyin
+
+## Bu Yazı Hukuki Görüş Yerine Geçmez
+
+Bu rehber genel bilgilendirme amaçlıdır. Her binanın tapu durumu, malik yapısı ve süreç aşaması farklı olduğu için somut durumunuz hakkında hukuki görüş almanız gerekir. ARKENTRA'da hukuki görüş ve sözleşme hazırlığı gerektiren işler, ekibimizdeki avukat tarafından yürütülür.
+
+Sürecin bütününü nasıl yönettiğimizi [Kentsel Dönüşüm Danışmanlığı](/kentsel-donusum-danismanligi) sayfamızda bulabilirsiniz.`,
+    faq: [
+      {
+        question: 'Kentsel dönüşümde çoğunluk kişi sayısına göre mi hesaplanır?',
+        answer:
+          'Hayır. 6306 sayılı Kanun kapsamında kararlar, maliklerin hisseleri oranında, yani arsa paylarına göre salt çoğunlukla alınır.',
+      },
+      {
+        question: 'Karara katılmazsam evim elimden alınır mı?',
+        answer:
+          'Karara katılmayan maliklere önce teklif bildirilir ve 15 günlük inceleme süresi tanınır. Teklif kabul edilmezse arsa payı, Başkanlıkça belirlenen rayiç değerden az olmamak üzere açık artırmayla satılabilir.',
+      },
+      {
+        question: 'Kiracıların kentsel dönüşümde hakları var mı?',
+        answer:
+          'Kiracılar karar sürecinde oy kullanmaz; ancak Kanun, anlaşma ile tahliye edilen yapılardaki kiracılara da geçici konut veya kira yardımı yapılabileceğini düzenler. Tutar ve şartlar idarece belirlenir.',
+      },
+      {
+        question: 'Alınan karara nasıl itiraz edebilirim?',
+        answer:
+          'Kararın usule aykırı alındığını düşünüyorsanız yargı yoluna başvurabilirsiniz. Süreler ve yetkili mahkeme somut duruma göre değiştiği için bir avukattan görüş almanız gerekir.',
+      },
+    ],
+    sources: [
+      {
+        label: '6306 sayılı Afet Riski Altındaki Alanların Dönüştürülmesi Hakkında Kanun (madde 5 ve 6)',
+        href: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6306&MevzuatTur=1&MevzuatTertip=5',
+      },
+      {
+        label: '634 sayılı Kat Mülkiyeti Kanunu',
+        href: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_YAZI_SLUG = '2026-kentsel-donusum-kira-yardimi-istanbul-guncel-rakamlar';
 
 export const HIGH_PRIORITY_YAZI_SLUGS = [
   FEATURED_YAZI_SLUG,
+  'kentsel-donusumde-muteahhit-secimi',
+  'kentsel-donusumde-kat-malikleri-haklari',
   'kentsel-donusum-kaynak-rehberi-2026',
   'kat-malikleri-toplantisi-nasil-yapilir-2026',
   'malik-temsilcisi-kentsel-donusum-nedir',
@@ -708,6 +1018,18 @@ export const yaziKeywordsBySlug: Record<string, string[]> = {
     'kentsel dönüşüm kira yardımı tablosu',
     'kentsel dönüşüm süre tablosu',
   ],
+  'kentsel-donusumde-muteahhit-secimi': [
+    'kentsel dönüşüm müteahhit seçimi',
+    'kentsel dönüşümde müteahhit nasıl seçilir',
+    'müteahhit teklif karşılaştırma',
+    'güvenilir müteahhit nasıl anlaşılır',
+  ],
+  'kentsel-donusumde-kat-malikleri-haklari': [
+    'kentsel dönüşüm kat malikleri hakları',
+    'kentsel dönüşümde karara katılmayan malik',
+    '6306 salt çoğunluk',
+    'kentsel dönüşüm azınlık hissesi satışı',
+  ],
 };
 
 export const serviceYaziSlugs: Record<string, string[]> = {
@@ -717,6 +1039,7 @@ export const serviceYaziSlugs: Record<string, string[]> = {
   ],
   'mimarlik-ve-proje-gelistirme': ['2026-kat-karsiligi-insaat-sozlesmesi-rehberi'],
   'hukuki-danismanlik': [
+    'kentsel-donusumde-kat-malikleri-haklari',
     '2026-kat-karsiligi-insaat-sozlesmesi-rehberi',
     'muteahhit-sozlesme-check-up',
     'kat-malikleri-toplantisi-nasil-yapilir-2026',
@@ -729,11 +1052,13 @@ export const serviceYaziSlugs: Record<string, string[]> = {
     'kentsel-donusum-danismanligi-fiyat-ne-kadar-2026',
   ],
   'surec-yonetimi-ve-koordinasyon': [
+    'kentsel-donusumde-muteahhit-secimi',
     'riskli-yapi-kesinlesmeden-kentsel-donusum-kararlari',
     'kat-malikleri-toplantisi-nasil-yapilir-2026',
     FEATURED_YAZI_SLUG,
   ],
   'yikim-insaat-ve-uygulama-yonetimi': [
+    'kentsel-donusumde-muteahhit-secimi',
     'muteahhit-sozlesme-check-up',
     '2026-kat-karsiligi-insaat-sozlesmesi-rehberi',
   ],
@@ -790,6 +1115,23 @@ export function getRelatedYazilar(currentSlug: string, limit = 3): Yazi[] {
 export function getYazilarForService(serviceSlugValue: string): Yazi[] {
   const slugs = serviceYaziSlugs[serviceSlugValue] ?? [];
   return slugs.map((slug) => getYaziBySlug(slug)).filter((yazi): yazi is Yazi => Boolean(yazi));
+}
+
+export interface YaziServiceLink {
+  title: string;
+  href: string;
+}
+
+export const CORE_SERVICE_LINK: YaziServiceLink = {
+  title: 'Kentsel Dönüşüm Danışmanlığı',
+  href: '/kentsel-donusum-danismanligi',
+};
+
+export function getServicesForYazi(slug: string): YaziServiceLink[] {
+  const related = services
+    .filter((service) => serviceYaziSlugs[serviceSlug(service)]?.includes(slug))
+    .map((service) => ({ title: service, href: `/hizmetler/${serviceSlug(service)}` }));
+  return [CORE_SERVICE_LINK, ...related];
 }
 
 export function getYaziHref(slug: string): string {

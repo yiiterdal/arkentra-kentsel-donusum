@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, changeFrequency: 'weekly', priority: 1 },
     { url: `${siteUrl}/hakkimizda`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/hizmetler`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${siteUrl}/kentsel-donusum-danismanligi`, changeFrequency: 'monthly', priority: 0.95 },
     { url: `${siteUrl}/yazilarimiz`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${siteUrl}/sss`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/ekibimiz`, changeFrequency: 'monthly', priority: 0.7 },

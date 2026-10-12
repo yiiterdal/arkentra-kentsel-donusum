@@ -158,6 +158,14 @@ export const images = {
       src: pexels(3184465, REMOTE_EDITORIAL_WIDTH),
       alt: 'Danışmanlık görüşmesi, malik temsilcisi kentsel dönüşüm',
     },
+    muteahhitSecimi: {
+      src: unsplashSrc('photo-1504307651254-35680f356dfd', REMOTE_EDITORIAL_WIDTH),
+      alt: 'İnşaat sahası, kentsel dönüşümde müteahhit seçimi',
+    },
+    malikHaklari: {
+      src: unsplashSrc('photo-1450101499163-c8848c66ca85', REMOTE_EDITORIAL_WIDTH),
+      alt: 'Hukuki evrak incelemesi, kentsel dönüşümde kat malikleri hakları',
+    },
     kaynakRehberi: {
       src: pexels(669996, REMOTE_EDITORIAL_WIDTH),
       alt: 'Kentsel dönüşüm istatistikleri ve veri tablosu, kaynak rehberi',

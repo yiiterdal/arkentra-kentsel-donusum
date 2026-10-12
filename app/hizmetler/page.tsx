@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import EditorialSplit from '../components/EditorialSplit';
 import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
@@ -35,6 +36,24 @@ export default function HizmetlerPage() {
             title="Proje yaşam döngüsünün her aşamasında yanınızdayız"
             description="Danışmanlık ve stratejik planlamadan izin süreçlerine, detaylı tasarımdan inşaat denetimi ve teslimata kadar multidisipliner ekibimizle hizmet veriyoruz."
           />
+          <Link
+            href="/kentsel-donusum-danismanligi"
+            className="mt-10 flex flex-col gap-2 border border-brand-200 bg-brand-50/60 p-6 md:p-8 transition-colors hover:border-brand-400 md:flex-row md:items-center md:justify-between"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-[0.2em] text-brand-700 mb-2">
+                Uçtan uca hizmet
+              </span>
+              <span className="block text-xl font-semibold text-gray-900">
+                Kentsel Dönüşüm Danışmanlığı
+              </span>
+              <span className="mt-1 block text-gray-600 font-light">
+                Riskli yapı tespitinden tapu teslimine kadar tüm süreci kat malikleri adına
+                yönetiyoruz.
+              </span>
+            </span>
+            <span className="text-sm font-semibold text-brand-700 shrink-0">Süreci inceleyin →</span>
+          </Link>
         </div>
       </section>
 

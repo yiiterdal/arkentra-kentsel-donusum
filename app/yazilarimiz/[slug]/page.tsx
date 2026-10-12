@@ -5,11 +5,18 @@ import JsonLd from '../../components/JsonLd';
 import YaziContent from '../../components/YaziContent';
 import YaziCta from '../../components/YaziCta';
 import YaziSummary from '../../components/YaziSummary';
-import { getRelatedYazilar, getYaziBySlug, yazilar, yaziKeywordsBySlug } from '../../data/yazilar';
+import { YaziByline, YaziFaq, YaziServiceLinks, YaziSources } from '../../components/YaziExtras';
+import {
+  getRelatedYazilar,
+  getServicesForYazi,
+  getYaziBySlug,
+  yazilar,
+  yaziKeywordsBySlug,
+} from '../../data/yazilar';
 import YaziCard from '../../components/YaziCard';
 import { siteUrl } from '../../data/site';
 import { IMAGE_QUALITY } from '../../lib/image-utils';
-import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+import { articleSchema, breadcrumbSchema, faqPageSchema } from '../../lib/schema';
 import type { Metadata } from 'next';
 
 interface YaziPageProps {
@@ -26,10 +33,12 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
 
   const imageUrl = yazi.imageSrc.startsWith('http') ? yazi.imageSrc : yazi.imageSrc;
   const keywords = yaziKeywordsBySlug[yazi.slug];
+  const title = yazi.seoTitle ?? yazi.title;
+  const description = yazi.metaDescription ?? yazi.excerpt;
 
   return {
-    title: yazi.title,
-    description: yazi.excerpt,
+    title,
+    description,
     ...(keywords && { keywords }),
     alternates: {
       canonical: `${siteUrl}/yazilarimiz/${yazi.slug}`,
@@ -37,14 +46,14 @@ export function generateMetadata({ params }: YaziPageProps): Metadata {
     openGraph: {
       type: 'article',
       publishedTime: yazi.date,
-      title: yazi.title,
-      description: yazi.excerpt,
+      title,
+      description,
       images: [{ url: imageUrl, alt: yazi.imageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: yazi.title,
-      description: yazi.excerpt,
+      title,
+      description,
       images: [imageUrl],
     },
   };
@@ -55,10 +64,12 @@ export default function YaziPage({ params }: YaziPageProps) {
   if (!yazi) notFound();
 
   const relatedYazilar = getRelatedYazilar(params.slug, 3);
+  const serviceLinks = getServicesForYazi(params.slug);
 
   return (
     <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-white">
       <JsonLd data={articleSchema(yazi)} />
+      {yazi.faq && yazi.faq.length > 0 && <JsonLd data={faqPageSchema(yazi.faq)} />}
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Ana Sayfa', url: '/' },
@@ -95,9 +106,11 @@ export default function YaziPage({ params }: YaziPageProps) {
             )}
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-6 sm:mb-8 leading-tight break-words">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight break-words">
             {yazi.title}
           </h1>
+
+          <YaziByline reviewedBy={yazi.reviewedBy} />
 
           <div className="relative aspect-[16/9] overflow-hidden mb-10 bg-gray-100">
             <Image
@@ -114,6 +127,12 @@ export default function YaziPage({ params }: YaziPageProps) {
           <YaziSummary text={yazi.summary} />
 
           <YaziContent content={yazi.content} />
+
+          {yazi.faq && yazi.faq.length > 0 && <YaziFaq items={yazi.faq} />}
+
+          {yazi.sources && yazi.sources.length > 0 && <YaziSources items={yazi.sources} />}
+
+          <YaziServiceLinks items={serviceLinks} />
 
           <YaziCta />
 
