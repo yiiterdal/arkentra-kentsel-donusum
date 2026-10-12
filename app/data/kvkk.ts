@@ -1,4 +1,4 @@
-import { contactEmail } from './contact';
+import { contactAddressFull, contactEmail } from './contact';
 
 export interface KvkkTable {
   caption?: string;
@@ -303,7 +303,7 @@ export const kvkkSections: KvkkSection[] = [
     title: '10. KİŞİSEL VERİLERİNİZİN DOĞRU VE GÜNCEL SAKLANMASI',
     paragraphs: [
       'Kişisel verilerini bizimle paylaşanlar, bu bilgilerin doğru olduğunu ve güncel tutulduğunu; 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel verileri üzerinde sahip oldukları haklar açısından önemli olduğunu kabul ve beyan ederler.',
-      `Kişisel verilerinizde yaptığınız değişiklik ve/veya güncellemelere ilişkin bildirimleri ${contactEmail} e-posta adresi üzerinden tarafımıza iletebilirsiniz.`,
+      `Kişisel verilerinizde yaptığınız değişiklik ve/veya güncellemelere ilişkin bildirimleri ${contactAddressFull} adresimize veya ${contactEmail} e-posta adresi üzerinden tarafımıza iletebilirsiniz.`,
     ],
   },
   {
@@ -318,6 +318,7 @@ export const kvkkSections: KvkkSection[] = [
     title: '12. TOPLAYICININ KİMLİĞİ',
     paragraphs: [
       'ARKENTRA KENTSEL DÖNÜŞÜM VE DANIŞMANLIK',
+      `Adres: ${contactAddressFull}`,
       `E-posta: ${contactEmail}`,
     ],
   },

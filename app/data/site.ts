@@ -3,7 +3,7 @@ export const siteUrl =
 
 export const siteName = 'ARKENTRA Kentsel Dönüşüm';
 export const siteTagline =
-  'İstanbul merkezli bağımsız kentsel dönüşüm danışmanlığı: riskli yapı tespiti, 6306 malik temsili ve kat karşılığı sözleşme danışmanlığı.';
+  'İstanbul genelinde bağımsız kentsel dönüşüm danışmanlığı: riskli yapı tespiti, 6306 malik temsili ve kat karşılığı sözleşme danışmanlığı.';
 export const siteDescription =
   'ARKENTRA Kentsel Dönüşüm Danışmanlığı: İstanbul merkezli bağımsız malik temsilcisi. Riskli yapı tespiti, kat karşılığı inşaat sözleşmesi, kira yardımı başvurusu, 6306 sayılı Kanun süreçleri ve aşamalı teknik denetim.';
 
