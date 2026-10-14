@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ArkentraLogo from './ArkentraLogo';
 import { contactEmail, contactInstagramHref } from '../data/contact';
 import { footerContent, navLinks, serviceHref, services, siteName } from '../data/site';
+import { ilceler } from '../data/ilceler';
 import { CORE_SERVICE_LINK, getSpotlightYazilar } from '../data/yazilar';
 
 export default function Footer() {
@@ -33,6 +34,25 @@ export default function Footer() {
                 Instagram
               </a>
             </div>
+
+            <p className="site-footer__heading mt-8 mb-4">Ücretsiz araçlar</p>
+            <ul className="space-y-2 text-sm font-light">
+              <li>
+                <Link href="/muteahhit-teklif-karsilastirma">Teklif karşılaştırma aracı</Link>
+              </li>
+              <li>
+                <Link href="/muteahhit-secimi-kontrol-listesi">Müteahhit seçimi kontrol listesi</Link>
+              </li>
+            </ul>
+
+            <p className="site-footer__heading mt-8 mb-4">İlçe rehberleri</p>
+            <ul className="space-y-2 text-sm font-light">
+              {ilceler.map((ilce) => (
+                <li key={ilce.slug}>
+                  <Link href={`/${ilce.slug}`}>{ilce.name} kentsel dönüşüm</Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>

@@ -29,6 +29,7 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   return {
     title: serviceName,
     description: detail.description,
+    alternates: { canonical: `/hizmetler/${params.slug}` },
     openGraph: {
       title: serviceName,
       description: detail.description,

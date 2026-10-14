@@ -1,0 +1,82 @@
+{
+  "title": "Müteahhit Seçimi Kontrol Listesi",
+  "subtitle": "Kentsel dönüşümde müteahhide sözleşmeden önce sorulması gereken 15 kritik soru",
+  "pdfPath": "/kaynaklar/arkentra-muteahhit-secimi-kontrol-listesi.pdf",
+  "groups": [
+    {
+      "title": "Firma ve geçmiş projeler",
+      "questions": [
+        {
+          "q": "Müteahhitlik yetki belgesi numaranız ve grubunuz nedir?",
+          "why": "Yetki belgesi grubu, firmanın üstlenebileceği işin büyüklüğünü gösterir. Belgeyi Bakanlık kayıtlarından doğrulayın."
+        },
+        {
+          "q": "İskânı alınmış son üç projenizin adresleri nedir; oradaki maliklerle görüşebilir miyiz?",
+          "why": "Bitmiş ve iskânı alınmış proje, teslim kapasitesinin en somut kanıtıdır. Maliklerden doğrudan bilgi alın."
+        },
+        {
+          "q": "Şu anda eş zamanlı kaç proje yürütüyorsunuz ve bunlar hangi aşamada?",
+          "why": "Kapasitesinin üzerinde iş alan firmalarda gecikme ve yarım kalma riski artar."
+        },
+        {
+          "q": "Vergi ve SGK borcu bulunmadığına dair güncel belgeleri verebilir misiniz; devam eden icra veya dava var mı?",
+          "why": "Mali sıkıntıdaki bir firma, inşaatı sürdürmek için sizin projenizin kaynağını kullanabilir."
+        },
+        {
+          "q": "Projeyi öz kaynakla mı, kredi ile mi, yoksa daire satış gelirleriyle mi finanse edeceksiniz?",
+          "why": "Satışa bağımlı finansman, piyasa durgunluğunda inşaatın yavaşlamasına yol açabilir."
+        }
+      ]
+    },
+    {
+      "title": "Teklif ve proje",
+      "questions": [
+        {
+          "q": "Teklifiniz hangi imar durumu ve proje varsayımına (emsal, kat adedi, daire sayısı) dayanıyor?",
+          "why": "Farklı varsayımlara dayanan teklifler karşılaştırılamaz. Tüm tekliflerin aynı varsayımla verilmesini isteyin."
+        },
+        {
+          "q": "Her malike teslim edilecek dairenin net m²’si, katı ve cephesi nasıl belirlenecek?",
+          "why": "Oranlar yerine net m² ve yerleşim planı sözleşmeye yazılmalıdır; daire seçimi usulü önceden belirlenmelidir."
+        },
+        {
+          "q": "Ek ödeme veya kira desteği varsa tutarı, ödeme takvimi ve güvencesi nedir?",
+          "why": "Müteahhidin taahhüt ettiği kira desteği, devletin 6306 kapsamındaki kira yardımından ayrıdır ve sözleşmede güvenceye bağlanmalıdır."
+        },
+        {
+          "q": "Marka, seri ve standart yazılı teknik şartnameyi sözleşmenin eki olarak vermeyi kabul ediyor musunuz?",
+          "why": "“Birinci sınıf malzeme” ifadesi denetlenemez. Pencere, asansör, yalıtım ve vitrifiye için marka ve model yazmalıdır."
+        }
+      ]
+    },
+    {
+      "title": "Güvenceler ve sözleşme",
+      "questions": [
+        {
+          "q": "Banka teminat mektubunun tutarı, süresi ve hangi koşulda nakde çevrileceği nedir?",
+          "why": "İş yarım kalırsa maliklerin başvurabileceği en güçlü nakdi güvence teminat mektubudur."
+        },
+        {
+          "q": "Bina tamamlama sigortası yaptıracak mısınız?",
+          "why": "Tamamlama sigortası, müteahhidin işi bitirememesi halinde maliklere ek bir koruma sağlar."
+        },
+        {
+          "q": "Teslim süresi hangi tarihten itibaren kaç ay; daire başı aylık gecikme cezası ne kadar?",
+          "why": "Süre, ucu açık bir ruhsat tarihine değil belirli bir başlangıç tarihine bağlanmalıdır. Gecikme cezası en az piyasa kirası düzeyinde olmalıdır."
+        },
+        {
+          "q": "Size ait bağımsız bölümlerin tapu devri inşaatın hangi aşamalarına bağlı olacak?",
+          "why": "6306 sayılı Kanun m.6/13’e göre müteahhit bölümlerinin satışı inşaatın ilerlemesine göre ve İdare izniyle yapılır."
+        },
+        {
+          "q": "İş başlamaz veya durursa fesih ve iade koşulları sözleşmede nasıl düzenlenecek?",
+          "why": "6306 m.6/14, bir yıl içinde başlanmayan veya altı aydan fazla duran işlerde maliklere salt çoğunlukla fesih imkânı tanır; sözleşme bunu desteklemelidir."
+        },
+        {
+          "q": "Teslimden sonra ayıplar için garanti süreniz nedir; iskân ve tapu masraflarını kim karşılayacak?",
+          "why": "Gizli ayıplar, iskân harçları ve tapu masrafları sonradan tartışma konusu olmaması için yazılı hale getirilmelidir."
+        }
+      ]
+    }
+  ]
+}

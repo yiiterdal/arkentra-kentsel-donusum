@@ -3,6 +3,7 @@ import JsonLd from '../components/JsonLd';
 import PageHero from '../components/PageHero';
 import YaziCta from '../components/YaziCta';
 import { YaziFaq } from '../components/YaziExtras';
+import { ilceler } from '../data/ilceler';
 import { images } from '../data/images';
 import { expertiseAreas, siteUrl } from '../data/site';
 import { getYaziBySlug, getYaziHref, type Yazi } from '../data/yazilar';
@@ -238,6 +239,40 @@ export default function KentselDonusumDanismanligiPage() {
               </ul>
             </div>
           )}
+
+          <div className="mt-12">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-5 leading-tight">
+              Ücretsiz araçlar ve ilçe rehberleri
+            </h2>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/muteahhit-teklif-karsilastirma"
+                  className="text-lg text-brand-700 font-medium hover:underline"
+                >
+                  Müteahhit teklifi karşılaştırma aracı
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/muteahhit-secimi-kontrol-listesi"
+                  className="text-lg text-brand-700 font-medium hover:underline"
+                >
+                  Müteahhit seçimi kontrol listesi (PDF)
+                </Link>
+              </li>
+              {ilceler.map((ilce) => (
+                <li key={ilce.slug}>
+                  <Link
+                    href={`/${ilce.slug}`}
+                    className="text-lg text-brand-700 font-medium hover:underline"
+                  >
+                    {ilce.name} kentsel dönüşüm rehberi
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <YaziCta />
         </div>

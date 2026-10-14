@@ -723,6 +723,8 @@ Farklı müteahhitlerden gelen teklifleri karşılaştırmanın tek sağlıklı 
 | Kira yardımı | Tutar, süre ve ödeme takvimi |
 | Ek ödeme | Maliklerden fark ödemesi isteniyor mu? Hangi koşulda? |
 
+Elinizdeki teklifleri bu kriterlere göre yan yana görmek için ücretsiz [Müteahhit Teklifi Karşılaştırma Aracı](/muteahhit-teklif-karsilastirma)'nı kullanabilir, müteahhitle görüşmeden önce [15 soruluk kontrol listesini](/muteahhit-secimi-kontrol-listesi) indirebilirsiniz.
+
 ## 5. Teklif Mektubunda Bulunması Gerekenler
 
 - Her malike teslim edilecek bağımsız bölümün kat, cephe ve metrekare bilgisi

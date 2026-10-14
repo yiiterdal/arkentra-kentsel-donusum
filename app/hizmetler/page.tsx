@@ -14,6 +14,7 @@ import { serviceCatalogSchema } from '../lib/schema';
 
 export const metadata = {
   title: 'Hizmetler',
+  alternates: { canonical: '/hizmetler' },
   description:
     'Riskli yapı tespiti, kat karşılığı sözleşmesi, 6306 malik toplantıları, kira yardımı danışmanlığı ve aşamalı teknik denetim hizmetleri.',
 };

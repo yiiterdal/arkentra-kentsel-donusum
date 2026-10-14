@@ -10,6 +10,7 @@ import { foundersSchema } from '../lib/schema';
 
 export const metadata = {
   title: 'Ekibimiz',
+  alternates: { canonical: '/ekibimiz' },
   description:
     'Av. Ferhat Yıldırım ve Mimar Nevzat Yıldırım liderliğinde kentsel dönüşüm hukuku, riskli yapı tespiti ve aşamalı teknik denetim uzman ekibi.',
 };

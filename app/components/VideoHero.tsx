@@ -135,14 +135,17 @@ export default function VideoHero({
   return (
     <section ref={sectionRef} className="relative w-full">
       <div className="relative w-full min-h-screen min-h-[100dvh] overflow-hidden bg-gray-900">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={activePoster}
-          alt={posterAlt}
-          className="absolute inset-0 z-0 h-full w-full object-cover"
-          decoding="async"
-          fetchPriority="high"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={heroVideo.posterMobile} type="image/webp" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={posterSrc}
+            alt={posterAlt}
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
 
         {loadVideo && (
           <video

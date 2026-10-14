@@ -10,6 +10,7 @@ import { foundersSchema } from '../lib/schema';
 
 export const metadata = {
   title: 'Hakkımızda',
+  alternates: { canonical: '/hakkimizda' },
   description:
     'İstanbul merkezli ARKENTRA: 6306 sayılı Kanun kapsamında malik temsilciliği, riskli yapı tespiti, kat karşılığı sözleşmesi ve aşamalı teknik denetim danışmanlığı.',
 };

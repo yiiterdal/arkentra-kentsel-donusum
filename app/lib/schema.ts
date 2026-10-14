@@ -80,17 +80,23 @@ export function serviceCatalogSchema() {
   };
 }
 
-export function servicePageSchema(serviceName: string, description: string) {
+export function servicePageSchema(serviceName: string, description: string, district?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description,
     provider: { '@id': ORG_ID },
-    areaServed: {
-      '@type': 'City',
-      name: 'İstanbul',
-    },
+    areaServed: district
+      ? {
+          '@type': 'AdministrativeArea',
+          name: `${district}, İstanbul`,
+          containedInPlace: { '@type': 'City', name: 'İstanbul' },
+        }
+      : {
+          '@type': 'City',
+          name: 'İstanbul',
+        },
   };
 }
 

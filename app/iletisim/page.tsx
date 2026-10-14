@@ -4,6 +4,7 @@ import { images } from '../data/images';
 
 export const metadata = {
   title: 'İletişim',
+  alternates: { canonical: '/iletisim' },
   description:
     'ARKENTRA Kentsel Dönüşüm ile iletişime geçin. İstanbul merkezli riskli yapı ve kentsel dönüşüm danışmanlığı.',
 };

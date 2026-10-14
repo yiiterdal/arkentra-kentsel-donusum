@@ -171,6 +171,20 @@ export const images = {
       alt: 'Kentsel dönüşüm istatistikleri ve veri tablosu, kaynak rehberi',
     },
   },
+  ilceler: {
+    kadikoy: {
+      src: pexels(16753049, REMOTE_FULL_WIDTH),
+      alt: 'Yerleşik kent dokusu, Kadıköy kentsel dönüşüm danışmanlığı',
+    },
+    maltepe: {
+      src: pexels(6943663, REMOTE_FULL_WIDTH),
+      alt: 'Kuş bakışı konut alanları, Maltepe kentsel dönüşüm danışmanlığı',
+    },
+    bakirkoy: {
+      src: unsplashSrc('photo-1503387762-592deb58ef4e', REMOTE_FULL_WIDTH),
+      alt: 'Mimari proje çizimi, Bakırköy kentsel dönüşüm danışmanlığı',
+    },
+  },
 } as const;
 
 export const heroVideo = {

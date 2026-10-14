@@ -4,6 +4,7 @@ import { images } from '../data/images';
 
 export const metadata = {
   title: 'Yazılarımız',
+  alternates: { canonical: '/yazilarimiz' },
   description:
     '6306 sayılı Kanun, riskli yapı tespiti, kira yardımı, kat karşılığı sözleşmesi ve malik hakları hakkında uzman rehberler.',
 };

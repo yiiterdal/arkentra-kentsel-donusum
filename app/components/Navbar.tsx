@@ -18,8 +18,12 @@ function hasHeroUnderNav(pathname: string | null): boolean {
     '/yazilarimiz',
     '/hizmetler',
     '/kentsel-donusum-danismanligi',
+    '/muteahhit-teklif-karsilastirma',
+    '/muteahhit-secimi-kontrol-listesi',
     '/kvkk',
   ];
+
+  if (/^\/[a-z]+-kentsel-donusum$/.test(pathname)) return true;
 
   return heroRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`));
 }
@@ -60,7 +64,9 @@ export default function Navbar() {
 
   const isActive = (href: string) =>
     pathname?.startsWith(href) ||
-    (href === '/hizmetler' && pathname === '/kentsel-donusum-danismanligi');
+    (href === '/hizmetler' &&
+      (pathname === '/kentsel-donusum-danismanligi' ||
+        /^\/[a-z]+-kentsel-donusum$/.test(pathname ?? '')));
 
   const headerSurface =
     overlay

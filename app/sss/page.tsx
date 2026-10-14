@@ -11,6 +11,7 @@ const allFaqItems = faqCategories.flatMap((category) => category.items);
 
 export const metadata = {
   title: 'Sık Sorulan Sorular',
+  alternates: { canonical: '/sss' },
   description:
     '6306 sayılı Kanun, riskli yapı tespiti, kira yardımı, kat karşılığı sözleşmesi ve malik hakları hakkında sık sorulan sorular.',
 };

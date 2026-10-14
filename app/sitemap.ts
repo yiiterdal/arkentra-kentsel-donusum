@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { ilceler } from './data/ilceler';
 import { FEATURED_YAZI_SLUG, HIGH_PRIORITY_YAZI_SLUGS, yazilar } from './data/yazilar';
 import { serviceSlug, services, siteUrl } from './data/site';
 
@@ -12,8 +13,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/sss`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/ekibimiz`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/iletisim`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${siteUrl}/muteahhit-teklif-karsilastirma`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${siteUrl}/muteahhit-secimi-kontrol-listesi`, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${siteUrl}/kvkk`, changeFrequency: 'yearly', priority: 0.3 },
   ];
+
+  const ilceRoutes: MetadataRoute.Sitemap = ilceler.map((ilce) => ({
+    url: `${siteUrl}/${ilce.slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${siteUrl}/hizmetler/${serviceSlug(service)}`,
@@ -36,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...articleRoutes];
+  return [...staticRoutes, ...ilceRoutes, ...serviceRoutes, ...articleRoutes];
 }

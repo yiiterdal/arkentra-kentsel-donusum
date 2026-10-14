@@ -4,6 +4,7 @@ import { images } from '../data/images';
 
 export const metadata = {
   title: 'KVKK Aydınlatma Metni',
+  alternates: { canonical: '/kvkk' },
   description:
     'ARKENTRA Kentsel Dönüşüm Kişisel Verilerin İşlenmesi ve Çerez Politikasına İlişkin Aydınlatma Metni.',
 };
